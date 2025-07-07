@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" style="display: inline-flex; height: 3800px; align-items: flex-start; gap: 8px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generated Page</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeTrade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <style id="sections-styles">
+/* CSS for section section:header */
+.site-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 16px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icon {
+  width: 80px;
+  height: 80px;
+}
+.logo-text {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-text-primary);
+  border-radius: 12px;
+  padding: 8px 16px;
+  width: 300px;
+}
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--color-text-muted);
+}
+.search-bar button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.main-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 8px;
+  transition: opacity 0.3s;
+}
+.main-nav a:hover {
+  opacity: 0.8;
+}
+.main-nav .member-link {
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+@media (max-width: 1200px) {
+  .search-bar { display: none; }
+}
+@media (max-width: 992px) {
+  .main-nav { display: none; } /* In a real project, this would be a hamburger menu */
+  .header-container { justify-content: flex-start; }
+}
+@media (max-width: 480px) {
+    .logo-text { font-size: 32px; }
+    .logo-icon { width: 50px; height: 50px; }
+}
+
+/* CSS for section section:hero */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 112px; /* Header height */
+  background-image: url('images/649e28ff3fdb7e67e650ad2e0a4a1bc83db5236d.png');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  position: relative;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: absolute;
+  bottom: 10%;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hero-title, .hero-tagline {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0;
+}
+.hero-subtitle {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0;
+  background: linear-gradient(90deg, #ffffff 59.13%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.cta-button {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  padding: 16px 40px;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+.cta-button:hover {
+  background-color: #337dff;
+}
+@media (max-width: 768px) {
+  .hero-title, .hero-subtitle, .hero-tagline {
+    font-size: 48px;
+  }
+  .hero-content {
+    bottom: 15%;
+  }
+}
+@media (max-width: 480px) {
+  .hero-title, .hero-subtitle, .hero-tagline {
+    font-size: 36px;
+  }
+  .cta-button {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+}
+
+/* CSS for section section:brands */
+.brands-section {
+  padding: 80px 0;
+  overflow: hidden;
+}
+.brands-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.brands-section .section-header h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+}
+.carousel-arrows {
+  display: flex;
+  gap: 8px;
+}
+.carousel-arrows button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.brands-carousel {
+  display: flex;
+  gap: 30px;
+  /* In a real scenario, this would be a JS-powered carousel */
+  overflow-x: auto;
+  padding-bottom: 20px; /* for scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+.brands-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.brand-card-wrapper {
+  flex-shrink: 0;
+}
+.brand-card {
+  width: 240px;
+  height: 68px;
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--color-text-primary);
+  clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
+}
+
+/* CSS for section section:features */
+.features-section {
+  padding: 80px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/a746bcc17db92e13fe07174d16ed67e144f35e34.png');
+  background-size: cover;
+  background-position: center;
+}
+.features-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.features-section .section-header h3 {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 0;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+.feature-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.feature-icon {
+  width: 24px;
+  height: 24px;
+}
+.feature-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+.feature-card p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+/* CSS for section section:partners */
+.partners-section {
+  padding: 80px 0;
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/a746bcc17db92e13fe07174d16ed67e144f35e34.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.partners-container {
+  position: relative;
+}
+.partners-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+}
+.partners-showcase .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.partners-showcase .section-header h3 {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+}
+.partners-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+}
+.partners-grid::-webkit-scrollbar {
+  display: none;
+}
+.partner-card {
+  flex: 0 0 160px;
+  text-align: center;
+}
+.partner-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+}
+.partner-card p {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+.magazines-stack {
+  position: relative;
+  height: 600px;
+  width: 50%;
+}
+.magazine-card {
+  position: absolute;
+  box-shadow: inset 2px 6px 8px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.magazine-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.magazine-1 {
+  width: 360px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transform: rotate(-5deg);
+}
+.magazine-1 .magazine-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    transform: rotate(0); /* Counter-rotate text */
+}
+.magazine-1 h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+.magazine-1 p {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.5;
+}
+.magazine-2 {
+  width: 377px;
+  height: 463px;
+  top: 150px;
+  left: 80px;
+  z-index: 2;
+  transform: rotate(3deg);
+}
+.magazine-3 {
+  width: 357px;
+  height: 497px;
+  top: 250px;
+  left: -20px;
+  z-index: 3;
+  transform: rotate(-2deg);
+}
+.background-watch-rolex {
+  position: absolute;
+  top: 50%;
+  right: -15%;
+  transform: translateY(-50%);
+  width: 848px;
+  height: auto;
+  z-index: 0;
+  opacity: 0.8;
+}
+@media (max-width: 1200px) {
+  .background-watch-rolex { right: -30%; }
+}
+@media (max-width: 992px) {
+  .partners-content { grid-template-columns: 1fr; }
+  .magazines-stack { width: 100%; height: 500px; margin-top: 200px; }
+  .background-watch-rolex { top: 0; right: -50%; opacity: 0.3; }
+}
+@media (max-width: 768px) {
+    .magazines-stack { margin-top: 100px; }
+    .magazine-1 { width: 280px; height: 310px; }
+    .magazine-2 { width: 290px; height: 360px; top: 100px; left: 50px; }
+    .magazine-3 { width: 270px; height: 380px; top: 200px; left: 0; }
+}
+
+/* CSS for section section:footer */
+.site-footer {
+  background-color: var(--color-background);
+  border-top: 1px solid #cbcbcb;
+  padding: 40px 0;
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.footer-nav a {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+}
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+.social-links a {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.copyright {
+  font-size: 16px;
+  font-weight: 400;
+  color: #5b84c5;
+  margin: 0;
+  text-align: center;
+}
+@media (max-width: 768px) {
+    .footer-nav ul {
+        gap: 20px;
+    }
+}
+  </style>
+  <script src="global.js" defer></script>
+</head>
+<body>
+<header id="section-header" class="site-header">
+  <div class="container header-container">
+    <a href="#" class="logo">
+      <img src="images/I411_30706_325_3847_29_435_27_384.svg" alt="WeTrade Icon" class="logo-icon">
+      <span class="logo-text">WeTrade</span>
+    </a>
+    <form class="search-bar">
+      <input type="search" placeholder="搜尋">
+      <button type="submit" aria-label="Search">
+        <img src="images/I411_30706_325_3847_29_440_29_432.svg" alt="Search Icon">
+      </button>
+    </form>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#section-features">服務項目</a></li>
+        <li><a href="#"><img src="images/I411_30706_325_3847_29_452_176_901.svg" alt="收藏 icon">收藏</a></li>
+        <li><a href="#"><img src="images/I411_30706_325_3847_29_450_176_959.svg" alt="購物車 icon">購物車</a></li>
+        <li><a href="#" class="member-link"><img src="images/I411_30706_325_3847_29_444_27_318_27_83.svg" alt="會員中心 icon">會員中心</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section id="section-hero" class="hero-section">
+  <div class="hero-content container">
+    <div class="hero-text">
+      <h1 class="hero-title">Ready to Find Your Next Timepiece?</h1>
+      <h2 class="hero-subtitle">We trust so WeTrade</h2>
+      <p class="hero-tagline">Explore Exclusive Collections Today!</p>
+    </div>
+    <a href="#" class="cta-button">立即進入商品頁面</a>
+  </div>
+</section>
+<section id="section-brands" class="brands-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>精選熱門品牌</h2>
+      <div class="carousel-arrows">
+        <button aria-label="Previous Brand"><img src="images/I411_30659_46_710.svg" alt="Previous"></button>
+        <button aria-label="Next Brand"><img src="images/I411_30660_46_714.svg" alt="Next"></button>
+      </div>
+    </div>
+    <div class="brands-carousel">
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>Breitling</span>
+          <span>百年靈</span>
+        </div>
+      </div>
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>Rolex</span>
+          <span>勞力士</span>
+        </div>
+      </div>
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>TAG Heuer</span>
+          <span>泰格豪雅</span>
+        </div>
+      </div>
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>Omega</span>
+          <span>歐米茄</span>
+        </div>
+      </div>
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>Rolex</span>
+          <span>勞力士</span>
+        </div>
+      </div>
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>Panerai</span>
+          <span>沛納海</span>
+        </div>
+      </div>
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>Patek Philippe</span>
+          <span>百達翡麗</span>
+        </div>
+      </div>
+      <div class="brand-card-wrapper">
+        <div class="brand-card">
+          <span>Cartier</span>
+          <span>卡地亞</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section-features" class="features-section">
+  <div class="container">
+    <div class="section-header">
+      <h3>網站簡介</h3>
+      <div class="carousel-arrows">
+        <button aria-label="Previous Feature"><img src="images/I411_30564_46_710.svg" alt="Previous"></button>
+        <button aria-label="Next Feature"><img src="images/I411_30565_46_714.svg" alt="Next"></button>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="images/411_30571.svg" alt="購買與販售 icon" class="feature-icon">
+        <h4>購買與販售</h4>
+        <p>我們的專業鑑定師仔細檢查每一隻手錶，以確保其真實性和狀況。</p>
+      </div>
+      <div class="feature-card">
+        <img src="images/411_30581.svg" alt="認證 icon" class="feature-icon">
+        <h4>原廠證書與值得信賴的經銷商認證</h4>
+        <p>每一隻手錶都附有數位護照，提供完整的歷史和來源。</p>
+      </div>
+      <div class="feature-card">
+        <img src="images/411_30592.svg" alt="安全交易 icon" class="feature-icon">
+        <h4>安全交易</h4>
+        <p>我們提供一個安全且透明的平台，讓您能夠買賣奢華手錶。</p>
+      </div>
+      <div class="feature-card">
+        <img src="images/411_30602.svg" alt="保固與退貨 icon" class="feature-icon">
+        <h4>保固與退貨</h4>
+        <p>享受我們全面的保固和退貨政策帶來的安心。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section-partners" class="partners-section">
+  <div class="container partners-container">
+    <div class="partners-content">
+      <div class="partners-showcase">
+        <div class="section-header">
+          <h3>合作廠商</h3>
+          <div class="carousel-arrows">
+            <button aria-label="Previous Partner"><img src="images/I411_30613_46_710.svg" alt="Previous"></button>
+            <button aria-label="Next Partner"><img src="images/I411_30614_46_714.svg" alt="Next"></button>
+          </div>
+        </div>
+        <div class="partners-grid">
+          <div class="partner-card">
+            <div class="partner-logo" style="background-image: url('images/111122102a044d59b95b5286138b6226d6d80b2d.png');"></div>
+            <p>王永昌鐘錶行</p>
+          </div>
+          <div class="partner-card">
+            <div class="partner-logo" style="background-image: url('images/4e76d26f1ac6b49f54a4299e7e9574c7354aecc5.png');"></div>
+            <p>永生名錶</p>
+          </div>
+          <div class="partner-card">
+            <div class="partner-logo" style="background-image: url('images/51f03aad0f6a6f7eec9a4cb0dcfdf20d4155221a.png');"></div>
+            <p>金光鐘錶</p>
+          </div>
+          <div class="partner-card">
+            <div class="partner-logo" style="background-image: url('images/111122102a044d59b95b5286138b6226d6d80b2d.png');"></div>
+            <p>瑞士精工時計</p>
+          </div>
+          <div class="partner-card">
+            <div class="partner-logo" style="background-image: url('images/4e76d26f1ac6b49f54a4299e7e9574c7354aecc5.png');"></div>
+            <p>時光收藏品店</p>
+          </div>
+        </div>
+      </div>
+      <div class="magazines-stack">
+        <!--merged image-->
+        <div class="magazine-card magazine-1">
+            <img src="images/0d31e0731697741c7db5a929594faa04c0f75838.png" alt="HODINKEE magazine cover" style="position: absolute; width: 100%; height: 100%; object-fit: cover;">
+            <div class="magazine-text">
+                <h4>HODINKEE</h4>
+                <p>現代、時尚、故事性強，將腕錶視為一種生活態度的展現，將手錶融入文化與生活。</p>
+            </div>
+        </div>
+        <div class="magazine-card magazine-2">
+            <img src="images/ecf22f6d32c7bd2680e8dac4b3bbe47f493c90a2.png" alt="WatchTime magazine cover">
+        </div>
+        <div class="magazine-card magazine-3">
+            <img src="images/58845b98716567d42c4f6b66093f9fe58dc40cb8.png" alt="WATCH magazine cover">
+        </div>
+      </div>
+    </div>
+    <div class="background-watch-rolex">
+        <img src="images/411_30559.svg" alt="Rolex watch illustration">
+    </div>
+  </div>
+</section>
+<footer id="section-footer" class="site-footer">
+  <div class="container footer-container">
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="#">隱私權政策</a></li>
+        <li><a href="#">網站地圖</a></li>
+        <li><a href="#">聯絡我們</a></li>
+      </ul>
+    </nav>
+    <div class="social-links">
+      <a href="#" aria-label="X"><img src="images/I411_30707_46_657_44_264.svg" alt="X icon"></a>
+      <a href="#" aria-label="Instagram"><img src="images/I411_30707_46_658_44_276.svg" alt="Instagram icon"></a>
+      <a href="#" aria-label="Facebook"><img src="images/I411_30707_46_659_44_270.svg" alt="Facebook icon"></a>
+    </div>
+    <p class="copyright">@2025 WeTrade. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

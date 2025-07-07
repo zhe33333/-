@@ -1,0 +1,96 @@
+:root {
+    --color-primary: #121721;
+    --color-secondary: #243347;
+    --color-accent: #195CE5;
+    --color-text-light: #FFFFFF;
+    --color-text-medium: #CBCBCB;
+    --color-text-dark: #94A8C7;
+    --color-text-link: #5B84C5;
+    --font-serif: 'Noto Serif', serif;
+    --font-sans: 'Noto Sans TC', sans-serif;
+    --font-ui: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-serif);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    position: relative;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+.page-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-layer img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.background-img-1 {
+    top: 0;
+}
+
+.background-img-2 {
+    top: 1012px; /* Approximate position from Figma */
+}
+
+.container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+}
