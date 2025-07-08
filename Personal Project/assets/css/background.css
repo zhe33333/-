@@ -22,12 +22,13 @@ body::before, body::after {
 body::before {
   top: 0;
   height: 50%; /* Cover the top half of the body */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/a746bcc17db92e13fe07174d16ed67e144f35e34.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/a746bcc17db92e13fe07174d16ed67e144f35e34.png');
+  transform: rotate(360deg);
 }
 
 body::after {
   bottom: 0;
   height: 50%; /* Cover the bottom half of the body */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/a746bcc17db92e13fe07174d16ed67e144f35e34.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/a746bcc17db92e13fe07174d16ed67e144f35e34.png');
   transform: scaleY(-1);
 }

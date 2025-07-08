@@ -70,23 +70,9 @@ img {
 
 .container {
   width: 100%;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 0 120px; /* Changed to 120px for left/right padding (80px + 40px) */
 }
-
-@media (max-width: 1200px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+/* Removed media queries for .container padding as per the request for a fixed 80px padding */
 
 .product-details-section {
     padding-top: 80px;

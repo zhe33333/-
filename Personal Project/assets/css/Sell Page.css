@@ -61,7 +61,7 @@ body::after {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 160px;
+  padding: 0 120px; /* Changed to 120px for left/right padding (80px + 40px) */
   box-sizing: border-box;
 }
 
@@ -81,16 +81,4 @@ button {
   border: none;
   font-family: inherit;
 }
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .container {
-    padding: 0 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-}
+/* Removed media queries for .container padding as per the request for a fixed 80px padding */

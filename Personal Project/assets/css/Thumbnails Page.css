@@ -94,7 +94,7 @@ button {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 120px; /* Changed to 120px for left/right padding (80px + 40px) */
     box-sizing: border-box;
 }
 
@@ -108,15 +108,4 @@ button {
 .horizontal-scroll::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
 }
-
-@media (max-width: 1200px) {
-    .container {
-        padding: 0 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-    }
-}
+/* Removed media queries for .container padding as per the request for a fixed 80px padding */
