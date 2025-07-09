@@ -1,16 +1,16 @@
 import React from "react";
 import { ButtonBase } from "@mui/material";
 import { Icon } from "@mui/material";
-import cilCart from "./assets/cil-cart.svg";
-import flatColorIconsGoogle from "./assets/flat-color-icons-google.svg";
-import icBaselineApple from "./assets/ic-baseline-apple.svg";
-import x1 from "./assets/--icon-1.svg";
-import image from "./assets/---3.png"; 
-import vector0 from "./assets/vector---0.svg";
-import vector0_2 from "./assets/vector---0-2.svg"; 
-import "./Screen.css";
+import cilCart from "../../assets/cil-cart.svg";
+import flatColorIconsGoogle from "../../assets/flat-color-icons-google.svg";
+import icBaselineApple from "../../assets/ic-baseline-apple.svg";
+import x1 from "../../assets/--icon-1.svg";
+import image from "../../assets/---3.png";
+import vector0 from "../../assets/vector---0.svg";
+import vector0_2 from "../../assets/vector---0-2.svg";
+import "./LoginPage.css";
 
-export const Screen = () => {
+export const LoginPage = () => {
   return (
     <div className="page-container">
       <header className="header">
