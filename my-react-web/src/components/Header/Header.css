@@ -1,0 +1,142 @@
+.header {
+    background-color: transparent;
+    border-bottom: 1px solid #444;
+    padding: 16px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 1760px;
+    margin: 0 auto;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.brand-name {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 48px;
+    color: var(--color-text-light);
+    line-height: 1; /* Adjust line-height to prevent extra space */
+}
+
+.search-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 4px 16px;
+    color: var(--color-text-medium);
+    font-family: var(--font-sans);
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.search-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-item {
+    color: var(--color-text-light);
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 24px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.membership {
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+    padding: 5px 8px;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    font-size: 28px;
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+  .header-content {
+    gap: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-content {
+    gap: 100px;
+  }
+
+  .brand-name span {
+    font-size: 36px;
+  }
+
+  .nav-item span {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .header-content {
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .brand-section {
+    flex: none;
+  }
+
+  .search-area {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+    margin-top: var(--spacing-sm);
+  }
+
+  .main-navigation {
+    flex: none;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-item span {
+    font-size: 16px;
+  }
+}

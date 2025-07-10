@@ -1,0 +1,133 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  height: 280px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--color-text-light);
+  background-color: var(--color-primary);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  max-width: var(--content-max-width);
+}
+
+.footer-functions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  align-self: stretch;
+}
+
+.footer-functions span {
+  color: var(--color-base-white);
+  font-family: var(--font-secondary);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-functions span:hover {
+  color: var(--color-button-hover);
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  align-self: stretch;
+}
+
+.social-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-claims {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+}
+
+.footer-claims span {
+  color: var(--color-button-hover);
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-functions {
+    gap: 60px;
+  }
+
+  .footer-functions span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    height: auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .footer-functions {
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer-functions span {
+    font-size: 16px;
+  }
+
+  .footer-socials {
+    gap: var(--spacing-lg);
+  }
+
+  .footer-claims span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-functions {
+    gap: var(--spacing-lg);
+    flex-direction: column;
+  }
+
+  .footer-socials {
+    gap: var(--spacing-md);
+  }
+}

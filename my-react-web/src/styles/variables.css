@@ -1,0 +1,35 @@
+:root {
+  --color-cta-button: #195ce5;
+  --color-base-white: #fff;
+  --color-light-gray: #cbcbcb;
+  --color-brand-secondary: #243347;
+  --color-brand-primary: #121721;
+  --color-button-hover: #5b84c5;
+  --color-text-muted: #94a6c7;
+
+  /* Typography */
+  --font-primary: "Noto Serif", -apple-system, Roboto, Helvetica, sans-serif;
+  --font-secondary:
+    "Noto Sans TC", -apple-system, Roboto, Helvetica, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 80px;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+
+  /* Shadows */
+  --shadow-card: 2px 6px 8px 0px rgba(0, 0, 0, 0.25);
+
+  /* Layout */
+  --container-max-width: 1920px;
+  --content-max-width: 1760px;
+}
