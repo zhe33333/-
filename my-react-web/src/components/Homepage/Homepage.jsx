@@ -1,22 +1,24 @@
 import React from "react";
-import Header from "../Header/Header";
 import BrandCard from "../BrandCard/BrandCard";
-import Footer from "../Footer/Footer";
 import "./Homepage.css";
 
 const Homepage = () => {
-  const brands = [
+  const brandsTop = [
     "Breitling\n百年靈",
     "Rolex\n勞力士",
     "TAG Heuer\n泰格豪雅",
     "Omega\n歐米茄",
     "Panerai\n沛納海",
     "Patek Philippe\n百達翡麗",
+  ];
+
+  const brandsBottom = [
     "Cartier\n卡地亞",
     "Audemars Piguet\n愛彼",
     "IWC Schaffhausen\n萬國錶",
     "Jaeger-LeCoultre\n積家",
     "Tudor\n帝舵",
+    "Vacheron Constantin\n江詩丹頓",
   ];
 
   const partnerStores = [
@@ -137,36 +139,36 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
-      <Header />
-      <section className="hero-section">
-        <div className="hero-banner">
-          <img
-            className="hero-background"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/1dddce55f44c8196f8a70cea39c0107979d395c4?width=3840"
-            alt="Hero background"
-          />
-          <div className="hero-content">
-            <div className="hero-text">
-              <div className="hero-line">
-                <span>Ready to Find Your Next Timepiece?</span>
+      <main className="main-content-area">
+        <section className="hero-section">
+          <div className="hero-banner">
+            <img
+              className="hero-background"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1dddce55f44c8196f8a70cea39c0107979d395c4?width=3840"
+              alt="Hero background"
+            />
+            <div className="hero-content">
+              <div className="hero-text">
+                <div className="hero-line">
+                  <span>Ready to Find Your Next Timepiece?</span>
+                </div>
+                <div className="hero-line-gradient">
+                  <span>We trust so WeTrade</span>
+                </div>
+                <div className="hero-line">
+                  <span>Explore Exclusive Collections Today!</span>
+                </div>
               </div>
-              <div className="hero-line-gradient">
-                <span>We trust so WeTrade</span>
-              </div>
-              <div className="hero-line">
-                <span>Explore Exclusive Collections Today!</span>
-              </div>
+              <button className="cta-button">
+                <span>立即進入商品頁面</span>
+              </button>
             </div>
-            <button className="cta-button">
-              <span>立即進入商品頁面</span>
-            </button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="content-section main-content">
-        <div className="background-images">
-          <img
+        <section className="content-section main-content">
+          <div className="background-images">
+            <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/644d8a4e048086e21d947fe670f09a7ff5d71055?width=3840"
             alt="Background 1"
           />
@@ -184,59 +186,68 @@ const Homepage = () => {
           {/* Featured Brands Section */}
           <div className="featured-brands-section">
             <div className="section-header">
-              <h2>精選熱門品牌</h2>
-              <div className="navigation-arrows">
-                <button className="arrow-button">
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 40 40"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M27.9167 19.9993H11.25M11.25 19.9993L15.8333 24.5827M11.25 19.9993L15.8333 15.416"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
-                      stroke="white"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </button>
-                <button className="arrow-button">
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 40 40"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11.25 19.9993H27.9167M27.9167 19.9993L23.3333 24.5827M27.9167 19.9993L23.3333 15.416"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
-                      stroke="white"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </button>
+              <div className="section-title-container">
+                <h2>精選熱門品牌</h2>
+                <div className="navigation-arrows">
+                  <button className="arrow-button">
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M27.9167 19.9993H11.25M11.25 19.9993L15.8333 24.5827M11.25 19.9993L15.8333 15.416"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
+                        stroke="white"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </button>
+                  <button className="arrow-button">
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.25 19.9993H27.9167M27.9167 19.9993L23.3333 24.5827M27.9167 19.9993L23.3333 15.416"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
+                        stroke="white"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="brands-grid">
-              {brands.map((brand, index) => (
-                <BrandCard key={index} brandName={brand} />
-              ))}
+            <div className="brands-grid-container">
+              <div className="brands-row">
+                {brandsTop.map((brand, index) => (
+                  <BrandCard key={index} brandName={brand} />
+                ))}
+              </div>
+              <div className="brands-row">
+                {brandsBottom.map((brand, index) => (
+                  <BrandCard key={index} brandName={brand} />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -261,72 +272,7 @@ const Homepage = () => {
                       strokeLinejoin="round"
                     />
                     <path
-                      d="M3 23V14C3 12.4087 3.63214 10.8826 4.75736 9.75736C5.88258 8.63214 7.4087 8 9 8H27C28.5913 8 30.1174 8.63214 31.2426 9.75736C32.3679 10.8826 33 12.4087 33 14V23C33 24.5913 32.3679 26.1174 31.2426 27.2426C30.1174 28.3679 28.5913 29 27 29H9C7.4087 29 5.88258 28.3679 4.75736 27.2426C3.63214 26.1174 3 24.5913 3 23Z"
-                      stroke="white"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </button>
-                <button className="arrow-button small">
-                  <svg
-                    width="36"
-                    height="37"
-                    viewBox="0 0 36 37"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.125 18.5H25.125M25.125 18.5L21 22.625M25.125 18.5L21 14.375"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M3 23V14C3 12.4087 3.63214 10.8826 4.75736 9.75736C5.88258 8.63214 7.4087 8 9 8H27C28.5913 8 30.1174 8.63214 31.2426 9.75736C32.3679 10.8826 33 12.4087 33 14V23C33 24.5913 32.3679 26.1174 31.2426 27.2426C30.1174 28.3679 28.5913 29 27 29H9C7.4087 29 5.88258 28.3679 4.75736 27.2426C3.63214 26.1174 3 24.5913 3 23Z"
-                      stroke="white"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div className="features-grid">
-              {features.map((feature, index) => (
-                <div key={index} className="feature-card">
-                  <div className="feature-icon">{feature.icon}</div>
-                  <div className="feature-content">
-                    <h3>{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Partner Stores Section */}
-          <div className="partners-section">
-            <div className="section-header">
-              <h2>合作廠商</h2>
-              <div className="navigation-arrows">
-                <button className="arrow-button small">
-                  <svg
-                    width="36"
-                    height="36"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M25.125 18H10.125M10.125 18L14.25 22.125M10.125 18L14.25 13.875"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M3 22.5V13.5C3 11.9087 3.63214 10.3826 4.75736 9.25736C5.88258 8.13214 7.4087 7.5 9 7.5H27C28.5913 7.5 30.1174 8.13214 31.2426 9.25736C32.3679 10.3826 33 11.9087 33 13.5V22.5C33 24.0913 32.3679 25.6174 31.2426 26.7426C30.1174 27.8679 28.5913 28.5 27 28.5H9C7.4087 28.5 5.88258 27.8679 4.75736 26.7426C3.63214 25.6174 3 24.0913 3 22.5Z"
+                      d="M3 23V14C3 12.4087 3.63214 10.8826 4.75736 9.75736C5.88258 8.63214 7.4087 8 9 8H27C28.5913 8 30.1174 8.63214 31.2426 9.75736C32.3679 10.8826 33 12.4087 33 14V23C33 24.5913 32.3679 26.1174 31.2426 27.2426C30.1174 28.3679 28.5913 29 27 29H9C7.4087 29 5.88258 27.8679 4.75736 27.2426C3.63214 26.1174 3 24.5913 3 23Z"
                       stroke="white"
                       strokeWidth="1.5"
                     />
@@ -397,9 +343,8 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      <Footer />
+        </section>
+      </main>
     </div>
   );
 };

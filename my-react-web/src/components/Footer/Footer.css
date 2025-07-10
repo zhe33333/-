@@ -1,9 +1,5 @@
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  z-index: 1;
   display: flex;
   height: 280px;
   padding: 0;
@@ -11,6 +7,8 @@
   align-items: center;
   border-top: 1px solid var(--color-text-light);
   background-color: var(--color-primary);
+  position: relative; /* Establish a stacking context */
+  z-index: 3; /* Ensure it's above background images */
 }
 
 .footer-content {
