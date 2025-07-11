@@ -1,5 +1,6 @@
 import React from "react";
 import BrandCard from "../BrandCard/BrandCard";
+import MainFunctionCard from "../MainFunctionCard/MainFunctionCard";
 import "./Homepage.css";
 import magazineCover from "../../assets/magazine.png";
 import bigWatch from "../../assets/BigWatchPicture.svg";
@@ -246,6 +247,70 @@ const Homepage = () => {
                   <BrandCard key={index} brandName={brand} />
                 ))}
               </div>
+            </div>
+          </div>
+
+          <div className="main-function-wrapper">
+            <div className="section-header">
+              <div className="section-title-container">
+                <h2>網站簡介</h2>
+                <div className="navigation-arrows">
+                  <button className="arrow-button">
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M27.9167 19.9993H11.25M11.25 19.9993L15.8333 24.5827M11.25 19.9993L15.8333 15.416"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
+                        stroke="white"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </button>
+                  <button className="arrow-button">
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.25 19.9993H27.9167M27.9167 19.9993L23.3333 24.5827M27.9167 19.9993L23.3333 15.416"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
+                        stroke="white"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="main-function-container">
+              {features.map((feature, index) => (
+                <MainFunctionCard
+                  key={index}
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                />
+              ))}
             </div>
           </div>
 

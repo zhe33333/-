@@ -1,0 +1,32 @@
+.main-function-card {
+  display: flex;
+  width: 223px;
+  padding: 6px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  border-radius: 8px;
+  background: #2c3a4f;
+  color: white;
+  border: 1px solid #334766;
+}
+
+.main-function-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.main-function-description {
+  font-size: 14px;
+  margin: 0;
+  color: #adb5bd;
+}
+
+.main-function-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

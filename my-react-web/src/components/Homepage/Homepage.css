@@ -256,7 +256,7 @@
 .features-section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: 0;
   width: 100%;
   max-width: 860px; /* Match partners-section width */
   margin: 0 auto;
@@ -268,25 +268,19 @@
   width: 100%;
 }
 
-.feature-card {
+.main-function-wrapper {
   display: flex;
-  width: 223px;
-  padding: 17px;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--spacing-sm);
-  border-radius: var(--radius-sm);
-  border: 1px solid #334766;
-  background: var(--color-brand-secondary);
-  box-sizing: border-box;
+  gap: var(--spacing-md);
+  width: 988px;
+  margin: 0 auto;
 }
 
-.feature-icon {
-  width: 24px;
-  height: 24px;
+.main-function-container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 32px;
+  width: 100%;
 }
 
 .feature-content {
