@@ -30,6 +30,8 @@ body {
 
 .app-content-wrapper {
   flex-grow: 1; /* Allow main content to grow and push footer down */
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Arrange its children vertically */
 }
 
 button {

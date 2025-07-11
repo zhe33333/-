@@ -9,13 +9,13 @@ import "./styles/App.css";
 
 function App() {
   return (
-    <div className="app-container"> {/* Global Flexbox container */}
+    <>
       <Header />
-      <div className="content-wrapper"> {/* Main content wrapper */}
+      <div className="app-content-wrapper"> {/* Main content wrapper */}
         <Homepage />
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

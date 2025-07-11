@@ -1,6 +1,8 @@
 import React from "react";
 import BrandCard from "../BrandCard/BrandCard";
 import "./Homepage.css";
+import magazineCover from "../../assets/magazine.png";
+import bigWatch from "../../assets/BigWatchPicture.svg";
 
 const Homepage = () => {
   const brandsTop = [
@@ -176,10 +178,6 @@ const Homepage = () => {
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/4807fef77ee4dac9e46dfb0ffba747f490311b03?width=3840"
             alt="Background 2"
           />
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/aecec4e95e1399ed26456425ae8a6afadb60f4f1?width=3840"
-            alt="Background 3"
-          />
         </div>
 
         <div className="content-container">
@@ -254,7 +252,7 @@ const Homepage = () => {
           {/* Website Features Section */}
           <div className="features-section">
             <div className="section-header">
-              <h2>網站簡介</h2>
+              <h2>合作廠商</h2>
               <div className="navigation-arrows">
                 <button className="arrow-button small">
                   <svg
@@ -318,8 +316,14 @@ const Homepage = () => {
             <div className="magazine-grid">
               <div className="magazine-card large">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/3291856c055cedefa525b629b24b3088ddad92f7?width=640"
-                  alt="HODINKEE Magazine"
+                  src={magazineCover}
+                  alt="Magazine Cover Faded"
+                  className="image-bottom"
+                />
+                <img
+                  src={magazineCover}
+                  alt="Magazine Cover"
+                  className="image-top"
                 />
                 <div className="magazine-overlay">
                   <h3>HODINKEE</h3>
@@ -331,16 +335,39 @@ const Homepage = () => {
               <div className="magazine-card medium">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/f9b32689f7103ee325660c5a28d2043446a118f3?width=754"
-                  alt="Watch Magazine"
+                  alt="WatchTime Magazine"
+                  className="image-bottom"
                 />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/f9b32689f7103ee325660c5a28d2043446a118f3?width=754"
+                  alt="WatchTime Magazine"
+                  className="image-top"
+                />
+                <div className="magazine-overlay center-overlay">
+                  <h3>WatchTime</h3>
+                  <p>
+                    全面的市場評測指標，客觀、務實、數據化，以詳盡的實測報告和市場新聞為核心。
+                  </p>
+                </div>
               </div>
               <div className="magazine-card medium">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed823eff9882c1fc164b3f518ef9d4b6140a925c?width=714"
                   alt="Watch Magazine"
+                  className="image-bottom"
                 />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed823eff9882c1fc164b3f518ef9d4b6140a925c?width=714"
+                  alt="Watch Magazine"
+                  className="image-top"
+                />
+                <div className="magazine-overlay center-overlay">
+                  <h3>城邦國際名表 (IWW)</h3>
+                  <p>華語圈的權威百科，嚴謹、專業、經典，深入探討製錶工藝與市場動態。</p>
+                </div>
               </div>
             </div>
+            <img src={bigWatch} alt="Big Watch" className="big-watch-image" />
           </div>
         </div>
         </section>
