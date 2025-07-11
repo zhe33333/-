@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import BrandCard from "../BrandCard/BrandCard";
 import MainFunctionCard from "../MainFunctionCard/MainFunctionCard";
 import "./Homepage.css";
@@ -6,6 +6,22 @@ import magazineCover from "../../assets/magazine.png";
 import bigWatch from "../../assets/BigWatchPicture.svg";
 
 const Homepage = () => {
+  const heroTexts = [
+    "Ready to Find Your Next Timepiece?",
+    "We trust so WeTrade",
+    "Explore Exclusive Collections Today!",
+  ];
+  const [currentHeroTextIndex, setCurrentHeroTextIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroTextIndex((prevIndex) =>
+        prevIndex === heroTexts.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroTexts.length]);
+
   const brandsTop = [
     "Breitling\n百年靈",
     "Rolex\n勞力士",
@@ -153,13 +169,7 @@ const Homepage = () => {
             <div className="hero-content">
               <div className="hero-text">
                 <div className="hero-line">
-                  <span>Ready to Find Your Next Timepiece?</span>
-                </div>
-                <div className="hero-line-gradient">
-                  <span>We trust so WeTrade</span>
-                </div>
-                <div className="hero-line">
-                  <span>Explore Exclusive Collections Today!</span>
+                  <span>{heroTexts[currentHeroTextIndex]}</span>
                 </div>
               </div>
               <button className="cta-button">
