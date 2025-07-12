@@ -6,8 +6,9 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 999;
     box-sizing: border-box;
+    transform: translateZ(0); /* Force a new stacking context */
 }
 
 .header-content {
@@ -48,19 +49,46 @@
 .search-area {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
     border: 1px solid white;
     border-radius: 12px;
-    padding: 4px 16px;
+    padding: 4px 4px 4px 16px;
     color: var(--color-text-medium);
     font-family: var(--font-sans);
-    font-size: 24px;
+    font-size: 20px;
     flex-shrink: 0;
+    width: 150px;
+    cursor: pointer;
+    transition: width 0.3s ease-in-out;
+}
+
+.search-area.active {
+    width: 300px;
+}
+
+.search-placeholder {
+    text-align: left;
+}
+
+.search-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-family: var(--font-sans);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--color-text-medium);
 }
 
 .search-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
 }
 
 .main-navigation {
@@ -70,6 +98,8 @@
 }
 
 .nav-item {
+    position: relative;
+    cursor: pointer;
     color: var(--color-text-light);
     font-family: var(--font-serif);
     font-weight: 500;
@@ -78,12 +108,53 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, border 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.nav-item:hover, .nav-item.dropdown-active {
+    background-color: rgba(18, 23, 33, 0.1);
+    border: 1px solid #CBCBCB;
 }
 
 .membership {
     background-color: var(--color-secondary);
     border-radius: 8px;
     padding: 5px 8px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(18, 23, 33, 0.1);
+    border: 1px solid #CBCBCB;
+    border-radius: 8px;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1000;
+    width: 100%;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 20px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    color: #195CE5;
+}
+
+.dropdown-item + .dropdown-item {
+    border-top: 1px solid #616161;
 }
 
 .mobile-menu-toggle {

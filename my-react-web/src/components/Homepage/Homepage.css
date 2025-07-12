@@ -536,6 +536,16 @@
   width: 40%; /* Give it a relative width */
   max-height: 1194px; /* Do not exceed the height of the grid */
   height: auto;
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 /* Responsive Design */

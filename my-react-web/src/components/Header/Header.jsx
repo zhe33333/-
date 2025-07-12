@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import brandIcon from "../../assets/brand-icon.svg";
 
 const Header = () => {
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isMembershipDropdownOpen, setIsMembershipDropdownOpen] = useState(false);
+
+  const handleSearchClick = () => {
+    setIsSearchActive(true);
+  };
+
+  const services = ["買錶", "賣錶", "換錶", "租錶", "鑑定"];
+  const membershipItems = ["登入", "登出", "訊息", "鑑定", "管理商品"];
+
   return (
     <header className="header">
       <div className="header-content">
@@ -13,12 +25,27 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="search-area">
-          <span className="search-placeholder">搜尋</span>
+        <div
+          className={`search-area ${isSearchActive ? "active" : ""}`}
+          onClick={handleSearchClick}
+        >
+          {isSearchActive ? (
+            <input
+              type="text"
+              className="search-input"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="搜尋..."
+              autoFocus
+              onBlur={() => setIsSearchActive(false)}
+            />
+          ) : (
+            <span className="search-placeholder">搜尋</span>
+          )}
           <div className="search-icon">
             <svg
-              width="32"
-              height="32"
+              width="28"
+              height="28"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +59,21 @@ const Header = () => {
         </div>
 
         <nav className="main-navigation">
-          <div className="nav-item">
+          <div
+            className={`nav-item ${isServicesDropdownOpen ? "dropdown-active" : ""}`}
+            onMouseEnter={() => setIsServicesDropdownOpen(true)}
+            onMouseLeave={() => setIsServicesDropdownOpen(false)}
+          >
             <span>服務項目</span>
+            {isServicesDropdownOpen && (
+              <div className="dropdown-menu">
+                {services.map((service) => (
+                  <a href="#" className="dropdown-item" key={service}>
+                    {service}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
           <div className="nav-item nav-with-icon">
             <span>收藏</span>
@@ -79,7 +119,11 @@ const Header = () => {
               </defs>
             </svg>
           </div>
-          <div className="nav-item membership">
+          <div
+            className={`nav-item membership ${isMembershipDropdownOpen ? "dropdown-active" : ""}`}
+            onMouseEnter={() => setIsMembershipDropdownOpen(true)}
+            onMouseLeave={() => setIsMembershipDropdownOpen(false)}
+          >
             <svg
               width="32"
               height="32"
@@ -103,6 +147,15 @@ const Header = () => {
               />
             </svg>
             <span>會員中心</span>
+            {isMembershipDropdownOpen && (
+              <div className="dropdown-menu">
+                {membershipItems.map((item) => (
+                  <a href="#" className="dropdown-item" key={item}>
+                    {item}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </nav>
       </div>
