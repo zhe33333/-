@@ -91,6 +91,11 @@
   font-weight: 300;
   line-height: normal;
   white-space: pre-line;
+  transition: font-weight 0.2s ease;
+}
+
+.brand-card:hover .brand-name-text {
+  font-weight: 700;
 }
 
 /* Responsive Design */

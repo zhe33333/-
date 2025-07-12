@@ -4,6 +4,8 @@ import MainFunctionCard from "../MainFunctionCard/MainFunctionCard";
 import "./Homepage.css";
 import magazineCover from "../../assets/magazine.png";
 import bigWatch from "../../assets/BigWatchPicture.svg";
+import banner2 from "../../assets/banner-2/Homepage/banner2-3.svg";
+import banner3 from "../../assets/banner-3/Homepage/banner2-2.svg";
 
 const Homepage = () => {
   const heroTexts = [
@@ -11,16 +13,27 @@ const Homepage = () => {
     "We trust so WeTrade",
     "Explore Exclusive Collections Today!",
   ];
-  const [currentHeroTextIndex, setCurrentHeroTextIndex] = useState(0);
+  const bannerImages = [
+    "https://cdn.builder.io/api/v1/image/assets/TEMP/1dddce55f44c8196f8a70cea39c0107979d395c4?width=3840",
+    banner2,
+    banner3,
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(bannerImages.length - 1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentHeroTextIndex((prevIndex) =>
-        prevIndex === heroTexts.length - 1 ? 0 : prevIndex + 1
+      setPreviousIndex(currentIndex);
+      setCurrentIndex((prevIndex) =>
+        prevIndex === bannerImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [heroTexts.length]);
+    }, 5500); // Sync with text animation duration
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentIndex, bannerImages.length]);
 
   const brandsTop = [
     "Breitling\n百年靈",
@@ -161,15 +174,20 @@ const Homepage = () => {
       <main className="main-content-area">
         <section className="hero-section">
           <div className="hero-banner">
-            <img
-              className="hero-background"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1dddce55f44c8196f8a70cea39c0107979d395c4?width=3840"
-              alt="Hero background"
-            />
+            {bannerImages.map((image, index) => (
+              <img
+                key={index}
+                className={`hero-background ${
+                  index === currentIndex ? "active" : ""
+                } ${index === previousIndex ? "previous" : ""}`}
+                src={image}
+                alt={`Hero background ${index + 1}`}
+              />
+            ))}
             <div className="hero-content">
               <div className="hero-text">
-                <div className="hero-line">
-                  <span>{heroTexts[currentHeroTextIndex]}</span>
+                <div className="hero-line" key={currentIndex}>
+                  <span>{heroTexts[currentIndex % heroTexts.length]}</span>
                 </div>
               </div>
               <button className="cta-button">
