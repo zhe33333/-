@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import brandIcon from "../../assets/brand-icon.svg";
 
@@ -13,7 +14,13 @@ const Header = () => {
   };
 
   const services = ["買錶", "賣錶", "換錶", "租錶", "鑑定"];
-  const membershipItems = ["登入", "登出", "訊息", "鑑定", "管理商品"];
+  const membershipItems = [
+    { name: "登入", path: "/login" },
+    { name: "登出", path: "/logout" },
+    { name: "訊息", path: "/messages" },
+    { name: "鑑定", path: "/appraise" },
+    { name: "管理商品", path: "/manage-products" },
+  ];
 
   return (
     <header className="header">
@@ -150,9 +157,9 @@ const Header = () => {
             {isMembershipDropdownOpen && (
               <div className="dropdown-menu">
                 {membershipItems.map((item) => (
-                  <a href="#" className="dropdown-item" key={item}>
-                    {item}
-                  </a>
+                  <Link to={item.path} className="dropdown-item" key={item.name}>
+                    {item.name}
+                  </Link>
                 ))}
               </div>
             )}
