@@ -1,0 +1,43 @@
+.arrow-button {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 8.333px 3.333px;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.arrow-button.small {
+  width: 36px;
+  height: 36px;
+  padding: 7.5px 3px;
+}
+
+/* 1. 設定 SVG path 的預設顏色 */
+.arrow-button svg path {
+  stroke: rgba(255, 255, 255, 0.7); 
+  transition: stroke 0.1s linear;
+}
+
+/* 2. 設定滑鼠懸停 (hover) 時的顏色 */
+.arrow-button:hover svg path {
+  stroke: #FFFFFF;
+}
+
+/* 3. 設定點擊瞬間 (active) 時的顏色 */
+.arrow-button:active svg path {
+  stroke: #FFFFFF;
+}
+
+/* 為了無障礙性，保留 focus 樣式 */
+.arrow-button:focus {
+  outline: none;
+}
+.arrow-button:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  border-radius: 4px; /* Add a radius to match the button shape */
+}

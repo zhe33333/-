@@ -1,0 +1,357 @@
+/* Global CSS Variables might be moved to a global stylesheet like index.css */
+:root {
+      --color-cta-button: #195ce5;
+      --color-base-white: #fff;
+      --color-light-gray: #cbcbcb;
+      --color-brand-secondary: #243347;
+      --color-brand-primary: #121721;
+      --color-button-hover: #5b84c5;
+      --color-text-muted: #94a6c7;
+      --color-text-light: #fff;
+      --color-secondary: #243347;
+      --color-text-dark: #000;
+      --border-color-light: #fff;
+      --border-color-medium: #616161;
+      --color-accent-1: #94a6c7;
+      --color-accent-3: #94a6c7;
+      --color-primary-dark: #121721;
+      --color-secondary-dark: #243347;
+      --color-tertiary-dark: #243347;
+
+
+      /* Typography */
+      --font-serif: "Noto Serif", -apple-system, Roboto, Helvetica, sans-serif;
+      --font-sans: "Noto Sans TC", -apple-system, Roboto, Helvetica, sans-serif;
+      --font-family-serif: "Noto Serif", serif;
+      --font-family-sans: "Noto Sans TC", sans-serif;
+      --font-family-inter: "Inter", sans-serif;
+
+
+      /* Spacing */
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-2xl: 48px;
+      --spacing-3xl: 64px;
+      --spacing-4xl: 80px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+
+      /* Shadows */
+      --shadow-card: 2px 6px 8px 0px rgba(0, 0, 0, 0.25);
+
+      /* Layout */
+      --container-max-width: 1920px;
+      --content-max-width: 1760px;
+    }
+
+.page-content {
+    max-width: 1920px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text-light);
+    z-index: 1;
+    min-height: 100vh;
+    padding: 0 120px;
+    box-sizing: border-box;
+}
+
+.page-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://cdn.builder.io/api/v1/image/assets/TEMP/4807fef77ee4dac9e46dfb0ffba747f490311b03?width=3840');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(80%);
+    z-index: -1;
+}
+
+/* Header and Footer CSS will be moved to shared components */
+
+/* CSS for section section:listing-form */
+.listing-form-section {
+  padding: 120px 0 16px; /* Adjusted padding-top to make space for the absolute header */
+  color: var(--color-text-light);
+}
+.listing-form-section .container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 60px;
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: var(--color-accent-3);
+  text-decoration: none;
+}
+.breadcrumbs span {
+  color: var(--color-accent-3);
+}
+.breadcrumbs a.active {
+  color: var(--color-text-light);
+}
+
+.listing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-grid-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: stretch;
+}
+.form-inputs-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+}
+.form-title {
+  font-family: var(--font-family-serif);
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-group label {
+  font-family: var(--font-family-serif);
+  font-size: 24px;
+  font-weight: 500;
+}
+.form-control {
+  background-color: var(--color-secondary-dark);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-family-serif);
+  font-size: 20px;
+  color: var(--color-text-muted);
+  border: none;
+  width: 100%;
+  box-sizing: border-box; /* to include padding in width */
+}
+textarea.form-control {
+  resize: vertical;
+}
+/* Style for placeholder text */
+::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1; /* Firefox adds a lower opacity by default */
+}
+::-ms-input-placeholder { /* Edge */
+  color: var(--color-text-muted);
+}
+.form-image-right {
+  flex: 1;
+  max-width: 640px;
+}
+.form-image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* Equivalent to rotate(180deg) for a symmetrical image */
+}
+
+.form-options {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.option-button {
+  flex: 1;
+  background-color: var(--color-text-light);
+  border: 1px solid var(--border-color-medium);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-family-serif);
+  font-size: 20px;
+  font-weight: 400;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.option-button span {
+  color: #000000;
+}
+
+.option-button:not(.selected):hover {
+  transform: translateY(-2px);
+  background-color: #f0f0f0; /* Slight gray for hover on unselected */
+  color: #000000;
+  font-family: "Noto Serif", serif;
+}
+.option-button.selected {
+background-color: #195CE5;
+color: #000000;
+gap: 12px; /* a specific gap was removed, ensure it is consistent */
+font-family: "Noto Serif", serif;
+}
+/* Ensure the icon color also changes if it's an SVG that can be manipulated with color */
+.option-button.selected img {
+filter: brightness(0) invert(1);
+}
+.option-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.price-section, .description-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.price-label, .description-label {
+  font-family: var(--font-family-serif);
+  font-size: 24px;
+  font-weight: 300;
+}
+.price-row {
+  display: flex;
+  gap: 24px;
+}
+.price-input {
+  flex: 1;
+  background-color: var(--color-tertiary-dark);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--color-text-light);
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.submit-button {
+  flex: 1;
+  background-color: #195CE5;
+  color: var(--color-text-light);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submit-button:not(:disabled):hover {
+  background-color: var(--color-button-hover);
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  background-color: #5B84C5;
+  cursor: not-allowed;
+}
+.description-input {
+  font-family: var(--font-family-inter);
+  font-size: 16px; /* 明確設定字體大小為 16px */
+}
+
+.upload-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.upload-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+.upload-box {
+  width: 100%;
+  position: relative;
+  height: 390px;
+  border: 1px solid var(--border-color-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.upload-icon {
+  width: 163px;
+  height: 163px;
+}
+.upload-label {
+  margin: 0;
+  font-family: var(--font-family-inter);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+@media (max-width: 1200px) {
+  .form-grid-top, .upload-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-inputs-left, .form-image-right {
+    max-width: 100%;
+  }
+  .options-row {
+    flex-wrap: wrap;
+  }
+  .option-button {
+    flex-basis: calc(50% - 16px);
+  }
+  .price-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .options-row {
+    flex-direction: column;
+  }
+  .option-button {
+    flex-basis: 100%;
+  }
+  .upload-box {
+    height: 300px;
+  }
+  .upload-icon {
+    width: 100px;
+    height: 100px;
+  }
+  .upload-label {
+    margin-top: 120px;
+    font-size: 16px;
+  }
+}

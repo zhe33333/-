@@ -1,0 +1,91 @@
+:root {
+  --font-primary: 'Noto Serif', serif;
+  --font-secondary: 'Noto Sans TC', sans-serif;
+  --font-tertiary: 'Inter', sans-serif;
+
+  --color-bg-dark: #121721;
+  --color-text-light: #ffffff;
+  --color-text-dark: #1e1e1e;
+  --color-text-grey: #cbcbcb;
+  --color-text-placeholder: #b3b3b3;
+  --color-border-grey: #cbcbcb;
+  --color-btn-primary-bg: #2c2c2c;
+  --color-btn-primary-text: #f5f5f5;
+  --color-link-blue: #5b84c5;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-secondary);
+  background-color: var(--color-bg-dark);
+}
+
+body {
+  background-image: url('../../images/background.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  filter: brightness(80%);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .header-content, .main-nav-right {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 16px 0;
+  }
+  .brand-name {
+    font-size: 36px !important;
+  }
+  .main-nav-right {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .search-area {
+    justify-content: space-between;
+  }
+  .main-nav {
+    gap: 12px;
+  }
+  .nav-item {
+    font-size: 18px !important;
+  }
+  .login-card {
+    width: 90%;
+    margin: 20px 0;
+  }
+  .footer-nav {
+    flex-direction: column;
+    gap: 16px !important;
+    text-align: center;
+  }
+}

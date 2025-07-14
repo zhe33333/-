@@ -23,6 +23,8 @@
 .brand-section {
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: inherit;
 }
 
 .brand-logo-container {
@@ -129,7 +131,7 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(18, 23, 33, 0.1);
+    background-color: rgba(18, 23, 33, 0.5);
     border: 1px solid #CBCBCB;
     border-radius: 8px;
     padding: 8px 0;
@@ -138,6 +140,8 @@
     gap: 4px;
     z-index: 1000;
     width: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 .dropdown-item {

@@ -1,0 +1,321 @@
+/* CSS for section section:header - This will be moved to a shared component */
+/* .site-header {
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
+  }
+  .header-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand-icon {
+    width: 72px;
+    height: 72px;
+  }
+  .brand-name {
+    font-family: 'Noto Serif', serif;
+    font-weight: 500;
+    font-size: 48px;
+    color: var(--color-text-primary);
+  }
+  .search-area {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 4px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-text-secondary);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .main-nav a {
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+  }
+  .membership-link {
+    background-color: #243347;
+    border-radius: 8px;
+    padding: 4px 8px;
+  }
+  @media (max-width: 1440px) {
+    .header-container {
+      gap: 32px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .search-area {
+      order: 1;
+      flex-grow: 1;
+    }
+    .main-nav {
+      order: 2;
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+  @media (max-width: 768px) {
+    .brand-name {
+      font-size: 32px;
+    }
+    .brand-icon {
+      width: 50px;
+      height: 50px;
+    }
+    .main-nav a {
+      font-size: 18px;
+    }
+    .search-area {
+      font-size: 18px;
+    }
+  } */
+
+/* CSS for section section:product-details */
+.product-details-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .product-details-section .container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  .breadcrumbs {
+    display: flex;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .breadcrumbs a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+  .breadcrumbs span {
+    color: var(--color-text-primary);
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .product-image-container {
+    position: relative;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  .main-product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .favorite-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .favorite-button img {
+    width: 60px;
+    height: 60px;
+  }
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .product-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-text-primary);
+  }
+  .product-header h1 {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.3;
+    margin: 0 0 18px 0;
+  }
+  .product-price {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    margin: 0;
+  }
+  .product-specs, .product-specs-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .spec-row {
+    display: flex;
+    gap: 18px;
+  }
+  .spec-row dt {
+    flex-shrink: 0;
+    width: 55px;
+  }
+  .spec-row dd {
+    margin: 0;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Noto Serif', serif;
+    font-size: 32px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-primary {
+    background-color: var(--color-primary-action);
+    color: var(--color-text-primary);
+  }
+  .btn-secondary {
+    background-color: var(--color-text-primary);
+    color: #000000;
+  }
+  .thumbnail-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    overflow-x: auto;
+  }
+  .thumbnail {
+    width: calc(20% - 10px);
+    min-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .other-info-accordion {
+    display: flex;
+    flex-direction: column;
+  }
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 0;
+    border: 1px solid var(--color-text-primary);
+    border-left: none;
+    border-right: none;
+    background: none;
+    color: var(--color-text-secondary);
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .accordion-content {
+    padding-top: 32px;
+  }
+  @media (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+    .product-details-section .container {
+      gap: 48px;
+    }
+  }
+  @media (max-width: 768px) {
+    .product-header h1 { font-size: 32px; }
+    .product-price { font-size: 36px; }
+    .product-specs, .product-specs-extra, .accordion-header { font-size: 18px; }
+    .btn { font-size: 24px; }
+    .spec-row { gap: 16px; }
+  }
+
+/* CSS for section section:footer - This will be moved to a shared component */
+/* .site-footer {
+    flex-shrink: 0;
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+    height: 166px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .footer-content {
+    height: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .footer-nav {
+    display: flex;
+    gap: 80px;
+  }
+  .footer-nav a {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .social-links {
+    display: flex;
+    gap: 32px;
+  }
+  .social-links img {
+    width: 24px;
+    height: 24px;
+  }
+  .copyright {
+    font-family: 'Noto Serif', serif;
+    font-size: 16px;
+    color: #5b84c5;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .footer-nav {
+      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-content {
+      gap: 24px;
+    }
+  } */

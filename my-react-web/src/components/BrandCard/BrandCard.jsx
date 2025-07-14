@@ -2,13 +2,12 @@ import React from "react";
 import "./BrandCard.css";
 
 const BrandCard = ({ brandName }) => {
+  const [line1, line2] = brandName.split('\n');
+
   return (
     <div className="brand-card">
-      <div className="brand-card-background">
-        <div className="brand-card-content">
-          <span className="brand-name-text">{brandName}</span>
-        </div>
-      </div>
+      <h3>{line1}</h3>
+      {line2 && <p>{line2}</p>}
     </div>
   );
 };

@@ -13,7 +13,13 @@ const Header = () => {
     setIsSearchActive(true);
   };
 
-  const services = ["買錶", "賣錶", "換錶", "租錶", "鑑定"];
+  const services = [
+    { name: "買錶", path: "/thumbnails" },
+    { name: "賣錶", path: "/sell" },
+    { name: "換錶", path: "#" }, // Placeholder
+    { name: "租錶", path: "#" }, // Placeholder
+    { name: "鑑定", path: "#" }  // Placeholder
+  ];
   const membershipItems = [
     { name: "登入", path: "/login" },
     { name: "登出", path: "/logout" },
@@ -25,12 +31,12 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-content">
-        <div className="brand-section">
+        <Link to="/" className="brand-section">
           <div className="brand-logo-container">
             <img src={brandIcon} alt="Brand Icon" className="brand-icon" />
             <span className="brand-name">WeTrade</span>
           </div>
-        </div>
+        </Link>
 
         <div
           className={`search-area ${isSearchActive ? "active" : ""}`}
@@ -75,9 +81,9 @@ const Header = () => {
             {isServicesDropdownOpen && (
               <div className="dropdown-menu">
                 {services.map((service) => (
-                  <a href="#" className="dropdown-item" key={service}>
-                    {service}
-                  </a>
+                  <Link to={service.path} className="dropdown-item" key={service.name}>
+                    {service.name}
+                  </Link>
                 ))}
               </div>
             )}
