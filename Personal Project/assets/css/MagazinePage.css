@@ -1,0 +1,133 @@
+:root {
+  --text-light: #ffffff;
+  --text-muted: #61758a;
+  --text-link: #5b84c5;
+  --bg-dark: #121721;
+  --bg-accent: #243347;
+  --border-color: #ffffff;
+  --border-muted: #616161;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-serif);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/a746bcc17db92e13fe07174d16ed67e144f35e34.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.page-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 90%;
+  max-height: 200px;
+  display: block;
+}
+
+.content-wrapper {
+  padding-left: 160px;
+  padding-right: 160px;
+}
+
+@media (max-width: 1200px) {
+  .content-wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.partner-card .partner-image,
+.partner-card .partner-info {
+  opacity: 0;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.partner-card:nth-child(1) .partner-image {
+  animation-name: fadeInLeft;
+  animation-delay: 0.2s;
+}
+
+.partner-card:nth-child(1) .partner-info {
+  animation-name: fadeInRight;
+  animation-delay: 0.4s;
+}
+
+.partner-card:nth-child(2) .partner-info {
+  animation-name: fadeInLeft;
+  animation-delay: 0.6s;
+}
+
+.partner-card:nth-child(2) .partner-image {
+  animation-name: fadeInRight;
+  animation-delay: 0.8s;
+}
+
+.partner-card:nth-child(3) .partner-image {
+  animation-name: fadeInLeft;
+  animation-delay: 1s;
+}
+
+.partner-card:nth-child(3) .partner-info {
+  animation-name: fadeInRight;
+  animation-delay: 1.2s;
+}
