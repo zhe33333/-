@@ -51,4 +51,79 @@ document.addEventListener("DOMContentLoaded", function () {
       searchPlaceholder.style.display = "block";
     }
   });
+
+  // --- 側邊欄點擊效果 ---
+  const sidebarItems = document.querySelectorAll(".sidebar-nav li");
+
+  sidebarItems.forEach(item => {
+    item.addEventListener("click", () => {
+      // 移除所有項目上的 active-sidebar-item 類
+      sidebarItems.forEach(li => li.classList.remove("active-sidebar-item"));
+      // 為當前點擊的項目添加 active-sidebar-item 類
+      item.classList.add("active-sidebar-item");
+    });
+  });
+
+  // --- Info Cards Edit Functionality ---
+  const infoCards = document.querySelectorAll(".card");
+
+  infoCards.forEach(card => {
+    const editIcon = card.querySelector(".edit-icon");
+    const editButtons = card.querySelector(".edit-buttons");
+    const valueDisplays = card.querySelectorAll(".value-display");
+    const valueInputs = card.querySelectorAll(".value-input");
+    const saveButton = card.querySelector(".save-button");
+    const cancelButton = card.querySelector(".cancel-button");
+
+    let originalValues = {};
+
+    if (editIcon) {
+      editIcon.addEventListener("click", () => {
+        // Store original values
+        valueDisplays.forEach(display => {
+          originalValues[display.dataset.field] = display.textContent;
+        });
+
+        // Toggle visibility
+        valueDisplays.forEach(display => display.style.display = "none");
+        valueInputs.forEach(input => {
+          input.style.display = "inline-block";
+          input.value = originalValues[input.dataset.field]; // Populate input with current value
+        });
+        editIcon.style.display = "none";
+        editButtons.style.display = "flex";
+      });
+    }
+
+    if (saveButton) {
+      saveButton.addEventListener("click", () => {
+        valueInputs.forEach(input => {
+          valueDisplays.forEach(display => {
+            if (display.dataset.field === input.dataset.field) {
+              display.textContent = input.value;
+            }
+          });
+        });
+        // Exit edit mode
+        valueDisplays.forEach(display => display.style.display = "inline");
+        valueInputs.forEach(input => input.style.display = "none");
+        editIcon.style.display = "block";
+        editButtons.style.display = "none";
+      });
+    }
+
+    if (cancelButton) {
+      cancelButton.addEventListener("click", () => {
+        // Revert to original values
+        valueDisplays.forEach(display => {
+          display.textContent = originalValues[display.dataset.field];
+        });
+        // Exit edit mode
+        valueDisplays.forEach(display => display.style.display = "inline");
+        valueInputs.forEach(input => input.style.display = "none");
+        editIcon.style.display = "block";
+        editButtons.style.display = "none";
+      });
+    }
+  });
 });
