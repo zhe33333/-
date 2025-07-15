@@ -264,7 +264,7 @@
 
 .brands-row {
   display: flex;
-  gap: 40px;
+  gap: 24px;
   overflow-x: 32px;
   padding: var(--spacing-sm);
   border-radius: 4px;
