@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>會員中心</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/Membership Page.css">
-  <style>
+  <title>Generated Page</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeTrade - 商品詳情</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/Purchase Page.css">
+  <style id="sections-styles">
     /* Global CSS Variables */
     :root {
       --color-cta-button: #195ce5;
@@ -28,6 +31,7 @@
       --color-primary-dark: #121721;
       --color-secondary-dark: #243347;
       --color-tertiary-dark: #243347;
+      --color-primary-action: #195ce5;
 
 
       /* Typography */
@@ -60,37 +64,18 @@
       --content-max-width: 1760px;
     }
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: var(--font-sans);
-        background-color: var(--color-primary-dark);
-        color: var(--color-text-light);
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
     /* Header CSS */
     .header {
         background-color: #121721;
         border-bottom: 1px solid #888;
         padding: 16px 40px;
-        position: sticky;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
         z-index: 999;
         box-sizing: border-box;
+        transform: translateZ(0); /* Force a new stacking context */
     }
 
     .header-content {
@@ -125,7 +110,7 @@
         font-weight: 500;
         font-size: 48px;
         color: var(--color-text-light);
-        line-height: 1;
+        line-height: 1; /* Adjust line-height to prevent extra space */
     }
 
     .search-area {
@@ -136,7 +121,7 @@
         border: 1px solid white;
         border-radius: 12px;
         padding: 4px 4px 4px 16px;
-        color: var(--color-text-light); /* Changed to light for consistency */
+        color: var(--color-text-medium);
         font-family: var(--font-sans);
         font-size: 20px;
         flex-shrink: 0;
@@ -161,11 +146,11 @@
         font-size: 20px;
         font-family: var(--font-sans);
         outline: none;
-        display: none;
+        display: none; /* Initially hidden */
     }
 
     .search-input::placeholder {
-        color: white
+        color: var(--color-text-medium);
     }
 
     .search-icon {
@@ -197,8 +182,7 @@
     }
 
     .nav-item:hover, .nav-item.dropdown-active {
-        background-color: rgba(18, 23, 33, 0.2);
-        backdrop-filter: blur(8px);
+        background-color: rgba(18, 23, 33, 0.1);
         border: 1px solid #CBCBCB;
     }
 
@@ -213,16 +197,16 @@
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba(18, 23, 33, 0.2);
-        backdrop-filter: blur(8px);
+        background-color: rgba(18, 23, 33, 0.1);
         border: 1px solid #CBCBCB;
         border-radius: 8px;
         padding: 8px 0;
-        display: none;
+        display: none; /* Initially hidden */
         flex-direction: column;
         gap: 4px;
         z-index: 1000;
         width: 100%;
+        backdrop-filter: blur(50%);
     }
 
     .dropdown-item {
@@ -294,146 +278,175 @@
       }
     }
 
-    /* Main Section Styles */
-    .main-section {
-        display: flex;
-        padding: 32px 60px; /* Changed padding to 40px top/bottom, 60px left/right */
-        gap: auto;
-        flex-grow: 1;
-        justify-content: space-between;
-        align-items: flex-start; /* Align items to the start */
+/* CSS for section section:product-details */
+.product-details-section {
+    padding-top: 108px;
+    padding-bottom: 16px;
+  }
+  .product-details-section .container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .breadcrumbs {
+    display: flex;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .breadcrumbs a {
+    color: var(--color-text-muted);
+  }
+  .breadcrumbs span {
+    color: var(--color-text-light);
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .product-image-container {
+    position: relative;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  .main-product-image {
+    width: 100%;
+    height: auto;
+  }
+  .favorite-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .favorite-button img {
+    width: 48px;
+    height: 48px;
+  }
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .product-header {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-text-light);
+  }
+  .product-header h1 {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+  }
+  .product-price {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    margin: 0;
+  }
+  .product-specs, .product-specs-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Noto Serif', serif;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .spec-row {
+    display: flex;
+    gap: 16px;
+  }
+  .spec-row dt {
+    flex-shrink: 0;
+    width: 55px;
+  }
+  .spec-row dd {
+    margin: 0;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .btn {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-primary {
+    background-color: var(--color-primary-action);
+    color: var(--color-text-light);
+  }
+  .btn-secondary {
+    background-color: var(--color-text-light);
+    color: #000000;
+  }
+  .thumbnail-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    overflow-x: auto;
+    margin-top: -180px;
+  }
+  .thumbnail {
+    width: calc(15% - 10px);
+    min-width: 80px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .other-info-accordion {
+    display: flex;
+    flex-direction: column;
+  }
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 0;
+    border: 1px solid var(--color-text-light);
+    border-left: none;
+    border-right: none;
+    background: none;
+    color: var(--color-text-muted);
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .accordion-content {
+    padding-top: 24px;
+  }
+  @media (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: 1fr;
     }
-    .sidebar {
-        width: 160px;
-        flex-shrink: 0;
-        margin-top: auto; /* Center vertically */
-        margin-bottom: auto; /* Center vertically */
+    .product-details-section .container {
+      gap: 48px;
     }
-    .sidebar-nav {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .sidebar-group {
-        padding: 16px 0;
-        align-items: center; /* Center horizontally */
-    }
-    .sidebar-group:first-child {
-        border-bottom: 1px solid var(--color-light-gray);
-    }
-    .sidebar-nav li {
-        padding: 8px 8px;
-        display: flex;
-        justify-content: center; /* Added for horizontal centering */
-        align-items: center;
-        gap: 12px;
-        cursor: pointer;
-        font-size: 20px;
-    }
-    .sidebar-nav li:hover {
-        background-color: rgba(18, 23, 33, 0.1); /* Adjusted hover color */
-    }
-    .sidebar-nav li.active-sidebar-item {
-        border: 1px solid #ffffff;
-        border-radius: 4px;
-    }
-    .sidebar-nav img {
-        width: 24px;
-        height: 24px;
-    }
-    .center-content { /* New class for center section */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        flex-grow: 0; /* Prevent it from growing */
-        flex-shrink: 0; /* Prevent it from shrinking */
-        width: 200px; /* Adjust width as needed */
-    }
-    .avatar-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 36px
-        
-    }
-    .avatar-placeholder {
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        background-color: rgba(217, 217, 217, 0.2);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 4px 4px rgba(0,0,0,0.25);
-    }
-    .details-section {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        margin: 32px 24px 16px ;
-        gap: 16px;
-    }
-    .user-info h2 {
-        margin: 16px 0 0 0;
-        font-family: var(--font-serif);
-        font-size: 22px;
-        font-weight: 300;
-    }
-    .user-info p {
-        margin: 4px 0 0 0;
-        color: var(--color-text-muted);
-        font-size: 16px;
-    }
-    .info-cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px 12px;
-    }
-    .card {
-        border: 1px solid var(--color-light-gray);
-        border-radius: 16px;
-        padding: 0 20px;
-        max-width: 520px;
-        height: auto;
-        min-height: 180px;
-        max-height: 240px;
+  }
+  @media (max-width: 768px) {
+    .product-header h1 { font-size: 32px; }
+    .product-price { font-size: 36px; }
+    .product-specs, .product-specs-extra, .accordion-header { font-size: 18px; }
+    .btn { font-size: 24px; }
+    .spec-row { gap: 16px; }
+  }
 
-    }
-    .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-    .card-header h3 {
-        margin: 0;
-        display: flex;
-        gap: 8px;
-        font-size: 20px;
-        font-weight: 400;
-    }
-
-    .info-label {
-        color: var(--color-text-muted);
-        font-weight: 200;
-        flex-shrink: 0;
-    }
-    
-    .info-value {
-        font-weight: 300;
-    }
-    .card-body p {
-        margin: 4px 0;
-        font-size: 16px;
-    }
-    .label {
-        color: var(--color-text-muted);
-    }
-
-    /* Footer CSS */
-    .site-footer {
+/* CSS for section section:footer */
+.site-footer {
       background-color: var(--color-primary-dark);
       border-top: 1px solid var(--color-text-light);
       padding: 8px 0;
@@ -471,7 +484,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 56px;
+      gap: 56px; /* Calculated from figma (7732-7676) */
     }
     .social-links a {
       display: inline-block;
@@ -485,7 +498,7 @@
     .social-links img {
       width: 24px;
       height: 24px;
-      vertical-align: middle;
+      vertical-align: middle; /* Prevents misalignment from transform */
     }
     .copyright {
       color: var(--color-accent-1);
@@ -505,16 +518,17 @@
       }
     }
   </style>
+  <script src="assets/js/Purchase Page.js" defer></script>
 </head>
 <body>
 <header class="header">
   <div class="header-content">
     <div class="brand-section">
-      <div class="brand-logo-container">
+      <a href="/" class="brand-logo-container">
         <!-- 註釋：品牌圖示，路徑需要根據實際情況調整 -->
-        <img src="../../my-react-web/src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
+        <img src="../src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
         <span class="brand-name">WeTrade</span>
-      </div>
+      </a>
     </div>
 
     <div class="search-area">
@@ -532,8 +546,8 @@
       <div class="nav-item services">
         <span>服務項目</span>
         <div class="dropdown-menu">
-          <a href="#" class="dropdown-item">買錶</a>
-          <a href="#" class="dropdown-item">賣錶</a>
+          <a href="/thumbnails" class="dropdown-item">買錶</a>
+          <a href="/sell" class="dropdown-item">賣錶</a>
           <a href="#" class="dropdown-item">換錶</a>
           <a href="#" class="dropdown-item">租錶</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -573,7 +587,7 @@
         </svg>
         <span>會員中心</span>
         <div class="dropdown-menu">
-          <a href="#" class="dropdown-item">登入</a>
+          <a href="/login" class="dropdown-item">登入</a>
           <a href="#" class="dropdown-item">登出</a>
           <a href="#" class="dropdown-item">訊息</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -583,94 +597,68 @@
     </nav>
   </div>
 </header>
-<main class="main-section">
-    <aside class="sidebar">
-        <div class="sidebar-group">
-            <ul class="sidebar-nav">
-                <li><img src="../images/847_9403.svg" alt=""><span>訊息</span></li>
-                <li><img src="../images/I847_9406_238_1414.svg" alt=""><span>購買</span></li>
-                <li><img src="../images/I847_9409_238_1438.svg" alt=""><span>出售</span></li>
-                <li><img src="../images/847_9412.svg" alt=""><span>交換</span></li>
-                <li><img src="../images/847_9415.svg" alt=""><span>租賃</span></li>
-                <li><img src="../images/847_9418.svg" alt=""><span>收藏</span></li>
-            </ul>
+<main id="product-details" class="product-details-section">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="#">買錶</a>
+      <span>/</span>
+      <span>Rolex</span>
+    </nav>
+
+    <div class="product-grid">
+      <div class="product-image-container">
+        <img src="assets/images/4aa23521a55aada8194a1b2ecf1292e74a2e1574.png" alt="Rolex Submariner Date 126610LN" class="main-product-image">
+        <button class="favorite-button">
+          <img src="assets/images/I223_1099_220_1343.svg" alt="收藏icon">
+        </button>
+      </div>
+
+      <div class="product-info">
+        <div class="product-header">
+          <h1>Rolex Submariner Date 126610LN<br>勞力士</h1>
+          <p class="product-price">NT $200000</p>
         </div>
-        <div class="sidebar-group">
-            <ul class="sidebar-nav">
-                <li><img src="../images/I847_9422_27_83.svg" alt=""><span>個人資料</span></li>
-                <li><img src="../images/847_9425.svg" alt=""><span>通知</span></li>
-                <li><img src="../images/847_9428.svg" alt=""><span>登出</span></li>
-            </ul>
+
+        <dl class="product-specs">
+          <div class="spec-row"><dt>品牌:</dt><dd>Rolex 勞力士</dd></div>
+          <div class="spec-row"><dt>系列:</dt><dd>El Primero 系列</dd></div>
+          <div class="spec-row"><dt>款式:</dt><dd>男款</dd></div>
+          <div class="spec-row"><dt>型號:</dt><dd>5496P-001</dd></div>
+          <div class="spec-row"><dt>年分:</dt><dd>2014/08/30</dd></div>
+          <div class="spec-row"><dt>材質:</dt><dd>碳纖維</dd></div>
+          <div class="spec-row"><dt>保單:</dt><dd>具合作鑑定商保單</dd></div>
+        </dl>
+
+        <div class="cta-buttons">
+          <button class="btn btn-primary">立即購買 | 向賣家詢問</button>
+          <button class="btn btn-secondary">提出其他請求</button>
         </div>
-    </aside>
-    <div class="center-content">
-        <section class="avatar-section">
-            <h2 style="font-weight: 600;">個人資料</h2>
-            <div class="avatar-placeholder">
-                <img src="../images/I847_9434_238_1478.svg" alt="Upload">
-            </div>
-        </section>
+      </div>
     </div>
-    <div class="details-section">
-        <div class="user-info">
-            <h2 style="color: white;">Donald Trump</h2>
-            <p>客戶編號:5678</p>
-        </div>
-        <div class="info-cards">
-            <div class="card" data-card-type="address">
-                <div class="card-header">
-                    <h3>帳單地址:</h3>
-                    <img src="../images/847_9445.svg" alt="Edit" class="edit-icon">
-                    <div class="edit-buttons" style="display: none;">
-                        <button class="save-button">儲存</button>
-                        <button class="cancel-button">取消</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><span class="label">名字:</span> <span class="value-display" data-field="firstName">-</span><input type="text" class="value-input" data-field="firstName" style="display: none;"></p>
-                    <p><span class="label">姓氏:</span> <span class="value-display" data-field="lastName">-</span><input type="text" class="value-input" data-field="lastName" style="display: none;"></p>
-                    <p><span class="label">街道:</span> <span class="value-display" data-field="street">-</span><input type="text" class="value-input" data-field="street" style="display: none;"></p>
-                    <p><span class="label">郵政編碼 地區:</span> <span class="value-display" data-field="zipCode">-</span><input type="text" class="value-input" data-field="zipCode" style="display: none;"></p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h3>使用谷歌|蘋果登入</h3>
-                    <img src="../images/847_9469.svg" alt="Edit">
-                </div>
-            </div>
-            <div class="card" data-card-type="login">
-                <div class="card-header">
-                    <h3>登入資料:</h3>
-                    <img src="../images/847_9474.svg" alt="Edit" class="edit-icon">
-                    <div class="edit-buttons" style="display: none;">
-                        <button class="save-button">儲存</button>
-                        <button class="cancel-button">取消</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><span class="label">帳號:</span> <span class="value-display" data-field="account">-</span><input type="text" class="value-input" data-field="account" style="display: none;"></p>
-                    <p><span class="label">密碼:</span> <span class="value-display" data-field="password">-</span><input type="password" class="value-input" data-field="password" style="display: none;"></p>
-                </div>
-            </div>
-            <div class="card" data-card-type="personal">
-                <div class="card-header">
-                    <h3>個人資料:</h3>
-                    <img src="../images/847_9488.svg" alt="Edit" class="edit-icon">
-                    <div class="edit-buttons" style="display: none;">
-                        <button class="save-button">儲存</button>
-                        <button class="cancel-button">取消</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><span class="label">性別:</span> <span class="value-display" data-field="gender">-</span><input type="text" class="value-input" data-field="gender" style="display: none;"></p>
-                    <p><span class="label">出生年月日:</span> <span class="value-display" data-field="dob">-</span><input type="text" class="value-input" data-field="dob" style="display: none;"></p>
-                    <p><span class="label">電話:</span> <span class="value-display" data-field="phone">-</span><input type="text" class="value-input" data-field="phone" style="display: none;"></p>
-                    <p><span class="label">職業:</span> <span class="value-display" data-field="occupation">-</span><input type="text" class="value-input" data-field="occupation" style="display: none;"></p>
-                </div>
-            </div>
-        </div>
+
+    <div class="thumbnail-gallery">
+      <img src="assets/images/c254081f1bf2c20392548110faae7ce29586435e.png" alt="Thumbnail 1" class="thumbnail">
+      <img src="assets/images/3743abb24af335c942d0dcab9b7a899f347247ae.png" alt="Thumbnail 2" class="thumbnail">
+      <img src="assets/images/efc2a96b6e96328b22790b0e5dfdfbc217581661.png" alt="Thumbnail 3" class="thumbnail">
+      <img src="assets/images/55b098553902301e5da4a2ffb7a6b8571cb1c08f.png" alt="Thumbnail 4" class="thumbnail">
+      <img src="assets/images/87dd572674e24267333badca3f13f8532b3abe0c.png" alt="Thumbnail 5" class="thumbnail">
     </div>
+
+    <div class="other-info-accordion">
+      <button class="accordion-header">
+        <span>其他資訊</span>
+        <img src="assets/images/146_810.svg" alt="Toggle Info">
+      </button>
+      <div class="accordion-content">
+        <dl class="product-specs-extra">
+          <div class="spec-row"><dt>品牌:</dt><dd>Rolex 勞力士</dd></div>
+          <div class="spec-row"><dt>系列:</dt><dd>El Primero 系列</dd></div>
+          <div class="spec-row"><dt>款式:</dt><dd>男款</dd></div>
+          <div class="spec-row"><dt>型號:</dt><dd>5496P-001</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
 </main>
 <footer id="section-footer" class="site-footer">
   <div class="footer-container">
@@ -680,13 +668,12 @@
       <a href="#">聯絡我們</a>
     </nav>
     <div class="social-links">
-      <a href="#"><img src="../images/I847_9509_46_657_44_264.svg" alt="X Icon"></a>
-      <a href="#"><img src="../images/I847_9509_46_658_44_276.svg" alt="Instagram Icon"></a>
-      <a href="#"><img src="../images/I847_9509_46_659_44_270.svg" alt="Facebook Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_657_44_264.svg" alt="X Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_658_44_276.svg" alt="Instagram Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_659_44_270.svg" alt="Facebook Icon"></a>
     </div>
     <p class="copyright">@2025 WeTrade. All rights reserved.</p>
   </div>
 </footer>
-  <script src="../assets/js/Membership Page.js" defer></script>
 </body>
 </html>

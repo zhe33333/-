@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import BrandCard from "../BrandCard/BrandCard";
 import MainFunctionCard from "../MainFunctionCard/MainFunctionCard";
 import ArrowButton from "../ArrowButton/ArrowButton";
@@ -23,6 +24,7 @@ const Homepage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(bannerImages.length - 1);
   const partnersGridRef = useRef(null);
+  const brandsGridRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,7 +32,7 @@ const Homepage = () => {
       setCurrentIndex((prevIndex) =>
         prevIndex === bannerImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5500); // Sync with text animation duration
+    }, 6000); // Sync with text animation duration
 
     return () => {
       clearInterval(interval);
@@ -44,6 +46,9 @@ const Homepage = () => {
     "Omega\n歐米茄",
     "Panerai\n沛納海",
     "Patek Philippe\n百達翡麗",
+    "Hublot\n宇舶",
+    "Zenith\n真力時",
+    "Breguet\n寶璣",
   ];
 
   const brandsBottom = [
@@ -53,6 +58,9 @@ const Homepage = () => {
     "Jaeger-LeCoultre\n積家",
     "Tudor\n帝舵",
     "Vacheron Constantin\n江詩丹頓",
+    "Chopard\n蕭邦",
+    "Girard-Perregaux\n芝柏",
+    "Ulysse Nardin\n雅典錶",
   ];
 
   const partnerStores = [
@@ -192,9 +200,9 @@ const Homepage = () => {
                   <span>{heroTexts[currentIndex % heroTexts.length]}</span>
                 </div>
               </div>
-              <button className="cta-button">
+              <Link to="/thumbnails" className="cta-button">
                 <span>立即進入商品頁面</span>
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -218,63 +226,25 @@ const Homepage = () => {
               <div className="section-title-container">
                 <h2>精選熱門品牌</h2>
                 <div className="navigation-arrows">
-                  <button className="arrow-button">
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M27.9167 19.9993H11.25M11.25 19.9993L15.8333 24.5827M11.25 19.9993L15.8333 15.416"
-                        stroke="white"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
-                        stroke="white"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-                  </button>
-                  <button className="arrow-button">
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.25 19.9993H27.9167M27.9167 19.9993L23.3333 24.5827M27.9167 19.9993L23.3333 15.416"
-                        stroke="white"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3.33331 24.9997V14.9997C3.33331 13.2316 4.03569 11.5359 5.28593 10.2856C6.53618 9.03539 8.23187 8.33301 9.99998 8.33301H30C31.7681 8.33301 33.4638 9.03539 34.714 10.2856C35.9643 11.5359 36.6666 13.2316 36.6666 14.9997V24.9997C36.6666 26.7678 35.9643 28.4635 34.714 29.7137C33.4638 30.964 31.7681 31.6663 30 31.6663H9.99998C8.23187 31.6663 6.53618 30.964 5.28593 29.7137C4.03569 28.4635 3.33331 26.7678 3.33331 24.9997Z"
-                        stroke="white"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-                  </button>
+                  <ArrowButton direction="left" targetRef={brandsGridRef} scrollAmount={320} />
+                  <ArrowButton direction="right" targetRef={brandsGridRef} scrollAmount={320} />
                 </div>
               </div>
             </div>
 
-            <div className="brands-grid-container">
+            <div className="brands-grid-container" ref={brandsGridRef}>
               <div className="brands-row">
                 {brandsTop.map((brand, index) => (
-                  <BrandCard key={index} brandName={brand} />
+                  <Link to="/thumbnails" key={index}>
+                    <BrandCard brandName={brand} />
+                  </Link>
                 ))}
               </div>
               <div className="brands-row">
                 {brandsBottom.map((brand, index) => (
-                  <BrandCard key={index} brandName={brand} />
+                  <Link to="/thumbnails" key={index}>
+                    <BrandCard brandName={brand} />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -356,10 +326,10 @@ const Homepage = () => {
 
             <div className="partners-grid" ref={partnersGridRef}>
               {partnerStores.map((store, index) => (
-                <div key={index} className="partner-card">
+                <Link to="/partner" key={index} className="partner-card">
                   <img src={store.image} alt={store.name} />
                   <h3>{store.name}</h3>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

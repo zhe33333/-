@@ -87,7 +87,7 @@
   line-height: 52px;
   letter-spacing: -1px;
   white-space: nowrap;
-  animation: scrollUp 6.5s forwards;
+  animation: scrollUp 7s forwards;
 }
 
 @keyframes scrollUp {
@@ -164,7 +164,7 @@
 .content-section {
   position: relative;
   width: 100%;
-  min-height: 2160px; /* Adjusted for two background images */
+  min-height: 1880px; /* Adjusted for two background images */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,7 +207,7 @@
   max-width: var(--content-max-width);
   flex-direction: column;
   gap: var(--spacing-2xl);
-  padding: 40px 0;
+  padding: 40px 0 0;
 }
 
 /* Section Headers */
@@ -253,23 +253,20 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  overflow-x: 32px;
+  overflow-x: auto;
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  -ms-overflow-style: none;  /* IE 10+ */
 }
 
-.brands-grid-container::-webkit-scrollbar { /* WebKit */
+.brands-grid-container::-webkit-scrollbar {
   display: none;
 }
 
 .brands-row {
   display: flex;
-  gap: 24px;
-  overflow-x: 32px;
-  padding: var(--spacing-sm);
-  border-radius: 4px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  gap: 80px;
+  padding: var(--spacing-sm) 0;
+  width: max-content;
 }
 
 .brands-row::-webkit-scrollbar {
@@ -519,9 +516,9 @@
 .big-watch-image {
   flex-shrink: 0;
   width: 40%; /* Give it a relative width */
-  max-height: 1194px; /* Do not exceed the height of the grid */
+  max-height: 1080px; /* Do not exceed the height of the grid */
   height: auto;
-  animation: flicker 3s infinite;
+  animation: flicker 2.5s infinite;
 }
 
 @keyframes flicker {

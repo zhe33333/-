@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import brandIcon from "../../assets/brand-icon.svg";
 
@@ -8,6 +8,12 @@ const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isMembershipDropdownOpen, setIsMembershipDropdownOpen] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    setAnimationKey(prevKey => prevKey + 1);
+  }, [location.pathname]);
 
   const handleSearchClick = () => {
     setIsSearchActive(true);
@@ -21,7 +27,7 @@ const Header = () => {
     { name: "鑑定", path: "#" }  // Placeholder
   ];
   const membershipItems = [
-    { name: "登入", path: "/login" },
+    { name: "登入", path: "#" },
     { name: "登出", path: "/logout" },
     { name: "訊息", path: "/messages" },
     { name: "鑑定", path: "/appraise" },
@@ -31,7 +37,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-content">
-        <Link to="/" className="brand-section">
+        <Link to="/" className="brand-section" key={animationKey}>
           <div className="brand-logo-container">
             <img src={brandIcon} alt="Brand Icon" className="brand-icon" />
             <span className="brand-name">WeTrade</span>
@@ -137,6 +143,7 @@ const Header = () => {
             onMouseEnter={() => setIsMembershipDropdownOpen(true)}
             onMouseLeave={() => setIsMembershipDropdownOpen(false)}
           >
+            <span>會員中心</span>
             <svg
               width="32"
               height="32"
@@ -159,7 +166,6 @@ const Header = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>會員中心</span>
             {isMembershipDropdownOpen && (
               <div className="dropdown-menu">
                 {membershipItems.map((item) => (

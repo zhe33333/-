@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './ThumbnailsPage.css';
 
-// Image imports
-import brandIcon from '../../assets/images/I530_9494_519_5718_27_384.svg';
-import searchIcon from '../../assets/images/I530_9494_537_8200_29_422.svg';
-import collectionIcon from '../../assets/images/I530_9494_519_5722_176_901.svg';
-import cartIcon from '../../assets/images/I530_9494_519_5723_176_959.svg';
-import membershipIcon from '../../assets/images/I530_9494_519_5724_27_318_27_83.svg';
-import prevIcon from '../../assets/images/I115_865_46_710.svg';
-import nextIcon from '../../assets/images/I115_866_46_714.svg';
-import filterIcon from '../../assets/images/115_748.svg';
-import sortIcon from '../../assets/images/115_750.svg';
-import product1 from '../../assets/images/2f499b663595501f987a52863560b290742d309e.png';
-import product2 from '../../assets/images/85b91d09f9e0b79c17c21e2488b6f43ae1413576.png';
-import product3 from '../../assets/images/478e70ace14223d4159039c69e788ac95ca49ff5.png';
-import xIcon from '../../assets/images/I92_484_46_657_44_264.svg';
-import instagramIcon from '../../assets/images/I92_484_46_658_44_276.svg';
-import facebookIcon from '../../assets/images/I92_484_46_659_44_270.svg';
+// Image paths
+const prevIcon = '/assets/images/I115_865_46_710.svg';
+const nextIcon = '/assets/images/I115_866_46_714.svg';
+const brandIcon = '/images/I827_9159_519_5718_27_384.svg';
+const searchIcon = '/images/I827_9159_578_24697_29_422.svg';
+const collectionIcon = '/images/I827_9159_519_5722_176_901.svg';
+const cartIcon = '/images/I827_9159_519_5723_176_959.svg';
+const membershipIcon = '/images/I827_9159_519_5724_27_318_27_83.svg';
+const filterIcon = '/assets/images/115_748.svg';
+const sortIcon = '/assets/images/115_750.png';
+const product1 = '/assets/images/2f499b663595501f987a52863560b290742d309e.png';
+const product2 = '/assets/images/85b91d09f9e0b79c17c21e2488b6f43ae1413576.png';
+const product3 = '/assets/images/478e70ace14223d4159039c69e788ac95ca49ff5.png';
+const xIcon = '/images/I827_9193_46_657_44_264.svg';
+const instagramIcon = '/images/I827_9193_46_658_44_276.svg';
+const facebookIcon = '/images/I827_9193_46_659_44_270.svg';
 
 
 const ThumbnailsPage = () => {
+  const categoriesScrollRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    if (categoriesScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      categoriesScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   const products = [
     { id: 1, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product1 },
     { id: 2, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product2 },
@@ -53,17 +62,32 @@ const ThumbnailsPage = () => {
             <div className="categories-header">
               <h2>錶類 | 功能選擇</h2>
               <div className="carousel-controls">
-                <button><img src={prevIcon} alt="Previous" /></button>
-                <button><img src={nextIcon} alt="Next" /></button>
+                <button className="arrow-button" onClick={() => handleScroll('left')}>
+                  <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.125 18.5H10.125M10.125 18.5L14.25 22.625M10.125 18.5L14.25 14.375" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M3 23V14C3 12.4087 3.63214 10.8826 4.75736 9.75736C5.88258 8.63214 7.4087 8 9 8H27C28.5913 8 30.1174 8.63214 31.2426 9.75736C32.3679 10.8826 33 12.4087 33 14V23C33 24.5913 32.3679 26.1174 31.2426 27.2426C30.1174 28.3679 28.5913 29 27 29H9C7.4087 29 5.88258 27.8679 4.75736 27.2426C3.63214 26.1174 3 24.5913 3 23Z" strokeWidth="1.5" />
+                  </svg>
+                </button>
+                <button className="arrow-button" onClick={() => handleScroll('right')}>
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.125 18H25.125M25.125 18L21 22.125M25.125 18L21 13.875" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M3 22.5V13.5C3 11.9087 3.63214 10.3826 4.75736 9.25736C5.88258 8.13214 7.4087 7.5 9 7.5H27C28.5913 7.5 30.1174 8.13214 31.2426 9.25736C32.3679 10.3826 33 11.9087 33 13.5V22.5C33 24.0913 32.3679 25.6174 31.2426 26.7426C30.1174 27.8679 28.5913 28.5 27 28.5H9C7.4087 28.5 5.88258 27.8679 4.75736 26.7426C3.63214 25.6174 3 24.0913 3 22.5Z" strokeWidth="1.5" />
+                  </svg>
+                </button>
               </div>
             </div>
-            <div className="horizontal-scroll">
+            <div className="horizontal-scroll" ref={categoriesScrollRef}>
               <div className="categories-list">
                 <a href="#" className="category-card"><div className="card-text">Men’s Watches<br />男錶</div></a>
                 <a href="#" className="category-card"><div className="card-text">Diver’s Watch<br />潛水錶</div></a>
                 <a href="#" className="category-card"><div className="card-text">Sport Watch<br />運動錶</div></a>
                 <a href="#" className="category-card"><div className="card-text">Skeleton<br />透背錶</div></a>
                 <a href="#" className="category-card"><div className="card-text">GMT<br />世界時區錶</div></a>
+                <a href="#" className="category-card"><div className="card-text">Chronograph<br />計時碼錶</div></a>
+                <a href="#" className="category-card"><div className="card-text">Moon Phase<br />月相錶</div></a>
+                <a href="#" className="category-card"><div className="card-text">Perpetual Calendar<br />萬年曆</div></a>
+                <a href="#" className="category-card"><div className="card-text">Tourbillon<br />陀飛輪</div></a>
+                <a href="#" className="category-card"><div className="card-text">Women's Watches<br />女錶</div></a>
               </div>
             </div>
           </div>
@@ -86,16 +110,18 @@ const ThumbnailsPage = () => {
             </div>
             <div className="product-grid">
               {products.map(product => (
-                <article className="product-card" key={product.id}>
-                  <img src={product.image} alt={product.name.replace(/<br>/g, ' ')} className="product-image" />
-                  <div className="product-info">
-                    <h3 dangerouslySetInnerHTML={{ __html: product.name }}></h3>
-                    <div className="product-meta">
-                      <p className="price">{product.price}</p>
-                      <button className="add-to-cart-btn">加入購物車</button>
+                <a href="/Purchase Page.html" key={product.id} className="product-card-link">
+                  <article className="product-card">
+                    <img src={product.image} alt={product.name.replace(/<br>/g, ' ')} className="product-image" />
+                    <div className="product-info">
+                      <h3 dangerouslySetInnerHTML={{ __html: product.name }}></h3>
+                      <div className="product-meta">
+                        <p className="price">{product.price}</p>
+                        <button className="add-to-cart-btn">加入購物車</button>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </a>
               ))}
             </div>
           </div>

@@ -6,63 +6,12 @@
   <title>Generated Page</title>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>登入頁面 - WeTrade</title>
+<title>WeTrade - 合作廠商</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/LoginPage.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/Partner Page.css">
   <style id="sections-styles">
-    /* Global CSS Variables */
-    :root {
-      --color-cta-button: #195ce5;
-      --color-base-white: #fff;
-      --color-light-gray: #cbcbcb;
-      --color-brand-secondary: #243347;
-      --color-brand-primary: #121721;
-      --color-button-hover: #5b84c5;
-      --color-text-muted: #94a6c7;
-      --color-text-light: #fff;
-      --color-secondary: #243347;
-      --color-text-dark: #000;
-      --border-color-light: #fff;
-      --border-color-medium: #616161;
-      --color-accent-1: #94a6c7;
-      --color-accent-3: #94a6c7;
-      --color-primary-dark: #121721;
-      --color-secondary-dark: #243347;
-      --color-tertiary-dark: #243347;
-
-
-      /* Typography */
-      --font-serif: "Noto Serif", -apple-system, Roboto, Helvetica, sans-serif;
-      --font-sans: "Noto Sans TC", -apple-system, Roboto, Helvetica, sans-serif;
-      --font-family-serif: "Noto Serif", serif;
-      --font-family-sans: "Noto Sans TC", sans-serif;
-      --font-family-inter: "Inter", sans-serif;
-
-
-      /* Spacing */
-      --spacing-xs: 4px;
-      --spacing-sm: 8px;
-      --spacing-md: 16px;
-      --spacing-lg: 24px;
-      --spacing-xl: 32px;
-      --spacing-2xl: 48px;
-      --spacing-3xl: 64px;
-      --spacing-4xl: 80px;
-
-      /* Border radius */
-      --radius-sm: 8px;
-      --radius-md: 12px;
-
-      /* Shadows */
-      --shadow-card: 2px 6px 8px 0px rgba(0, 0, 0, 0.25);
-
-      /* Layout */
-      --container-max-width: 1920px;
-      --content-max-width: 1760px;
-    }
-
     /* Header CSS */
     .header {
         background-color: #121721;
@@ -120,7 +69,7 @@
         border: 1px solid white;
         border-radius: 12px;
         padding: 4px 4px 4px 16px;
-        color: var(--color-text-light);
+        color: var(--color-text-medium);
         font-family: var(--font-sans);
         font-size: 20px;
         flex-shrink: 0;
@@ -196,7 +145,7 @@
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba(18, 23, 33, 0.1);
+        background-color: rgba(176, 176, 176, 0.1);
         border: 1px solid #CBCBCB;
         border-radius: 8px;
         padding: 8px 0;
@@ -205,7 +154,8 @@
         gap: 4px;
         z-index: 1000;
         width: 100%;
-        backdrop-filter: blur(50%);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 
     .dropdown-item {
@@ -277,200 +227,171 @@
       }
     }
 
-    /* CSS for section section:login */
-    .login-section {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px 20px;
-      padding-top: 120px; /* Add padding to account for absolute header */
-    }
-    .login-card {
-      background-color: var(--color-base-white);
-      border: 1px solid #d9d9d9;
-      border-radius: 8px;
-      padding: 12px 12px;
-      width: 400px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .login-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .form-inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .form-group label {
-      font-size: 20px;
-      color: var(--color-text-dark);
-      font-family: var(--font-family-serif);
-    }
-    .font-serif {
-      font-family: var(--font-family-serif);
-    }
-    .form-group input {
-      width: 100%;
-      padding: 12px 12px;
-      border: 1px solid var(--border-color-medium);
-      border-radius: 8px;
-      box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    .form-group input:focus {
-      outline: none;
-    }
-    .form-group input::placeholder {
-      color: var(--color-text-muted);
-      font-family: var(--font-family-inter);
-    }
-    #password::placeholder {
-      font-family: var(--font-family-sans);
-    }
-    .form-links {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: -8px;
-      margin-bottom: -8px;
-    }
-    .form-links a {
-      font-size: 16px;
-      color: #000000;
-    }
-    .btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .btn-primary {
-      background-color: #2c2c2c;
-      color: var(--color-text-light);
-    }
-    .btn-primary img {
-      width: 17px;
-      height: 19px;
-    }
-    .social-logins {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding-top: 24px;
-      border-top: 1px solid #616161;
-    }
-    .btn-social {
-      background-color: #2c2c2c;
-      color: var(--color-text-light);
-    }
-    .btn-social img {
-      width: 24px;
-      height: 24px;
-    }
+/* CSS for section section:partners */
+.main-content {
+  padding-top: 100px;
+  padding-bottom:16px;
+}
 
-    /* CSS for section section:footer */
-    .site-footer {
-      background-color: var(--color-primary-dark);
-      border-top: 1px solid var(--color-text-light);
-      padding: 8px 0;
-      margin-top: auto;
-    }
-    .footer-container {
-      max-width: 1920px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-    }
-    .footer-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 80px;
-      flex-wrap: wrap;
-    }
-    .footer-nav a {
-      color: var(--color-text-light);
-      font-family: var(--font-family-sans);
-      font-size: 16px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
+.breadcrumb {
+  display: flex;
+  gap: 8px;
+  padding: 8px 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 300;
+}
 
-    .footer-nav a:hover {
-      color: var(--color-cta-button);
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 56px;
-    }
-    .social-links a {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
+.breadcrumb-link {
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
 
-    .social-links a:hover {
-      transform: scale(1.1);
-    }
+.breadcrumb-link:hover {
+  color: var(--text-light);
+}
 
-    .social-links img {
-      width: 24px;
-      height: 24px;
-      vertical-align: middle;
-    }
-    .copyright {
-      color: var(--color-accent-1);
-      font-family: var(--font-family-serif);
-      font-size: 16px;
-      font-weight: 400;
-      margin: 0;
-    }
+.breadcrumb-separator {
+  color: var(--text-muted);
+}
 
-    @media (max-width: 768px) {
-      .footer-nav {
-        gap: 20px;
-        flex-direction: column;
-      }
-      .social-links {
-        gap: 32px;
-      }
-    }
+.breadcrumb-current {
+  color: var(--text-light);
+}
+
+.partners-grid-container {
+  border-top: 1px solid var(--border-muted);
+  border-bottom: 1px solid var(--border-muted);
+  padding: 16 8px;
+}
+
+.partners-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.partner-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 200px;
+  max-width: 360px;
+}
+
+.partner-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.partner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.partner-name {
+  font-family: 'Noto Serif', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.partner-description {
+  font-family: 'Noto Serif', serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.partners-grid .partner-card:nth-child(2) .partner-name {
+  text-align: center;
+}
+
+.partners-grid .partner-card:nth-child(3) .partner-name {
+  text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .partners-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* CSS for section section:footer */
+.site-footer {
+  background-color: var(--bg-dark);
+  border-top: 1px solid #cbcbcb;
+  padding: 30px 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.footer-nav a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+  color: var(--text-link);
+}
+
+.social-links {
+  display: flex;
+  gap: 32px;
+}
+
+.social-links a {
+  transition: transform 0.3s;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+}
+
+.copyright {
+  font-family: 'Noto Serif', serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-link);
+}
+
+@media (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
   </style>
-  <script src="../assets/js/LoginPage.js" defer></script>
+  <script src="assets/js/MagazinePage.js" defer></script>
 </head>
 <body>
 <header class="header">
   <div class="header-content">
     <div class="brand-section">
-      <div class="brand-logo-container">
+      <a href="/" class="brand-logo-container">
         <!-- 註釋：品牌圖示，路徑需要根據實際情況調整 -->
-        <img src="../../my-react-web/src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
+        <img src="../src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
         <span class="brand-name">WeTrade</span>
-      </div>
+      </a>
     </div>
 
     <div class="search-area">
@@ -488,8 +409,8 @@
       <div class="nav-item services">
         <span>服務項目</span>
         <div class="dropdown-menu">
-          <a href="#" class="dropdown-item">買錶</a>
-          <a href="#" class="dropdown-item">賣錶</a>
+          <a href="/thumbnails" class="dropdown-item">買錶</a>
+          <a href="/sell" class="dropdown-item">賣錶</a>
           <a href="#" class="dropdown-item">換錶</a>
           <a href="#" class="dropdown-item">租錶</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -539,37 +460,37 @@
     </nav>
   </div>
 </header>
-<main id="section-login" class="login-section">
-  <div class="login-card">
-    <form class="login-form">
-      <div class="form-inputs">
-        <div class="form-group">
-          <label for="email">請輸入<span class="font-serif">Email</span></label>
-          <input type="email" id="email" name="email" placeholder="例123456@gmail.com">
-        </div>
-        <div class="form-group">
-          <label for="password" class="font-serif">Password</label>
-          <input type="password" id="password" name="password" placeholder="********">
-        </div>
+<main id="section-partners" class="main-content">
+  <div class="content-wrapper">
+    <nav class="breadcrumb">
+      <a href="#" class="breadcrumb-link">合作廠商</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">廠商簡介</span>
+    </nav>
+    <div class="partners-grid-container">
+      <div class="partners-grid">
+        <article class="partner-card">
+          <img src="images/2f80cb6eec1532e4eb034379b4433aee9602e30d.png" alt="王永昌鐘錶行" class="partner-image">
+          <div class="partner-info">
+            <h3 class="partner-name">王永昌鐘錶行</h3>
+            <p class="partner-description">王永昌鐘錶成立於1978年，店主王進龍先生自16歲即開始接觸鐘錶，40多年來，懷抱著將每一支錶都視為珍寶的心情，埋首鑽研維修客人所交託的種種難題。 熱情加上極其敏銳的心思與巧手，讓王進龍先生磨練出媲美瑞士頂尖錶匠的精湛技藝，上千只超過兩百多年歷史的老錶，在他手中延續新生，他不僅是亞洲古董 錶維修的第一把交椅，更是台灣第一位有能力獨自製造出陀飛機芯的鐘錶大師。</p>
+          </div>
+        </article>
+        <article class="partner-card">
+          <div class="partner-info">
+            <p class="partner-description">「最好的做生意方式，就是要將顧客當成自己朋友一樣招呼，要真心對待，友誼才能細水長流。」打破普羅大眾對於高級錶店的既定印象，金光鐘錶冀求打造一間結合鐘錶、甜點美食、香醇咖啡、帥氣重機、活動展覽……等多元領域複合概念的嶄新型態空間。店面外觀所揭示的「人文、選物、風格、咖啡」四大方向，展現出不同一般的大器格局。 金光鐘錶總經理表示：「從時尚的角度來解讀 Mix & Match，有著『混搭』的意思，而這間概念店，也就是要讓消費者走進來，『混搭』出他所需要的，不只是實體上的商品，更有非實體的服務與優質感受。」</p>
+          <h3 class="partner-name">金光鐘錶Mix & Match</h3>
+          </div>
+          <img src="images/ed244e17d0935ba27523544be11bfa104bd53eb1.png" alt="金光鐘錶Mix & Match" class="partner-image">
+        </article>
+        <article class="partner-card">
+          <img src="images/1ca9015fb46f3c47d6a45e4da54dac4080d18068.png" alt="大銘高級腕錶" class="partner-image">
+          <div class="partner-info">
+            <h3 class="partner-name">大銘高級腕錶</h3>
+            <p class="partner-description">二手美錶都經由兩位以上專業估價師(維修技師)嚴格鑑定真偽，挑選品項都皆有九五成新以上， 不販售有明顯使用感的名錶。選貨認真嚴謹。 從大銘鑑定手錶的專業著手，查出手錶的原始年份，當時的材質和外觀，致力恢復手錶的原貌。從機芯維修，外殼整復，配件及零件的尋找和訂製。 堅持使用原廠零件，堅持多工序的手工清洗加上洗錶機清洗，手工組裝，遵從瑞士傳統工法，在機芯的保養，堅持傳統的工序和原裝的料件，能如同原廠原裝的進廠維修，延長您愛錶的使用年限。</p>
+          </div>
+        </article>
       </div>
-      <div class="form-links">
-        <a href="#">註冊帳號</a>
-        <a href="#">忘記密碼</a>
-      </div>
-      <button type="submit" class="btn btn-primary">
-        <span>登入</span>
-        <img src="../images/LoginPage images/827_9178.svg" alt="Login icon">
-      </button>
-    </form>
-    <div class="social-logins">
-      <button class="btn btn-social">
-        <span>使用<span class="font-serif">Google</span>繼續</span>
-        <img src="../images/LoginPage images/827_9184.svg" alt="Google Icon">
-      </button>
-      <button class="btn btn-social">
-        <span>使用<span class="font-serif">Apple</span>繼續</span>
-        <img src="../images/LoginPage images/827_9191.svg" alt="Apple Icon">
-      </button>
     </div>
   </div>
 </main>
@@ -581,9 +502,9 @@
       <a href="#">聯絡我們</a>
     </nav>
     <div class="social-links">
-      <a href="#"><img src="../assets/images/I537_9492_46_657_44_264.svg" alt="X Icon"></a>
-      <a href="#"><img src="../assets/images/I537_9492_46_658_44_276.svg" alt="Instagram Icon"></a>
-      <a href="#"><img src="../assets/images/I537_9492_46_659_44_270.svg" alt="Facebook Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_657_44_264.svg" alt="X Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_658_44_276.svg" alt="Instagram Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_659_44_270.svg" alt="Facebook Icon"></a>
     </div>
     <p class="copyright">@2025 WeTrade. All rights reserved.</p>
   </div>

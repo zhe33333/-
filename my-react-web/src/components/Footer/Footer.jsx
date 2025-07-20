@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 
 // Assuming these icons are available in the specified path
-import xIcon from '../../assets/images/I127_2329_46_657_44_264.svg';
-import instagramIcon from '../../assets/images/I127_2329_46_658_44_276.svg';
-import facebookIcon from '../../assets/images/I127_2329_46_659_44_270.svg';
+import icon1 from '../../assets/vector---0.svg';
+import icon2 from '../../assets/vector---0-1.svg';
+import icon3 from '../../assets/vector---0-2.svg';
 
 const Footer = () => {
   return (
@@ -17,9 +17,9 @@ const Footer = () => {
           <Link to="/contact">聯絡我們</Link>
         </nav>
         <div className="social-links">
-          <a href="https://x.com" aria-label="X"><img src={xIcon} alt="X icon" /></a>
-          <a href="https://instagram.com" aria-label="Instagram"><img src={instagramIcon} alt="Instagram icon" /></a>
-          <a href="https://facebook.com" aria-label="Facebook"><img src={facebookIcon} alt="Facebook icon" /></a>
+          <a href="#" aria-label="Icon 1"><img src={icon1} alt="Icon 1" /></a>
+          <a href="#" aria-label="Icon 2"><img src={icon2} alt="Icon 2" /></a>
+          <a href="#" aria-label="Icon 3"><img src={icon3} alt="Icon 3" /></a>
         </div>
         <p className="copyright">@2025 WeTrade. All rights reserved.</p>
       </div>

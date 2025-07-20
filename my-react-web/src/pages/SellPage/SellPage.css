@@ -46,7 +46,7 @@
 
       /* Layout */
       --container-max-width: 1920px;
-      --content-max-width: 1760px;
+      --content-max-width: 1840px;
     }
 
 .page-content {
@@ -57,7 +57,7 @@
     color: var(--color-text-light);
     z-index: 1;
     min-height: 100vh;
-    padding: 0 120px;
+    padding: 0 60px;
     box-sizing: border-box;
 }
 
@@ -86,7 +86,7 @@
 .listing-form-section .container {
     max-width: var(--content-max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 120px;
 }
 .breadcrumbs {
   display: flex;
