@@ -28,10 +28,10 @@ const Header = () => {
   ];
   const membershipItems = [
     { name: "登入", path: "#" },
-    { name: "登出", path: "/logout" },
-    { name: "訊息", path: "/messages" },
-    { name: "鑑定", path: "/appraise" },
-    { name: "管理商品", path: "/manage-products" },
+    { name: "登出", path: "#" },
+    { name: "訊息", path: "#" },
+    { name: "鑑定", path: "#" },
+    { name: "管理商品", path: "#" },
   ];
 
   return (
@@ -167,12 +167,27 @@ const Header = () => {
               />
             </svg>
             {isMembershipDropdownOpen && (
-              <div className="dropdown-menu">
-                {membershipItems.map((item) => (
-                  <Link to={item.path} className="dropdown-item" key={item.name}>
-                    {item.name}
-                  </Link>
-                ))}
+              <div className="dropdown-menu" key="membership-dropdown-menu">
+                <>
+                  {membershipItems.map((item) => {
+                    if (item.name === "登入") {
+                      return (
+                        <a
+                          href="/public/Login Page.html"
+                          className="dropdown-item"
+                          key={item.name}
+                        >
+                          {item.name}
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link to={item.path} className="dropdown-item" key={item.name}>
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </>
               </div>
             )}
           </div>

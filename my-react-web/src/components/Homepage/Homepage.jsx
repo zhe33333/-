@@ -326,10 +326,10 @@ const Homepage = () => {
 
             <div className="partners-grid" ref={partnersGridRef}>
               {partnerStores.map((store, index) => (
-                <Link to="/partner" key={index} className="partner-card">
+                <a href="/Partner Page.html" key={index} className="partner-card">
                   <img src={store.image} alt={store.name} />
                   <h3>{store.name}</h3>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -337,7 +337,7 @@ const Homepage = () => {
           {/* Magazine Section */}
           <div className="magazine-section">
             <div className="magazine-grid">
-              <div className="magazine-card large">
+              <a href="/Magazine Page.html" className="magazine-card large">
                 <img
                   src={magazineCover}
                   alt="Magazine Cover Faded"
@@ -354,8 +354,8 @@ const Homepage = () => {
                     現代、時尚、故事性強，將腕錶視為一種生活態度的展現，將手錶融入文化與生活。
                   </p>
                 </div>
-              </div>
-              <div className="magazine-card medium">
+              </a>
+              <a href="/Magazine Page.html" className="magazine-card medium">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/f9b32689f7103ee325660c5a28d2043446a118f3?width=754"
                   alt="WatchTime Magazine"
@@ -372,8 +372,8 @@ const Homepage = () => {
                     全面的市場評測指標，客觀、務實、數據化，以詳盡的實測報告和市場新聞為核心。
                   </p>
                 </div>
-              </div>
-              <div className="magazine-card medium">
+              </a>
+              <a href="/Magazine Page.html" className="magazine-card medium">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed823eff9882c1fc164b3f518ef9d4b6140a925c?width=714"
                   alt="Watch Magazine"
@@ -388,7 +388,7 @@ const Homepage = () => {
                   <h3>城邦國際名表 (IWW)</h3>
                   <p>華語圈的權威百科，嚴謹、專業、經典，深入探討製錶工藝與市場動態。</p>
                 </div>
-              </div>
+              </a>
             </div>
             <img src={bigWatch} alt="Big Watch" className="big-watch-image" />
           </div>

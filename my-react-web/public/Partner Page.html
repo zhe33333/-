@@ -17,13 +17,8 @@
         background-color: #121721;
         border-bottom: 1px solid #888;
         padding: 16px 40px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
         z-index: 999;
         box-sizing: border-box;
-        transform: translateZ(0); /* Force a new stacking context */
     }
 
     .header-content {
@@ -94,7 +89,15 @@
         font-size: 20px;
         font-family: var(--font-sans);
         outline: none;
-        display: none; /* Initially hidden */
+        display: none; /* Hidden by default, shown when .search-area.active */
+    }
+
+    .search-area.active .search-input {
+        display: block;
+    }
+
+    .search-area.active .search-placeholder {
+        display: none;
     }
 
     .search-input::placeholder {
@@ -149,13 +152,17 @@
         border: 1px solid #CBCBCB;
         border-radius: 8px;
         padding: 8px 0;
-        display: none; /* Initially hidden */
+        display: none; /* Hidden by default, shown when .dropdown-active */
         flex-direction: column;
         gap: 4px;
         z-index: 1000;
         width: 100%;
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
+    }
+
+    .nav-item.dropdown-active .dropdown-menu {
+        display: flex;
     }
 
     .dropdown-item {
@@ -229,8 +236,8 @@
 
 /* CSS for section section:partners */
 .main-content {
-  padding-top: 100px;
-  padding-bottom:16px;
+  padding-top: 0; /* Removed extra top padding */
+  padding-bottom:24px;
 }
 
 .breadcrumb {
@@ -294,14 +301,14 @@
 .partner-name {
   font-family: 'Noto Serif', serif;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.2;
 }
 
 .partner-description {
   font-family: 'Noto Serif', serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.3;
 }
 
@@ -324,7 +331,7 @@
 .site-footer {
   background-color: var(--bg-dark);
   border-top: 1px solid #cbcbcb;
-  padding: 30px 0;
+  padding: 16px 0;
 }
 
 .footer-container {
@@ -381,52 +388,53 @@
   }
 }
   </style>
-  <script src="assets/js/MagazinePage.js" defer></script>
+  <script src="assets/js/Partner Page.js" defer></script>
 </head>
 <body>
-<header class="header">
-  <div class="header-content">
-    <div class="brand-section">
-      <a href="/" class="brand-logo-container">
-        <!-- 註釋：品牌圖示，路徑需要根據實際情況調整 -->
-        <img src="../src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
-        <span class="brand-name">WeTrade</span>
-      </a>
-    </div>
-
-    <div class="search-area">
-      <span class="search-placeholder">搜尋</span>
-      <input type="text" class="search-input" placeholder="搜尋..." />
-      <div class="search-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15.5 14H14.71L14.43 13.73C15.444 12.5541 16.0012 11.0527 16 9.5C16 8.21442 15.6188 6.95772 14.9046 5.8888C14.1903 4.81988 13.1752 3.98676 11.9874 3.49479C10.7997 3.00282 9.49279 2.87409 8.23192 3.1249C6.97104 3.3757 5.81285 3.99477 4.90381 4.90381C3.99477 5.81285 3.3757 6.97104 3.1249 8.23192C2.87409 9.49279 3.00282 10.7997 3.49479 11.9874C3.98676 13.1752 4.81988 14.1903 5.8888 14.9046C6.95772 15.6188 8.21442 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="white" />
-        </svg>
+<div class="page-container">
+  <header class="header">
+    <div class="header-content">
+      <div class="brand-section">
+        <a href="/" class="brand-logo-container">
+          <!-- 註釋：品牌圖示，路徑需要根據實際情況調整 -->
+          <img src="../src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
+          <span class="brand-name">WeTrade</span>
+        </a>
       </div>
-    </div>
 
-    <nav class="main-navigation">
-      <!-- 註釋：服務項目下拉選單 -->
-      <div class="nav-item services">
-        <span>服務項目</span>
-        <div class="dropdown-menu">
-          <a href="/thumbnails" class="dropdown-item">買錶</a>
-          <a href="/sell" class="dropdown-item">賣錶</a>
-          <a href="#" class="dropdown-item">換錶</a>
-          <a href="#" class="dropdown-item">租錶</a>
-          <a href="#" class="dropdown-item">鑑定</a>
+      <div class="search-area">
+        <span class="search-placeholder">搜尋</span>
+        <input type="text" class="search-input" placeholder="搜尋..." />
+        <div class="search-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 14H14.71L14.43 13.73C15.444 12.5541 16.0012 11.0527 16 9.5C16 8.21442 15.6188 6.95772 14.9046 5.8888C14.1903 4.81988 13.1752 3.98676 11.9874 3.49479C10.7997 3.00282 9.49279 2.87409 8.23192 3.1249C6.97104 3.3757 5.81285 3.99477 4.90381 4.90381C3.99477 5.81285 3.3757 6.97104 3.1249 8.23192C2.87409 9.49279 3.00282 10.7997 3.49479 11.9874C3.98676 13.1752 4.81988 14.1903 5.8888 14.9046C6.95772 15.6188 8.21442 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="white" />
+          </svg>
         </div>
       </div>
-      <div class="nav-item nav-with-icon">
-        <span>收藏</span>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clipPath="url(#clip0_663_5724)">
-                <path d="M16.43 2.75019C16.4688 2.75019 16.5071 2.74116 16.5418 2.7238C16.5765 2.70644 16.6067 2.68124 16.63 2.65019C16.647 2.61422 16.6557 2.57495 16.6557 2.53519C16.6557 2.49543 16.647 2.45616 16.63 2.42019L16 0.340192C15.9652 0.236701 15.8975 0.147443 15.8072 0.0860487C15.717 0.0246549 15.6091 -0.00549932 15.5 0.000191698H8.50002C8.39099 -0.00549932 8.28309 0.0246549 8.1928 0.0860487C8.10252 0.147443 8.03481 0.236701 8.00002 0.340192L7.30002 2.42019C7.28309 2.45616 7.27431 2.49543 7.27431 2.53519C7.27431 2.57495 7.28309 2.61422 7.30002 2.65019C7.32331 2.68124 7.3535 2.70644 7.38822 2.7238C7.42293 2.74116 7.46121 2.75019 7.50002 2.75019H16.43ZM7.57002 21.2502C7.53121 21.2502 7.49293 21.2592 7.45822 21.2766C7.4235 21.2939 7.39331 21.3191 7.37002 21.3502C7.35309 21.3862 7.3443 21.4254 7.3443 21.4652C7.3443 21.505 7.35309 21.5442 7.37002 21.5802L8.00002 23.6602C8.03481 23.7637 8.10252 23.8529 8.1928 23.9143C8.28309 23.9757 8.39099 24.0059 8.50002 24.0002H15.5C15.604 23.9994 15.7051 23.9663 15.7894 23.9053C15.8736 23.8444 15.9368 23.7587 15.97 23.6602L16.67 21.5802C16.687 21.5442 16.6957 21.505 16.6957 21.4652C16.6957 21.4254 16.687 21.3862 16.67 21.3502C16.6467 21.3191 16.6165 21.2939 16.5818 21.2766C16.5471 21.2592 16.5088 21.2502 16.47 21.2502H7.57002ZM17.5 4.00019H6.50002C5.83698 4.00019 5.20109 4.26358 4.73225 4.73242C4.26341 5.20127 4.00002 5.83715 4.00002 6.50019V17.5002C3.98823 18.0851 4.1819 18.6555 4.54734 19.1123C4.91278 19.5691 5.42683 19.8833 6.00002 20.0002L17.5 20.0502C17.8326 20.0503 18.1618 19.984 18.4684 19.8552C18.775 19.7265 19.0529 19.5378 19.2857 19.3004C19.5185 19.0629 19.7016 18.7814 19.8243 18.4723C19.9469 18.1632 20.0067 18.8327 20 17.5002V6.50019C20 5.83715 19.7366 5.20127 19.2678 4.73242C18.7989 4.26358 18.1631 4.00019 17.5 4.00019ZM16 12.6802L12 16.8102C11.9522 16.8586 11.888 16.8871 11.82 16.8902C11.786 16.891 11.7522 16.8843 11.721 16.8704C11.6899 16.8566 11.6622 16.836 11.64 16.8102L7.64002 12.6802C7.39274 12.4577 7.19336 12.1872 7.05401 11.8852C6.91466 11.5832 6.83827 11.256 6.82949 10.9235C6.82072 10.5909 6.87974 10.2601 7.00297 9.95118C7.12619 9.64223 7.31103 9.3616 7.54623 9.1264C7.78143 8.8912 8.06206 8.70636 8.37101 8.58314C8.67996 8.45991 9.01077 8.40089 9.34328 8.40967C9.67578 8.41844 10.003 8.49483 10.305 8.63418C10.6071 8.77353 10.8776 8.97291 11.1 9.22019L11.6 9.72019C11.6479 9.76376 11.7103 9.7879 11.775 9.7879C11.8397 9.7879 11.9021 9.76376 11.95 9.72019L12.45 9.22019C12.6772 8.9871 12.9481 8.80103 13.2472 8.67262C13.5463 8.5442 13.8677 8.47596 14.1932 8.47178C14.5187 8.4676 14.8418 8.52757 15.1441 8.64826C15.4464 8.76895 15.7219 8.948 15.955 9.17519C16.1881 9.40238 16.3742 9.67325 16.5026 9.97235C16.631 10.2714 16.6993 10.5929 16.7034 10.9184C16.7076 11.2438 16.6476 11.5669 16.5269 11.8692C16.4063 12.1715 16.2272 12.4471 16 12.6802Z" fill="white" />
-            </g>
-            <defs>
-                <clipPath id="clip0_663_5724">
-                    <rect width="24" height="24" fill="white" />
-                </clipPath>
-            </defs>
+
+      <nav class="main-navigation">
+        <!-- 註釋：服務項目下拉選單 -->
+        <div class="nav-item services">
+          <span>服務項目</span>
+          <div class="dropdown-menu">
+            <a href="/thumbnails" class="dropdown-item">買錶</a>
+            <a href="/sell" class="dropdown-item">賣錶</a>
+            <a href="#" class="dropdown-item">換錶</a>
+            <a href="#" class="dropdown-item">租錶</a>
+            <a href="#" class="dropdown-item">鑑定</a>
+          </div>
+        </div>
+        <div class="nav-item nav-with-icon">
+          <span>收藏</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clipPath="url(#clip0_663_5724)">
+                  <path d="M16.43 2.75019C16.4688 2.75019 16.5071 2.74116 16.5418 2.7238C16.5765 2.70644 16.6067 2.68124 16.63 2.65019C16.647 2.61422 16.6557 2.57495 16.6557 2.53519C16.6557 2.49543 16.647 2.45616 16.63 2.42019L16 0.340192C15.9652 0.236701 15.8975 0.147443 15.8072 0.0860487C15.717 0.0246549 15.6091 -0.00549932 15.5 0.000191698H8.50002C8.39099 -0.00549932 8.28309 0.0246549 8.1928 0.0860487C8.10252 0.147443 8.03481 0.236701 8.00002 0.340192L7.30002 2.42019C7.28309 2.45616 7.27431 2.49543 7.27431 2.53519C7.27431 2.57495 7.28309 2.61422 7.30002 2.65019C7.32331 2.68124 7.3535 2.70644 7.38822 2.7238C7.42293 2.74116 7.46121 2.75019 7.50002 2.75019H16.43ZM7.57002 21.2502C7.53121 21.2502 7.49293 21.2592 7.45822 21.2766C7.4235 21.2939 7.39331 21.3191 7.37002 21.3502C7.35309 21.3862 7.3443 21.4254 7.3443 21.4652C7.3443 21.505 7.35309 21.5442 7.37002 21.5802L8.00002 23.6602C8.03481 23.7637 8.10252 23.8529 8.1928 23.9143C8.28309 23.9757 8.39099 24.0059 8.50002 24.0002H15.5C15.604 23.9994 15.7051 23.9663 15.7894 23.9053C15.8736 23.8444 15.9368 23.7587 15.97 23.6602L16.67 21.5802C16.687 21.5442 16.6957 21.505 16.6957 21.4652C16.6957 21.4254 16.687 21.3862 16.67 21.3502C16.6467 21.3191 16.6165 21.2939 16.5818 21.2766C16.5471 21.2592 16.5088 21.2502 16.47 21.2502H7.57002ZM17.5 4.00019H6.50002C5.83698 4.00019 5.20109 4.26358 4.73225 4.73242C4.26341 5.20127 4.00002 5.83715 4.00002 6.50019V17.5002C3.98823 18.0851 4.1819 18.6555 4.54734 19.1123C4.91278 19.5691 5.42683 19.8833 6.00002 20.0002L17.5 20.0502C17.8326 20.0503 18.1618 19.984 18.4684 19.8552C18.775 19.7265 19.0529 19.5378 19.2857 19.3004C19.5185 19.0629 19.7016 18.7814 19.8243 18.4723C19.9469 18.1632 20.0067 18.8327 20 17.5002V6.50019C20 5.83715 19.7366 5.20127 19.2678 4.73242C18.7989 4.26358 18.1631 4.00019 17.5 4.00019ZM16 12.6802L12 16.8102C11.9522 16.8586 11.888 16.8871 11.82 16.8902C11.786 16.891 11.7522 16.8843 11.721 16.8704C11.6899 16.8566 11.6622 16.836 11.64 16.8102L7.64002 12.6802C7.39274 12.4577 7.19336 12.1872 7.05401 11.8852C6.91466 11.5832 6.83827 11.256 6.82949 10.9235C6.82072 10.5909 6.87974 10.2601 7.00297 9.95118C7.12619 9.64223 7.31103 9.3616 7.54623 9.1264C7.78143 8.8912 8.06206 8.70636 8.37101 8.58314C8.67996 8.45991 9.01077 8.40089 9.34328 8.40967C9.67578 8.41844 10.003 8.49483 10.305 8.63418C10.6071 8.77353 10.8776 8.97291 11.1 9.22019L11.6 9.72019C11.6479 9.76376 11.7103 9.7879 11.775 9.7879C11.8397 9.7879 11.9021 9.76376 11.95 9.72019L12.45 9.22019C12.6772 8.9871 12.9481 8.80103 13.2472 8.67262C13.5463 8.5442 13.8677 8.47596 14.1932 8.47178C14.5187 8.4676 14.8418 8.52757 15.1441 8.64826C15.4464 8.76895 15.7219 8.948 15.955 9.17519C16.1881 9.40238 16.3742 9.67325 16.5026 9.97235C16.631 10.2714 16.6993 10.5929 16.7034 10.9184C16.7076 11.2438 16.6476 11.5669 16.5269 11.8692C16.4063 12.1715 16.2272 12.4471 16 12.6802Z" fill="white" />
+          </g>
+          <defs>
+              <clipPath id="clip0_663_5724">
+                  <rect width="24" height="24" fill="white" />
+              </clipPath>
+          </defs>
         </svg>
       </div>
       <div class="nav-item nav-with-icon">
@@ -459,55 +467,56 @@
       </div>
     </nav>
   </div>
-</header>
-<main id="section-partners" class="main-content">
-  <div class="content-wrapper">
-    <nav class="breadcrumb">
-      <a href="#" class="breadcrumb-link">合作廠商</a>
-      <span class="breadcrumb-separator">/</span>
-      <span class="breadcrumb-current">廠商簡介</span>
-    </nav>
-    <div class="partners-grid-container">
-      <div class="partners-grid">
-        <article class="partner-card">
-          <img src="images/2f80cb6eec1532e4eb034379b4433aee9602e30d.png" alt="王永昌鐘錶行" class="partner-image">
-          <div class="partner-info">
-            <h3 class="partner-name">王永昌鐘錶行</h3>
-            <p class="partner-description">王永昌鐘錶成立於1978年，店主王進龍先生自16歲即開始接觸鐘錶，40多年來，懷抱著將每一支錶都視為珍寶的心情，埋首鑽研維修客人所交託的種種難題。 熱情加上極其敏銳的心思與巧手，讓王進龍先生磨練出媲美瑞士頂尖錶匠的精湛技藝，上千只超過兩百多年歷史的老錶，在他手中延續新生，他不僅是亞洲古董 錶維修的第一把交椅，更是台灣第一位有能力獨自製造出陀飛機芯的鐘錶大師。</p>
-          </div>
-        </article>
-        <article class="partner-card">
-          <div class="partner-info">
-            <p class="partner-description">「最好的做生意方式，就是要將顧客當成自己朋友一樣招呼，要真心對待，友誼才能細水長流。」打破普羅大眾對於高級錶店的既定印象，金光鐘錶冀求打造一間結合鐘錶、甜點美食、香醇咖啡、帥氣重機、活動展覽……等多元領域複合概念的嶄新型態空間。店面外觀所揭示的「人文、選物、風格、咖啡」四大方向，展現出不同一般的大器格局。 金光鐘錶總經理表示：「從時尚的角度來解讀 Mix & Match，有著『混搭』的意思，而這間概念店，也就是要讓消費者走進來，『混搭』出他所需要的，不只是實體上的商品，更有非實體的服務與優質感受。」</p>
-          <h3 class="partner-name">金光鐘錶Mix & Match</h3>
-          </div>
-          <img src="images/ed244e17d0935ba27523544be11bfa104bd53eb1.png" alt="金光鐘錶Mix & Match" class="partner-image">
-        </article>
-        <article class="partner-card">
-          <img src="images/1ca9015fb46f3c47d6a45e4da54dac4080d18068.png" alt="大銘高級腕錶" class="partner-image">
-          <div class="partner-info">
-            <h3 class="partner-name">大銘高級腕錶</h3>
-            <p class="partner-description">二手美錶都經由兩位以上專業估價師(維修技師)嚴格鑑定真偽，挑選品項都皆有九五成新以上， 不販售有明顯使用感的名錶。選貨認真嚴謹。 從大銘鑑定手錶的專業著手，查出手錶的原始年份，當時的材質和外觀，致力恢復手錶的原貌。從機芯維修，外殼整復，配件及零件的尋找和訂製。 堅持使用原廠零件，堅持多工序的手工清洗加上洗錶機清洗，手工組裝，遵從瑞士傳統工法，在機芯的保養，堅持傳統的工序和原裝的料件，能如同原廠原裝的進廠維修，延長您愛錶的使用年限。</p>
-          </div>
-        </article>
+  </header>
+  <main id="section-partners" class="main-content">
+    <div class="content-wrapper">
+      <nav class="breadcrumb">
+        <a href="#" class="breadcrumb-link">合作廠商</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">廠商簡介</span>
+      </nav>
+      <div class="partners-grid-container">
+        <div class="partners-grid">
+          <article class="partner-card">
+            <img src="images/2f80cb6eec1532e4eb034379b4433aee9602e30d.png" alt="王永昌鐘錶行" class="partner-image">
+            <div class="partner-info">
+              <h3 class="partner-name">王永昌鐘錶行</h3>
+              <p class="partner-description">王永昌鐘錶成立於1978年，店主王進龍先生自16歲即開始接觸鐘錶，40多年來，懷抱著將每一支錶都視為珍寶的心情，埋首鑽研維修客人所交託的種種難題。 熱情加上極其敏銳的心思與巧手，讓王進龍先生磨練出媲美瑞士頂尖錶匠的精湛技藝，上千只超過兩百多年歷史的老錶，在他手中延續新生，他不僅是亞洲古董 錶維修的第一把交椅，更是台灣第一位有能力獨自製造出陀飛機芯的鐘錶大師。</p>
+            </div>
+          </article>
+          <article class="partner-card">
+            <div class="partner-info">
+              <p class="partner-description">「最好的做生意方式，就是要將顧客當成自己朋友一樣招呼，要真心對待，友誼才能細水長流。」打破普羅大眾對於高級錶店的既定印象，金光鐘錶冀求打造一間結合鐘錶、甜點美食、香醇咖啡、帥氣重機、活動展覽……等多元領域複合概念的嶄新型態空間。店面外觀所揭示的「人文、選物、風格、咖啡」四大方向，展現出不同一般的大器格局。 金光鐘錶總經理表示：「從時尚的角度來解讀 Mix & Match，有著『混搭』的意思，而這間概念店，也就是要讓消費者走進來，『混搭』出他所需要的，不只是實體上的商品，更有非實體的服務與優質感受。」</p>
+            <h3 class="partner-name">金光鐘錶Mix & Match</h3>
+            </div>
+            <img src="images/ed244e17d0935ba27523544be11bfa104bd53eb1.png" alt="金光鐘錶Mix & Match" class="partner-image">
+          </article>
+          <article class="partner-card">
+            <img src="images/1ca9015fb46f3c47d6a45e4da54dac4080d18068.png" alt="大銘高級腕錶" class="partner-image">
+            <div class="partner-info">
+              <h3 class="partner-name">大銘高級腕錶</h3>
+              <p class="partner-description">二手美錶都經由兩位以上專業估價師(維修技師)嚴格鑑定真偽，挑選品項都皆有九五成新以上， 不販售有明顯使用感的名錶。選貨認真嚴謹。 從大銘鑑定手錶的專業著手，查出手錶的原始年份，當時的材質和外觀，致力恢復手錶的原貌。從機芯維修，外殼整復，配件及零件的尋找和訂製。 堅持使用原廠零件，堅持多工序的手工清洗加上洗錶機清洗，手工組裝，遵從瑞士傳統工法，在機芯的保養，堅持傳統的工序和原裝的料件，能如同原廠原裝的進廠維修，延長您愛錶的使用年限。</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-  </div>
-</main>
-<footer id="section-footer" class="site-footer">
-  <div class="footer-container">
-    <nav class="footer-nav">
-      <a href="#">隱私權政策</a>
-      <a href="#">網站地圖</a>
-      <a href="#">聯絡我們</a>
-    </nav>
-    <div class="social-links">
-      <a href="#"><img src="assets/images/I537_9492_46_657_44_264.svg" alt="X Icon"></a>
-      <a href="#"><img src="assets/images/I537_9492_46_658_44_276.svg" alt="Instagram Icon"></a>
-      <a href="#"><img src="assets/images/I537_9492_46_659_44_270.svg" alt="Facebook Icon"></a>
+  </main>
+  <footer id="section-footer" class="site-footer">
+    <div class="footer-container">
+      <nav class="footer-nav">
+        <a href="#">隱私權政策</a>
+        <a href="#">網站地圖</a>
+        <a href="#">聯絡我們</a>
+      </nav>
+      <div class="social-links">
+        <a href="#"><img src="assets/images/I537_9492_46_657_44_264.svg" alt="X Icon"></a>
+        <a href="#"><img src="assets/images/I537_9492_46_658_44_276.svg" alt="Instagram Icon"></a>
+        <a href="#"><img src="assets/images/I537_9492_46_659_44_270.svg" alt="Facebook Icon"></a>
+      </div>
+      <p class="copyright">@2025 WeTrade. All rights reserved.</p>
     </div>
-    <p class="copyright">@2025 WeTrade. All rights reserved.</p>
-  </div>
-</footer>
+  </footer>
+</div>
 </body>
 </html>
