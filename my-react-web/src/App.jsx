@@ -15,6 +15,11 @@ import "./styles/App.css";
 
 const theme = createTheme();
 
+// Placeholder components for the new routes
+const PrivacyPage = () => <div><h1>隱私權政策</h1><p>這是隱私權政策頁面。</p></div>;
+const SitemapPage = () => <div><h1>網站地圖</h1><p>這是網站地圖頁面。</p></div>;
+const ContactPage = () => <div><h1>聯絡我們</h1><p>這是聯絡我們頁面。</p></div>;
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -27,6 +32,9 @@ function App() {
             <Route path="/purchase" element={<PurchasePage />} />
             <Route path="/sell" element={<SellPage />} />
             <Route path="/thumbnails" element={<ThumbnailsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </div>
         <Footer />

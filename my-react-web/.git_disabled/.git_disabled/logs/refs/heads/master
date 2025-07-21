@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 a0694c2df055993bba4a2124c1853742ae118d7e zhe33333 <a0905183052@gmail.com> 1751874182 +0800	commit (initial): feat: Initialize repository and add all project files
+a0694c2df055993bba4a2124c1853742ae118d7e 467689faa98b82008dd9d92162c43cd0b0a4c09e zhe33333 <a0905183052@gmail.com> 1751874730 +0800	commit: style: Add margin to categories header
+467689faa98b82008dd9d92162c43cd0b0a4c09e 87b7a9669e1ee693f34102dd20fc67b4a811cb5e zhe33333 <a0905183052@gmail.com> 1751875303 +0800	commit: style: Apply border-radius to category cards
