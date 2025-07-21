@@ -173,7 +173,7 @@ const Header = () => {
                     if (item.name === "登入") {
                       return (
                         <a
-                          href="/public/Login Page.html"
+                          href="/LoginPage.html"
                           className="dropdown-item"
                           key={item.name}
                         >

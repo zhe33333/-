@@ -23,8 +23,21 @@ const Homepage = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(bannerImages.length - 1);
+
+  // Refs for the scrollable grids
   const partnersGridRef = useRef(null);
   const brandsGridRef = useRef(null);
+
+  // State for drag-to-scroll functionality
+  const [isPartnersDragging, setIsPartnersDragging] = useState(false);
+  const [partnersStartX, setPartnersStartX] = useState(0);
+  const [partnersScrollLeft, setPartnersScrollLeft] = useState(0);
+  const [hasPartnersDragged, setHasPartnersDragged] = useState(false); // New state for drag detection
+
+  const [isBrandsDragging, setIsBrandsDragging] = useState(false);
+  const [brandsStartX, setBrandsStartX] = useState(0);
+  const [brandsScrollLeft, setBrandsScrollLeft] = useState(0);
+  const [hasBrandsDragged, setHasBrandsDragged] = useState(false); // New state for drag detection
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,6 +51,96 @@ const Homepage = () => {
       clearInterval(interval);
     };
   }, [currentIndex, bannerImages.length]);
+
+  // Global mouseup listener to stop dragging if mouse is released outside the element
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      setIsPartnersDragging(false);
+      setIsBrandsDragging(false);
+    };
+
+    window.addEventListener('mouseup', handleGlobalMouseUp);
+
+    return () => {
+      window.removeEventListener('mouseup', handleGlobalMouseUp);
+    };
+  }, []);
+
+  // Drag-to-scroll handlers for partnersGrid
+  const handlePartnersMouseDown = (e) => {
+    setIsPartnersDragging(true);
+    setPartnersStartX(e.pageX - partnersGridRef.current.offsetLeft);
+    setPartnersScrollLeft(partnersGridRef.current.scrollLeft);
+    setHasPartnersDragged(false); // Reset drag flag on mouse down
+  };
+
+  const handlePartnersMouseLeave = () => {
+    setIsPartnersDragging(false);
+  };
+
+  const handlePartnersMouseUp = () => {
+    setIsPartnersDragging(false);
+    if (hasPartnersDragged) {
+      // Prevent click event on child links after a drag
+      const preventClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.removeEventListener('click', preventClick, true); // Remove self after one use
+      };
+      window.addEventListener('click', preventClick, true); // Use capture phase
+    }
+  };
+
+  const handlePartnersMouseMove = (e) => {
+    if (!isPartnersDragging) return;
+    e.preventDefault();
+    const x = e.pageX - partnersGridRef.current.offsetLeft;
+    const walk = (x - partnersStartX) * 1; // Reduced sensitivity
+    partnersGridRef.current.scrollLeft = partnersScrollLeft - walk;
+
+    // If mouse has moved more than a threshold, consider it a drag
+    if (Math.abs(walk) > 3) { // 3 pixels threshold
+      setHasPartnersDragged(true);
+    }
+  };
+
+  // Drag-to-scroll handlers for brandsGrid
+  const handleBrandsMouseDown = (e) => {
+    setIsBrandsDragging(true);
+    setBrandsStartX(e.pageX - brandsGridRef.current.offsetLeft);
+    setBrandsScrollLeft(brandsGridRef.current.scrollLeft);
+    setHasBrandsDragged(false); // Reset drag flag on mouse down
+  };
+
+  const handleBrandsMouseLeave = () => {
+    setIsBrandsDragging(false);
+  };
+
+  const handleBrandsMouseUp = () => {
+    setIsBrandsDragging(false);
+    if (hasBrandsDragged) {
+      // Prevent click event on child links after a drag
+      const preventClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.removeEventListener('click', preventClick, true); // Remove self after one use
+      };
+      window.addEventListener('click', preventClick, true); // Use capture phase
+    }
+  };
+
+  const handleBrandsMouseMove = (e) => {
+    if (!isBrandsDragging) return;
+    e.preventDefault();
+    const x = e.pageX - brandsGridRef.current.offsetLeft;
+    const walk = (x - brandsStartX) * 1; // Reduced sensitivity
+    brandsGridRef.current.scrollLeft = brandsScrollLeft - walk;
+
+    // If mouse has moved more than a threshold, consider it a drag
+    if (Math.abs(walk) > 3) { // 3 pixels threshold
+      setHasBrandsDragged(true);
+    }
+  };
 
   const brandsTop = [
     "Breitling\n百年靈",
@@ -232,7 +335,14 @@ const Homepage = () => {
               </div>
             </div>
 
-            <div className="brands-grid-container" ref={brandsGridRef}>
+            <div
+              className="brands-grid-container"
+              ref={brandsGridRef}
+              onMouseDown={handleBrandsMouseDown}
+              onMouseLeave={handleBrandsMouseLeave}
+              onMouseUp={handleBrandsMouseUp}
+              onMouseMove={handleBrandsMouseMove}
+            >
               <div className="brands-row">
                 {brandsTop.map((brand, index) => (
                   <Link to="/thumbnails" key={index}>
@@ -324,13 +434,22 @@ const Homepage = () => {
               </div>
             </div>
 
-            <div className="partners-grid" ref={partnersGridRef}>
-              {partnerStores.map((store, index) => (
-                <a href="/Partner Page.html" key={index} className="partner-card">
-                  <img src={store.image} alt={store.name} />
-                  <h3>{store.name}</h3>
-                </a>
-              ))}
+            <div
+              className="partners-grid-container"
+              ref={partnersGridRef}
+              onMouseDown={handlePartnersMouseDown}
+              onMouseLeave={handlePartnersMouseLeave}
+              onMouseUp={handlePartnersMouseUp}
+              onMouseMove={handlePartnersMouseMove}
+            >
+              <div className="partners-row">
+                {partnerStores.map((store, index) => (
+                  <a href="/Partner Page.html" key={index} className="partner-card">
+                    <img src={store.image} alt={store.name} />
+                    <h3>{store.name}</h3>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

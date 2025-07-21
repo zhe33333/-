@@ -107,7 +107,7 @@
 }
 
 .search-input::placeholder {
-    color: white; /* Changed placeholder color to white */
+    color: white !important; /* Ensure placeholder color is white */
 }
 
 .search-icon {

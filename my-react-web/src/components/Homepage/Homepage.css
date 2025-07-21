@@ -267,10 +267,20 @@
   gap: 80px;
   padding: var(--spacing-sm) 0;
   width: max-content;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  white-space: nowrap; /* Prevent items from wrapping */
+  cursor: grab; /* Indicate draggable */
+  scroll-snap-type: x mandatory; /* Enable scroll snapping */
 }
 
 .brands-row::-webkit-scrollbar {
   display: none;
+}
+
+.brands-row > * {
+  scroll-snap-align: start; /* Align items for scroll snapping */
 }
 
 /* Features Section */
@@ -343,20 +353,28 @@
   margin: 0 auto;
 }
 
-.partners-grid {
+.partners-grid-container {
   display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-sm);
-  width: 100%;
+  flex-direction: column; /* Changed to column to match brands-grid-container */
+  gap: var(--spacing-md); /* Added gap to match brands-grid-container */
   overflow-x: auto;
-  padding-bottom: var(--spacing-md);
-  /* Hide scrollbar */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE 10+ */
+  cursor: grab; /* Indicate draggable */
+  scroll-snap-type: x mandatory; /* Enable scroll snapping */
 }
 
-.partners-grid::-webkit-scrollbar { /* WebKit */
+.partners-grid-container::-webkit-scrollbar { /* WebKit */
   display: none;
+}
+
+.partners-row {
+  display: flex;
+  align-items: flex-start; /* Retained from old partners-grid */
+  gap: var(--spacing-sm);
+  width: max-content; /* Ensure content overflows */
+  padding-bottom: var(--spacing-md); /* Retained from old partners-grid */
+  white-space: nowrap; /* Prevent items from wrapping */
 }
 
 .partner-card {
@@ -366,6 +384,7 @@
   gap: var(--spacing-md);
   border-radius: var(--radius-sm);
   flex-shrink: 0;
+  scroll-snap-align: start; /* Align items for scroll snapping */
 }
 
 .partner-card img {
@@ -430,11 +449,11 @@
   z-index: 2;
   width: 302px;
   height: 370px;
-  transform: translate(8px, 80px);
+  /* transform: translate(32px, 80px); */ /* Removed transform */
 }
 
 .magazine-card.medium:nth-of-type(2):hover {
-  transform: translate(8px, 80px) scale(1.1);
+  /* transform: translate(32px, 80px) scale(1.1); */ /* Removed transform */
 }
 
 .magazine-card.medium:last-of-type {
@@ -443,11 +462,11 @@
   z-index: 3;
   width: 286px;
   height: 398px;
-  transform: translate(10px, 216px);
+  /* transform: translate(10px, 216px); */ /* Removed transform */
 }
 
 .magazine-card.medium:last-of-type:hover {
-  transform: translate(10px, 216px) scale(1.1);
+  /* transform: translate(10px, 216px) scale(1.1); */ /* Removed transform */
 }
 
 .magazine-card img {
@@ -657,6 +676,11 @@
     font-size: 24px;
   }
 
+  .magazine-section {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items when stacked */
+  }
+
   .magazine-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
@@ -667,6 +691,12 @@
     grid-column: 1;
     width: 100%;
     height: 250px;
+    transform: none !important; /* Remove all transforms on smaller screens */
+  }
+
+  .big-watch-image {
+    width: 100%; /* Make image full width when stacked */
+    max-width: 400px; /* Limit max width for better appearance */
   }
 }
 
