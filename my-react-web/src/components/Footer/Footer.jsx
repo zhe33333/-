@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 
 // Assuming these icons are available in the specified path
-import instagramIcon from '../../assets/--icon.svg';
-import facebookIcon from '../../assets/---icon.svg';
-import twitterIcon from '../../assets/--icon-1.svg';
+import instagramIcon from '../../assets/assets/State=Hover.png';
+import facebookIcon from '../../assets/assets/State=Hover-1.png';
+import twitterIcon from '../../assets/assets/State=Hover-2.png';
 
 const Footer = () => {
   return (
