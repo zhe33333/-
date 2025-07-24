@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import './PurchasePage.css';
 
 const PurchasePage = () => {
@@ -16,7 +14,6 @@ const PurchasePage = () => {
 
   return (
     <>
-      <Header />
       <div className="page-content">
         <main id="product-details" className="product-details-section">
           <div className="container">
@@ -82,7 +79,6 @@ const PurchasePage = () => {
           </div>
         </main>
       </div>
-      <Footer />
     </>
   );
 };

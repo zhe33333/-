@@ -17,7 +17,7 @@
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 1024px;
+  height: 1080px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -107,6 +107,7 @@
 
 .hero-line-gradient {
   width: 100%;
+  height: 1080px;
   text-align: center;
   font-family: var(--font-primary);
   font-size: 52px;
@@ -449,11 +450,11 @@
   z-index: 2;
   width: 302px;
   height: 370px;
-  /* transform: translate(32px, 80px); */ /* Removed transform */
+  transform: translate(32px, 80px);
 }
 
 .magazine-card.medium:nth-of-type(2):hover {
-  /* transform: translate(32px, 80px) scale(1.1); */ /* Removed transform */
+  transform: translate(32px, 80px) scale(1.1);
 }
 
 .magazine-card.medium:last-of-type {
@@ -462,11 +463,11 @@
   z-index: 3;
   width: 286px;
   height: 398px;
-  /* transform: translate(10px, 216px); */ /* Removed transform */
+  transform: translate(10px, 216px);
 }
 
 .magazine-card.medium:last-of-type:hover {
-  /* transform: translate(10px, 216px) scale(1.1); */ /* Removed transform */
+  transform: translate(10px, 216px) scale(1.1); 
 }
 
 .magazine-card img {
