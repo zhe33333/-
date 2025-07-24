@@ -3,75 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>登入頁面 - WeTrade</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/LoginPage.css">
+  <title>Generated Page</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeTrade - 相關雜誌頁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/Magazine.css">
   <style id="sections-styles">
-    /* Global CSS Variables */
-    :root {
-      --color-cta-button: #195ce5;
-      --color-base-white: #fff;
-      --color-light-gray: #cbcbcb;
-      --color-brand-secondary: #243347;
-      --color-brand-primary: #121721;
-      --color-button-hover: #5b84c5;
-      --color-text-muted: #94a6c7;
-      --color-text-light: #fff;
-      --color-secondary: #243347;
-      --color-text-dark: #000;
-      --border-color-light: #fff;
-      --border-color-medium: #616161;
-      --color-accent-1: #94a6c7;
-      --color-accent-3: #94a6c7;
-      --color-primary-dark: #121721;
-      --color-secondary-dark: #243347;
-      --color-tertiary-dark: #243347;
-
-
-      /* Typography */
-      --font-serif: "Noto Serif", -apple-system, Roboto, Helvetica, sans-serif;
-      --font-sans: "Noto Sans TC", -apple-system, Roboto, Helvetica, sans-serif;
-      --font-family-serif: "Noto Serif", serif;
-      --font-family-sans: "Noto Sans TC", sans-serif;
-      --font-family-inter: "Inter", sans-serif;
-
-
-      /* Spacing */
-      --spacing-xs: 4px;
-      --spacing-sm: 8px;
-      --spacing-md: 16px;
-      --spacing-lg: 24px;
-      --spacing-xl: 32px;
-      --spacing-2xl: 48px;
-      --spacing-3xl: 64px;
-      --spacing-4xl: 80px;
-
-      /* Border radius */
-      --radius-sm: 8px;
-      --radius-md: 12px;
-
-      /* Shadows */
-      --shadow-card: 2px 6px 8px 0px rgba(0, 0, 0, 0.25);
-
-      /* Layout */
-      --container-max-width: 1920px;
-      --content-max-width: 1760px;
-    }
-
-    /* Header CSS */
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/background.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+/* Header CSS */
     .header {
         background-color: #121721;
         border-bottom: 1px solid #888;
         padding: 16px 40px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
         z-index: 999;
         box-sizing: border-box;
-        transform: translateZ(0); /* Force a new stacking context */
     }
 
     .header-content {
@@ -190,26 +144,31 @@
         border: 1px solid #CBCBCB;
     }
 
-    .membership {
-        border-radius: 8px;
-        padding: 5px 8px;
-    }
+.membership {
+    border-radius: 8px;
+    padding: 5px 8px;
+}
 
     .dropdown-menu {
         position: absolute;
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba(131, 131, 131, 0.1);
+        background-color: rgba(176, 176, 176, 0.1);
         border: 1px solid #CBCBCB;
         border-radius: 8px;
         padding: 8px 0;
-        display: none; /* Initially hidden */
+        display: none; /* Hidden by default, shown when .dropdown-active */
         flex-direction: column;
         gap: 4px;
         z-index: 1000;
         width: 100%;
-        backdrop-filter: blur(50%);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-item.dropdown-active .dropdown-menu {
+        display: flex;
     }
 
     .dropdown-item {
@@ -281,260 +240,207 @@
       }
     }
 
-/* CSS for section section:product-details */
-.product-details-section {
-    padding-top: 108px;
-    padding-bottom: 16px;
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-  .product-details-section .container {
+/* CSS for section section:main */
+.main-section {
+    padding: 128px 32px 0px;
+}
+
+.breadcrumb-nav {
+    padding: 4px 0;
+    margin-bottom: 4px;
+}
+
+.breadcrumb-nav ol {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .breadcrumbs {
-    display: flex;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-  }
-  .breadcrumbs a {
-    color: var(--color-text-muted);
-  }
-  .breadcrumbs span {
-    color: var(--color-text-light);
-  }
-  .product-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    align-items: start;
-  }
-  .product-image-container {
-    position: relative;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-  }
-  .main-product-image {
-    width: 100%;
-    height: auto;
-  }
-  .favorite-button {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  .favorite-button img {
-    width: 48px;
-    height: 48px;
-  }
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .product-header {
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-text-light);
-  }
-  .product-header h1 {
-    font-family: 'Noto Serif', serif;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 1.3;
-    margin: 0 0 8px 0;
-    color: var(--color-text-light); /* Added to ensure white text */
-  }
-  .product-price {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 600;
-    font-size: 32px;
-    margin: 0;
-    color: var(--color-text-light); /* Added to ensure white text */
-  }
-  .product-specs, .product-specs-extra {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    font-family: 'Noto Serif', serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--color-text-light); /* Added to ensure white text */
-  }
-  .spec-row {
-    display: flex;
-    gap: 16px;
-  }
-  .spec-row dt {
-    flex-shrink: 0;
-    width: 55px;
-  }
-  .spec-row dd {
-    margin: 0;
-  }
-  .cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .btn {
-    width: 100%;
-    padding: 8px;
-    border-radius: 8px;
-    border: none;
-    font-family: 'Noto Serif', serif;
-    font-size: 24px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-  }
-  .btn-primary {
-    background-color: #195CE5;
-    color: var(--color-text-light);
-  }
-  .btn-secondary {
-    background-color: var(--color-text-light);
-    color: #000000;
-  }
-  .thumbnail-gallery {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    overflow-x: auto;
-    margin-top: 32px;
-  }
-  .thumbnail {
-    width: calc(15% - 10px);
-    min-width: 60px;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-  }
-  .other-info-accordion {
-    display: flex;
-    flex-direction: column;
-  }
-  .accordion-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 16px 0;
-    border: 1px solid var(--color-text-light);
-    border-left: none;
-    border-right: none;
-    background: none;
+    gap: 8px;
+    font-family: 'Noto Serif', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.breadcrumb-nav a {
+    color: var(--color-text-secondary);
+}
+
+.breadcrumb-nav .separator {
     color: var(--color-text-muted);
+}
+
+.breadcrumb-nav li[aria-current="page"] {
+    color: var(--color-text-primary);
+}
+
+.content-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 80px;
+}
+
+.text-column {
+    padding: 0 32px;
+    flex: 1;
+}
+
+.text-column-right {
+    align-self: center;
+    transform: translateY(-80px);
+}
+
+.article-title {
     font-family: 'Noto Serif', serif;
+    font-weight: 400;
     font-size: 24px;
-    cursor: pointer;
-  }
-  .accordion-content {
-    padding-top: 24px;
-  }
-  @media (max-width: 1024px) {
-    .product-grid {
-      grid-template-columns: 1fr;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: var(--color-text-primary);
+}
+
+.article-title span {
+    font-size: 24px;
+}
+
+.article-description {
+    font-family: 'Noto Serif', serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    margin: 0px;
+}
+
+.image-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    z-index: 1;
+    flex: 1;
+}
+
+.magazine-gallery {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+.magazine-img {
+    position: absolute;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.magazine-1 {
+    box-shadow: none;
+    width: 280px;
+    height: 280px;
+    top: 160px;
+    left: 0;
+    z-index: 1;
+}
+
+.magazine-2 {
+    width: 180px;
+    height: 260px;
+    top: 0;
+    right: 20px;
+    z-index: 2;
+}
+
+@media (max-width: 1200px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
     }
-    .product-details-section .container {
-      gap: 48px;
+    .image-column {
+        order: -1; /* Move images to the top on smaller screens */
+        min-height: auto;
     }
-  }
-  @media (max-width: 768px) {
-    .product-header h1 { font-size: 32px; }
-    .product-price { font-size: 36px; }
-    .product-specs, .product-specs-extra, .accordion-header { font-size: 18px; }
-    .btn { font-size: 24px; }
-    .spec-row { gap: 16px; }
-  }
+    .text-column {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .magazine-gallery {
+        transform: scale(0.8);
+        height: 540px;
+    }
+    .text-column {
+        padding: 0 10px;
+    }
+    .article-title {
+        font-size: 28px;
+    }
+    .article-description {
+        font-size: 18px;
+    }
+}
 
 /* CSS for section section:footer */
 .site-footer {
-      background-color: var(--color-primary-dark);
-      border-top: 1px solid var(--color-text-light);
-      padding: 8px 0;
-      margin-top: auto;
-    }
-    .footer-container {
-      max-width: 1920px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-    }
-    .footer-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 80px;
-      flex-wrap: wrap;
-    }
-    .footer-nav a {
-      color: var(--color-text-light);
-      font-family: var(--font-family-sans);
-      font-size: 16px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
+    background-color: var(--color-background-dark);
+    border-top: 1px solid var(--border-color);
+    padding: 16px 24px;
+}
 
-    .footer-nav a:hover {
-      color: var(--color-cta-button);
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 56px; /* Calculated from figma (7732-7676) */
-    }
-    .social-links a {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
-    .social-links a:hover {
-      transform: scale(1.1);
-    }
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
+}
 
-    .social-links img {
-      width: 24px;
-      height: 24px;
-      vertical-align: middle; /* Prevents misalignment from transform */
-    }
-    .copyright {
-      color: var(--color-accent-1);
-      font-family: var(--font-family-serif);
-      font-size: 16px;
-      font-weight: 400;
-      margin: 0;
-    }
+.footer-nav a {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--color-text-primary);
+}
 
-    @media (max-width: 768px) {
-      .footer-nav {
+.social-links {
+    display: flex;
+    gap: 32px;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+}
+
+.copyright {
+    font-family: 'Noto Serif', serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-text-link);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-nav ul {
         gap: 20px;
         flex-direction: column;
-      }
-      .social-links {
-        gap: 32px;
-      }
+        align-items: center;
     }
+}
   </style>
-  <script src="assets/js/LoginPage.js" defer></script>
-</head>
+  </head>
 <body>
 <header class="header">
   <div class="header-content">
     <div class="brand-section">
       <a href="/" class="brand-logo-container">
         <!-- 註釋：品牌圖示，路徑需要根據實際情況調整 -->
-        <img src="../src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
+        <img src="assets/images/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
         <span class="brand-name">WeTrade</span>
       </a>
     </div>
@@ -554,8 +460,8 @@
       <div class="nav-item services">
         <span>服務項目</span>
         <div class="dropdown-menu">
-          <a href="/public/Thumbnails Page.html" class="dropdown-item">買錶</a>
-          <a href="/public/Sell Page.html" class="dropdown-item">賣錶</a>
+          <a href="/thumbnails" class="dropdown-item">買錶</a>
+          <a href="/sell" class="dropdown-item">賣錶</a>
           <a href="#" class="dropdown-item">換錶</a>
           <a href="#" class="dropdown-item">租錶</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -578,7 +484,7 @@
         <span>購物車</span>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_663_5728)">
-                <path d="M7.5 4.50183V6.00183H21.75V8.97112L20.0859 14.2518H7.02806L5.15306 0.75H0.75V2.25H3.84694L5.72194 15.7518H21.186L23.25 9.20184V4.50183H7.5ZM8.29612 17.2661C7.50075 17.267 6.73822 17.5834 6.17581 18.1458C5.61339 18.7082 5.29703 19.4708 5.29612 20.2661C5.29612 21.0618 5.6122 21.8248 6.1748 22.3874C6.73741 22.9501 7.50048 23.2661 8.29612 23.2661C9.09177 23.2661 9.85484 22.9501 10.4174 22.3874C10.9801 21.8248 11.2961 21.0618 11.2961 20.2661C11.2953 19.4707 10.9789 18.7082 10.4165 18.1458C9.85406 17.5833 9.09151 17.267 8.29612 17.2661ZM8.29612 21.7661C7.99945 21.7661 7.70944 21.6782 7.46277 21.5133C7.2161 21.3485 7.02384 21.1142 6.91031 20.8402C6.79677 20.5661 6.76707 20.2645 6.82495 19.9735C6.88283 19.6825 7.02569 19.4152 7.23547 19.2055C7.44524 18.9957 7.71252 18.8528 8.00349 18.7949C8.29446 18.7371 8.59606 18.7668 8.87015 18.8803C9.14424 18.9938 9.37851 19.1861 9.54333 19.4328C9.70815 19.6794 9.79612 19.9695 9.79612 20.2661C9.79563 20.6638 9.63743 21.045 19.8562 21.3262C19.575 21.6074 19.1938 21.7656 18.7961 21.7661Z" fill="white" />
+                <path d="M7.5 4.50183V6.00183H21.75V8.97112L20.0859 14.2518H7.02806L5.15306 0.75H0.75V2.25H3.84694L5.72194 15.7518H21.186L23.25 9.20184V4.50183H7.5ZM8.29612 17.2661C7.50075 17.267 6.73822 17.5834 6.17581 18.1458C5.61339 18.7082 5.29703 19.4708 5.29612 20.2661C5.29612 21.0618 5.6122 21.8248 6.1748 22.3874C6.73741 22.9501 7.50048 23.2661 8.29612 23.2661C9.09177 23.2661 9.85484 22.9501 10.4174 22.3874C10.9801 21.8248 11.2961 21.0618 11.2961 20.2661C11.2953 19.4707 10.9789 18.7082 10.4165 18.1458C9.85406 17.5833 9.09151 17.267 8.29612 17.2661ZM8.29612 21.7661C7.99945 21.7661 7.70944 21.6782 7.46277 21.5133C7.2161 21.3485 7.02384 21.1142 6.91031 20.8402C6.79677 20.5661 6.76707 20.2645 6.82495 19.9735C6.88283 19.6825 7.02569 19.4152 7.23547 19.2055C7.44524 18.9957 7.71252 18.8528 8.00349 18.7949C8.29446 18.7371 8.59606 18.7668 8.87015 18.8803C9.14424 18.9938 9.37851 19.1861 9.54333 19.4328C9.70815 19.6794 9.79612 19.9695 9.79612 20.2661C9.79563 20.6638 9.63743 21.045 9.35624 21.3262C9.07504 21.6074 8.6938 21.7656 8.29612 21.7661ZM18.7961 17.2661C18.0008 17.267 17.2382 17.5834 16.6758 18.1458C16.1134 18.7082 15.797 19.4708 15.7961 20.2661C15.7961 21.0618 16.1122 21.8248 16.6748 22.3874C17.2374 22.9501 18.0005 23.2661 18.7961 23.2661C19.5918 23.2661 20.3548 22.9501 20.9174 22.3874C21.4801 21.8248 21.7961 21.0618 21.7961 20.2661C21.7953 19.4707 21.4789 18.7082 20.9165 18.1458C20.3541 17.5833 19.5915 17.267 18.7961 17.2661ZM18.7961 21.7661C18.4995 21.7661 18.2094 21.6782 17.9628 21.5133C17.7161 21.3485 17.5238 21.1142 17.4103 20.8402C17.2968 20.5661 17.2671 20.2645 17.3249 19.9735C17.3828 19.6825 17.5257 19.4152 17.7355 19.2055C17.9452 18.9957 18.2125 18.8528 18.5035 18.7949C18.7945 18.7371 19.0961 18.7668 19.3701 18.8803C19.6442 18.9938 19.8785 19.1861 20.0433 19.4328C20.2082 19.6794 20.2961 19.9695 20.2961 20.2661C20.2956 20.6638 20.1374 21.045 19.8562 21.3262C19.575 21.6074 19.1938 21.7656 18.7961 21.7661Z" fill="white" />
             </g>
             <defs>
                 <clipPath id="clip0_663_5728">
@@ -595,7 +501,7 @@
         </svg>
         <span>會員中心</span>
         <div class="dropdown-menu">
-          <a href="/LoginPage.html" class="dropdown-item">登入</a>
+          <a href="LoginPage.html" class="dropdown-item">登入</a>
           <a href="#" class="dropdown-item">登出</a>
           <a href="#" class="dropdown-item">訊息</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -605,68 +511,37 @@
     </nav>
   </div>
 </header>
-<main id="product-details" class="product-details-section">
-  <div class="container">
-    <nav class="breadcrumbs">
-      <a href="#">買錶</a>
-      <span>/</span>
-      <span>Rolex</span>
-    </nav>
+<main id="main-content" class="main-section">
+    <div class="container">
+        <nav class="breadcrumb">
+          <a href="#" class="breadcrumb-link">相關內容</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">雜誌內頁</span>
+        </nav>
+        <div class="content-grid">
+            <article class="text-column">
+                <h2 class="article-title">HODINKEE</h2>
+                <p class="article-description">
+                    過去的Hodinkee是什麼樣子的呢？它以來自藏家端的市場觀點、品牌歷史的深度介紹、以及款式的客觀評論等優質內容而備受讚譽，最重要的是，Hodinkee對於腕錶收藏文化有著一定程度的推動，它代表一群擁有出色品味、社經地位、並以此自豪的New Yorker的嗜好以及熱情所在。<br>對於一般人來說他們的內容是否有些距離感？是否不太容易理解？<br>這自是當然，因為無論學養知識或是經濟條件，擁有高級鐘錶本來就具有一定門檻，但這種hardcore的高度也因此讓Hodinkee創造出一種氛圍，成為具有號召力的傳媒品牌。
+                </p>
+            </article>
+            
+            <!--merged image-->
+            <div class="image-column">
+                <div class="magazine-gallery">
+                    <img src="images/a2f1b207144054d217551fbd392188ecfb87de6b.png" alt="Magazine cover 2" class="magazine-img magazine-2">
+                    <img src="images/HODINKEE雜誌圖.png" alt="Magazine cover 1" class="magazine-img magazine-1">
+                </div>
+            </div>
 
-    <div class="product-grid">
-      <div class="product-image-container">
-        <img src="assets/images/4aa23521a55aada8194a1b2ecf1292e74a2e1574.png" alt="Rolex Submariner Date 126610LN" class="main-product-image">
-        <button class="favorite-button">
-          <img src="assets/images/I223_1099_220_1343.svg" alt="收藏icon">
-        </button>
-      </div>
-
-      <div class="product-info">
-        <div class="product-header">
-          <h1>Rolex Submariner Date 126610LN<br>勞力士</h1>
-          <p class="product-price">NT $200000</p>
+            <article class="text-column text-column-right">
+                <h2 class="article-title">城邦國際名表 <span>(IWW)</span></h2>
+                <p class="article-description">
+                    International Wrist Watch為世界知名、已發行5種語言之專業名錶雜誌【城邦國際名表】為其唯一國際中文版人追逐永恆、想望永恆；但永恆誠不可得。<br>極緻之美，極緻之巧，都讓人類在現實之中，找到永恆的寄託。<br>精品名錶是現實世界中永恆的象徵，多少人在精品名錶中找到自我，享受人類究極的工藝技巧，無與倫比的傳世精品。<br>這一本「城邦國際名表」雜誌，就在述說這一理念，註解人類幾世紀以來，在鐘錶世界中，所發展出來的永恆、美麗境界。
+                </p>
+            </article>
         </div>
-
-        <dl class="product-specs">
-          <div class="spec-row"><dt>品牌:</dt><dd>Rolex 勞力士</dd></div>
-          <div class="spec-row"><dt>系列:</dt><dd>El Primero 系列</dd></div>
-          <div class="spec-row"><dt>款式:</dt><dd>男款</dd></div>
-          <div class="spec-row"><dt>型號:</dt><dd>5496P-001</dd></div>
-          <div class="spec-row"><dt>年分:</dt><dd>2014/08/30</dd></div>
-          <div class="spec-row"><dt>材質:</dt><dd>碳纖維</dd></div>
-          <div class="spec-row"><dt>保單:</dt><dd>具合作鑑定商保單</dd></div>
-        </dl>
-
-        <div class="cta-buttons">
-          <button class="btn btn-primary">立即購買 | 向賣家詢問</button>
-          <button class="btn btn-secondary">提出其他請求</button>
-        </div>
-      </div>
     </div>
-
-    <div class="thumbnail-gallery">
-      <img src="assets/images/c254081f1bf2c20392548110faae7ce29586435e.png" alt="Thumbnail 1" class="thumbnail">
-      <img src="assets/images/3743abb24af335c942d0dcab9b7a899f347247ae.png" alt="Thumbnail 2" class="thumbnail">
-      <img src="assets/images/efc2a96b6e96328b22790b0e5dfdfbc217581661.png" alt="Thumbnail 3" class="thumbnail">
-      <img src="assets/images/55b098553902301e5da4a2ffb7a6b8571cb1c08f.png" alt="Thumbnail 4" class="thumbnail">
-      <img src="assets/images/87dd572674e24267333badca3f13f8532b3abe0c.png" alt="Thumbnail 5" class="thumbnail">
-    </div>
-
-    <div class="other-info-accordion">
-      <button class="accordion-header">
-        <span>其他資訊</span>
-        <img src="assets/images/146_810.svg" alt="Toggle Info">
-      </button>
-      <div class="accordion-content">
-        <dl class="product-specs-extra">
-          <div class="spec-row"><dt>品牌:</dt><dd>Rolex 勞力士</dd></div>
-          <div class="spec-row"><dt>系列:</dt><dd>El Primero 系列</dd></div>
-          <div class="spec-row"><dt>款式:</dt><dd>男款</dd></div>
-          <div class="spec-row"><dt>型號:</dt><dd>5496P-001</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
 </main>
 <footer id="section-footer" class="site-footer">
   <div class="footer-container">
@@ -683,5 +558,54 @@
     <p class="copyright">@2025 WeTrade. All rights reserved.</p>
   </div>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // --- 服務項目下拉選單 ---
+  const servicesNavItem = document.querySelector(".nav-item.services");
+
+  // 滑鼠移入時顯示選單
+  servicesNavItem.addEventListener("mouseenter", () => {
+    servicesNavItem.classList.add("dropdown-active");
+  });
+
+  // 滑鼠移出時隱藏選單
+  servicesNavItem.addEventListener("mouseleave", () => {
+    servicesNavItem.classList.remove("dropdown-active");
+  });
+
+  // --- 會員中心下拉選單 ---
+  const membershipNavItem = document.querySelector(".nav-item.membership");
+
+  // 滑鼠移入時顯示選單
+  membershipNavItem.addEventListener("mouseenter", () => {
+    membershipNavItem.classList.add("dropdown-active");
+  });
+
+  // 滑鼠移出時隱藏選單
+  membershipNavItem.addEventListener("mouseleave", () => {
+    membershipNavItem.classList.remove("dropdown-active");
+  });
+
+  // --- 搜尋框點擊展開 ---
+  const searchArea = document.querySelector(".search-area");
+  const searchInput = searchArea.querySelector(".search-input");
+
+  searchArea.addEventListener("click", (e) => {
+    // 防止點擊輸入框時又觸發收合
+    if (e.target !== searchInput) {
+      searchArea.classList.add("active");
+      searchInput.focus();
+    }
+  });
+
+  // 點擊其他地方或輸入框失焦時收合
+  searchInput.addEventListener("blur", () => {
+    // 只有在輸入框為空時才收合
+    if (searchInput.value === "") {
+      searchArea.classList.remove("active");
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>會員中心</title>
+  <title>WeTrade - 上架登陸頁面</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/membership-page.css">
-  <style>
+  <link rel="stylesheet" href="assets/css/Sell Page.css">
+  <style id="sections-styles">
     /* Global CSS Variables */
     :root {
       --color-cta-button: #195ce5;
@@ -60,37 +60,18 @@
       --content-max-width: 1760px;
     }
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: var(--font-sans);
-        background-color: var(--color-primary-dark);
-        color: var(--color-text-light);
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
     /* Header CSS */
     .header {
         background-color: #121721;
         border-bottom: 1px solid #888;
         padding: 16px 40px;
-        position: sticky;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
         z-index: 999;
         box-sizing: border-box;
+        transform: translateZ(0); /* Force a new stacking context */
     }
 
     .header-content {
@@ -125,7 +106,7 @@
         font-weight: 500;
         font-size: 48px;
         color: var(--color-text-light);
-        line-height: 1;
+        line-height: 1; /* Adjust line-height to prevent extra space */
     }
 
     .search-area {
@@ -136,7 +117,7 @@
         border: 1px solid white;
         border-radius: 12px;
         padding: 4px 4px 4px 16px;
-        color: var(--color-text-light); /* Changed to light for consistency */
+        color: var(--color-text-medium);
         font-family: var(--font-sans);
         font-size: 20px;
         flex-shrink: 0;
@@ -161,11 +142,11 @@
         font-size: 20px;
         font-family: var(--font-sans);
         outline: none;
-        display: none;
+        display: none; /* Initially hidden */
     }
 
     .search-input::placeholder {
-        color: white
+        color: var(--color-text-medium);
     }
 
     .search-icon {
@@ -197,32 +178,30 @@
     }
 
     .nav-item:hover, .nav-item.dropdown-active {
-        background-color: rgba(18, 23, 33, 0.2);
-        backdrop-filter: blur(8px);
+        background-color: rgba(18, 23, 33, 0.1);
         border: 1px solid #CBCBCB;
     }
 
-.membership {
-    border-radius: 8px;
-    padding: 5px 8px;
-}
+    .membership {
+        background-color: var(--color-secondary);
+        border-radius: 8px;
+        padding: 5px 8px;
+    }
 
     .dropdown-menu {
         position: absolute;
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba(176, 176, 176, 0.1);
+        background-color: rgba(18, 23, 33, 0.1);
         border: 1px solid #CBCBCB;
         border-radius: 8px;
         padding: 8px 0;
-        display: none;
+        display: none; /* Initially hidden */
         flex-direction: column;
         gap: 4px;
         z-index: 1000;
         width: 100%;
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
     }
 
     .dropdown-item {
@@ -294,145 +273,273 @@
       }
     }
 
-    /* Main Section Styles */
-    .main-section {
-        display: flex;
-        padding: 32px 60px; /* Changed padding to 40px top/bottom, 60px left/right */
-        gap: auto;
-        flex-grow: 1;
-        justify-content: space-between;
-        align-items: flex-start; /* Align items to the start */
+    /* CSS for section section:listing-form */
+    .listing-form-section {
+      padding: 108px 0 32px; /* Adjusted padding-top to make space for the absolute header */
     }
-    .sidebar {
-        width: 160px;
-        flex-shrink: 0;
-        margin-top: auto; /* Center vertically */
-        margin-bottom: auto; /* Center vertically */
+    .breadcrumbs {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 16px;
+      font-family: var(--font-family-inter);
+      font-size: 16px;
+      font-weight: 500;
     }
-    .sidebar-nav {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .breadcrumbs a {
+      color: var(--color-accent-3);
     }
-    .sidebar-group {
-        padding: 16px 0;
-        align-items: center; /* Center horizontally */
+    .breadcrumbs span {
+      color: var(--color-accent-3);
     }
-    .sidebar-group:first-child {
-        border-bottom: 1px solid var(--color-light-gray);
+    .breadcrumbs a.active {
+      color: var(--color-text-light);
     }
-    .sidebar-nav li {
-        padding: 8px 8px;
-        display: flex;
-        justify-content: center; /* Added for horizontal centering */
-        align-items: center;
-        gap: 12px;
-        cursor: pointer;
-        font-size: 20px;
+
+    .listing-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-    .sidebar-nav li:hover {
-        background-color: rgba(18, 23, 33, 0.1); /* Adjusted hover color */
+
+    .form-grid-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: flex-start;
     }
-    .sidebar-nav li.active-sidebar-item {
-        border: 1px solid #ffffff;
-        border-radius: 4px;
+    .form-inputs-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 640px;
     }
-    .sidebar-nav img {
-        width: 24px;
-        height: 24px;
+    .form-title {
+      font-family: var(--font-family-serif);
+      font-size: 32px;
+      font-weight: 500;
+      margin: 0 0 8px 0;
     }
-    .center-content { /* New class for center section */
-        display: flex;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group label {
+      font-family: var(--font-family-serif);
+      font-size: 24px;
+      font-weight: 500;
+    }
+    .form-control {
+      background-color: var(--color-secondary-dark);
+      border-radius: 8px;
+      padding: 10px;
+      font-family: var(--font-family-serif);
+      font-size: 20px;
+      color: var(--color-text-muted);
+      border: none;
+      width: 100%;
+      box-sizing: border-box; /* to include padding in width */
+    }
+    textarea.form-control {
+      resize: vertical;
+    }
+    /* Style for placeholder text */
+    ::placeholder {
+      color: var(--color-text-muted);
+      opacity: 1; /* Firefox adds a lower opacity by default */
+    }
+    ::-ms-input-placeholder { /* Edge */
+      color: var(--color-text-muted);
+    }
+    .form-image-right {
+      flex: 1;
+      max-width: 480px;
+    }
+    .form-image-right img {
+      width: 100%;
+      height: auto;
+      transform: scaleX(-1); /* Equivalent to rotate(180deg) for a symmetrical image */
+    }
+
+    .form-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .options-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .option-button {
+      flex: 1;
+      background-color: var(--color-text-light);
+      color: var(--color-text-dark);
+      border: 1px solid var(--border-color-medium);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-family-serif);
+      font-size: 20px;
+      font-weight: 400;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .option-button:not(.selected):hover {
+      transform: translateY(-2px);
+      background-color: #f0f0f0; /* Slight gray for hover on unselected */
+    }
+.option-button.selected {
+  background-color: #195CE5;
+  color: #FFFFFF;
+  gap: 12px; /* a specific gap was removed, ensure it is consistent */
+}
+/* Ensure the icon color also changes if it's an SVG that can be manipulated with color */
+.option-button.selected img {
+  filter: brightness(0) invert(1);
+}
+    .option-button img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .price-section, .description-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .price-label, .description-label {
+      font-family: var(--font-family-serif);
+      font-size: 24px;
+      font-weight: 300;
+    }
+    .price-row {
+      display: flex;
+      gap: 24px;
+    }
+    .price-input {
+      flex: 1;
+      background-color: var(--color-tertiary-dark);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--color-text-light);
+      border: none;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .submit-button {
+      flex: 1;
+      background-color: #195CE5;
+      color: var(--color-text-light);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 24px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .submit-button:not(:disabled):hover {
+      background-color: var(--color-button-hover);
+      transform: translateY(-2px);
+    }
+
+    .submit-button:disabled {
+      background-color: #5B84C5;
+      cursor: not-allowed;
+    }
+    .description-input {
+      font-family: var(--font-family-inter);
+      font-size: 16px; /* 明確設定字體大小為 16px */
+      line-height: 1.5;
+    }
+
+    .upload-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .upload-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+    .upload-box {
+      width: 100%;
+      position: relative;
+      height: 390px;
+      border: 1px solid var(--border-color-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .upload-icon {
+      width: 163px;
+      height: 163px;
+    }
+    .upload-label {
+      margin: 0;
+      font-family: var(--font-family-inter);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--color-text-light);
+    }
+
+    @media (max-width: 1200px) {
+      .form-grid-top, .upload-section {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
-        flex-grow: 0; /* Prevent it from growing */
-        flex-shrink: 0; /* Prevent it from shrinking */
-        width: 200px; /* Adjust width as needed */
-    }
-    .avatar-section {
-        display: flex;
+      }
+      .form-inputs-left, .form-image-right {
+        max-width: 100%;
+      }
+      .options-row {
+        flex-wrap: wrap;
+      }
+      .option-button {
+        flex-basis: calc(50% - 16px);
+      }
+      .price-row {
         flex-direction: column;
-        align-items: center;
-        margin: 36px
-        
+      }
     }
-    .avatar-placeholder {
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        background-color: rgba(217, 217, 217, 0.2);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 4px 4px rgba(0,0,0,0.25);
-    }
-    .details-section {
-        flex-grow: 1;
-        display: flex;
+
+    @media (max-width: 768px) {
+      .options-row {
         flex-direction: column;
-        margin: 32px 24px 16px ;
-        gap: 16px;
-    }
-    .user-info h2 {
-        margin: 16px 0 0 0;
-        font-family: var(--font-serif);
-        font-size: 22px;
-        font-weight: 300;
-    }
-    .user-info p {
-        margin: 4px 0 0 0;
-        color: var(--color-text-muted);
+      }
+      .option-button {
+        flex-basis: 100%;
+      }
+      .upload-box {
+        height: 300px;
+      }
+      .upload-icon {
+        width: 100px;
+        height: 100px;
+      }
+      .upload-label {
+        margin-top: 120px;
         font-size: 16px;
-    }
-    .info-cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px 12px;
-    }
-    .card {
-        border: 1px solid var(--color-light-gray);
-        border-radius: 16px;
-        padding: 0 20px;
-        max-width: 520px;
-        height: auto;
-        min-height: 180px;
-        max-height: 240px;
-
-    }
-    .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-    .card-header h3 {
-        margin: 0;
-        display: flex;
-        gap: 8px;
-        font-size: 20px;
-        font-weight: 400;
+      }
     }
 
-    .info-label {
-        color: var(--color-text-muted);
-        font-weight: 200;
-        flex-shrink: 0;
-    }
-    
-    .info-value {
-        font-weight: 300;
-    }
-    .card-body p {
-        margin: 4px 0;
-        font-size: 16px;
-    }
-    .label {
-        color: var(--color-text-muted);
-    }
-
-    /* Footer CSS */
+    /* CSS for section section:footer */
     .site-footer {
       background-color: var(--color-primary-dark);
       border-top: 1px solid var(--color-text-light);
@@ -471,7 +578,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 56px;
+      gap: 56px; /* Calculated from figma (7732-7676) */
     }
     .social-links a {
       display: inline-block;
@@ -485,7 +592,7 @@
     .social-links img {
       width: 24px;
       height: 24px;
-      vertical-align: middle;
+      vertical-align: middle; /* Prevents misalignment from transform */
     }
     .copyright {
       color: var(--color-accent-1);
@@ -505,16 +612,17 @@
       }
     }
   </style>
+  <script src="assets/js/Sell Page.js" defer></script>
 </head>
 <body>
 <header class="header">
   <div class="header-content">
     <div class="brand-section">
-      <a href="/" class="brand-logo-container">
+      <div class="brand-logo-container">
         <!-- 註釋：品牌圖示，路徑需要根據實際情況調整 -->
-        <img src="../src/assets/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
+        <img src="assets/images/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
         <span class="brand-name">WeTrade</span>
-      </a>
+      </div>
     </div>
 
     <div class="search-area">
@@ -532,8 +640,8 @@
       <div class="nav-item services">
         <span>服務項目</span>
         <div class="dropdown-menu">
-          <a href="/thumbnails" class="dropdown-item">買錶</a>
-          <a href="/sell" class="dropdown-item">賣錶</a>
+          <a href="#" class="dropdown-item">買錶</a>
+          <a href="#" class="dropdown-item">賣錶</a>
           <a href="#" class="dropdown-item">換錶</a>
           <a href="#" class="dropdown-item">租錶</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -573,7 +681,7 @@
         </svg>
         <span>會員中心</span>
         <div class="dropdown-menu">
-          <a href="/login-page.html" class="dropdown-item">登入</a>
+          <a href="#" class="dropdown-item">登入</a>
           <a href="#" class="dropdown-item">登出</a>
           <a href="#" class="dropdown-item">訊息</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -583,94 +691,90 @@
     </nav>
   </div>
 </header>
-<main class="main-section">
-    <aside class="sidebar">
-        <div class="sidebar-group">
-            <ul class="sidebar-nav">
-                <li><img src="images/847_9403.svg" alt=""><span>訊息</span></li>
-                <li><img src="images/I847_9406_238_1414.svg" alt=""><span>購買</span></li>
-                <li><img src="images/I847_9409_238_1438.svg" alt=""><span>出售</span></li>
-                <li><img src="images/847_9412.svg" alt=""><span>交換</span></li>
-                <li><img src="images/847_9415.svg" alt=""><span>租賃</span></li>
-                <li><img src="images/847_9418.svg" alt=""><span>收藏</span></li>
-            </ul>
+<main id="section-listing-form" class="listing-form-section">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="#">賣錶</a>
+      <span>/</span>
+      <a href="#" class="active">商品登錄頁面</a>
+    </nav>
+
+    <form class="listing-form">
+      <div class="form-grid-top">
+        <div class="form-inputs-left">
+          <h2 class="form-title">錶款細節(輸入鐘錶品牌、型號、系列等)</h2>
+          <div class="form-group">
+            <label for="brand">品牌</label>
+            <input type="text" id="brand" name="brand" class="form-control" placeholder="Rolex">
+          </div>
+          <div class="form-group">
+            <label for="model">型號</label>
+            <input type="text" id="model" name="model" class="form-control" placeholder="5172G-001">
+          </div>
+          <div class="form-group">
+            <label for="year">製造年份</label>
+            <input type="text" id="year" name="year" class="form-control" placeholder="2018">
+          </div>
+          <div class="form-group">
+            <label for="condition">保存狀況</label>
+            <input type="text" id="condition" name="condition" class="form-control" placeholder="優良">
+          </div>
         </div>
-        <div class="sidebar-group">
-            <ul class="sidebar-nav">
-                <li><img src="images/I847_9422_27_83.svg" alt=""><span>個人資料</span></li>
-                <li><img src="images/847_9425.svg" alt=""><span>通知</span></li>
-                <li><img src="images/847_9428.svg" alt=""><span>登出</span></li>
-            </ul>
+        <div class="form-image-right">
+          <img src="assets/images/4ab4e1dd641fcd2d72d111999020d8736fa76d49.png" alt="Watch illustration">
         </div>
-    </aside>
-    <div class="center-content">
-        <section class="avatar-section">
-            <h2 style="font-weight: 600;">個人資料</h2>
-            <div class="avatar-placeholder">
-                <img src="images/I847_9434_238_1478.svg" alt="Upload">
-            </div>
-        </section>
-    </div>
-    <div class="details-section">
-        <div class="user-info">
-            <h2 style="color: white;">Donald Trump</h2>
-            <p>客戶編號:5678</p>
+      </div>
+
+      <div class="form-options">
+        <div class="options-row">
+          <button type="button" class="option-button selected">
+            <img src="assets/images/I537_9750_244_2065.svg" alt="">
+            <span>原版包裝盒及證明</span>
+          </button>
+          <button type="button" class="option-button">
+            <img src="assets/images/I537_9751_244_2072.svg" alt="">
+            <span>原版證明文件</span>
+          </button>
+          <button type="button" class="option-button">
+            <img src="assets/images/I537_9752_244_2079.svg" alt="">
+            <span>原版包裝盒</span>
+          </button>
+          <button type="button" class="option-button">
+            <img src="assets/images/I537_9753_244_2086.svg" alt="">
+            <span>合作鑑定商文件</span>
+          </button>
         </div>
-        <div class="info-cards">
-            <div class="card" data-card-type="address">
-                <div class="card-header">
-                    <h3>帳單地址:</h3>
-                    <img src="images/847_9445.svg" alt="Edit" class="edit-icon">
-                    <div class="edit-buttons" style="display: none;">
-                        <button class="save-button">儲存</button>
-                        <button class="cancel-button">取消</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><span class="label">名字:</span> <span class="value-display" data-field="firstName">-</span><input type="text" class="value-input" data-field="firstName" style="display: none;"></p>
-                    <p><span class="label">姓氏:</span> <span class="value-display" data-field="lastName">-</span><input type="text" class="value-input" data-field="lastName" style="display: none;"></p>
-                    <p><span class="label">街道:</span> <span class="value-display" data-field="street">-</span><input type="text" class="value-input" data-field="street" style="display: none;"></p>
-                    <p><span class="label">郵政編碼 地區:</span> <span class="value-display" data-field="zipCode">-</span><input type="text" class="value-input" data-field="zipCode" style="display: none;"></p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h3>使用谷歌|蘋果登入</h3>
-                    <img src="images/847_9469.svg" alt="Edit">
-                </div>
-            </div>
-            <div class="card" data-card-type="login">
-                <div class="card-header">
-                    <h3>登入資料:</h3>
-                    <img src="images/847_9474.svg" alt="Edit" class="edit-icon">
-                    <div class="edit-buttons" style="display: none;">
-                        <button class="save-button">儲存</button>
-                        <button class="cancel-button">取消</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><span class="label">帳號:</span> <span class="value-display" data-field="account">-</span><input type="text" class="value-input" data-field="account" style="display: none;"></p>
-                    <p><span class="label">密碼:</span> <span class="value-display" data-field="password">-</span><input type="password" class="value-input" data-field="password" style="display: none;"></p>
-                </div>
-            </div>
-            <div class="card" data-card-type="personal">
-                <div class="card-header">
-                    <h3>個人資料:</h3>
-                    <img src="images/847_9488.svg" alt="Edit" class="edit-icon">
-                    <div class="edit-buttons" style="display: none;">
-                        <button class="save-button">儲存</button>
-                        <button class="cancel-button">取消</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><span class="label">性別:</span> <span class="value-display" data-field="gender">-</span><input type="text" class="value-input" data-field="gender" style="display: none;"></p>
-                    <p><span class="label">出生年月日:</span> <span class="value-display" data-field="dob">-</span><input type="text" class="value-input" data-field="dob" style="display: none;"></p>
-                    <p><span class="label">電話:</span> <span class="value-display" data-field="phone">-</span><input type="text" class="value-input" data-field="phone" style="display: none;"></p>
-                    <p><span class="label">職業:</span> <span class="value-input" data-field="occupation" style="display: none;"></span></p>
-                </div>
-            </div>
+        
+        <div class="price-section">
+          <label class="price-label">設置您的銷售價格</label>
+          <div class="price-row">
+            <input type="text" class="price-input" placeholder="NT$150,000">
+            <button type="submit" class="submit-button" disabled>放上拍賣選單</button>
+          </div>
         </div>
-    </div>
+
+        <div class="description-section">
+          <label for="description" class="description-label">提供有關您腕錶的更多資訊:</label>
+          <textarea id="description" name="description" class="form-control description-input" rows="4" placeholder="請輸入欲補充描述"></textarea>
+        </div>
+      </div>
+
+      <div class="upload-section">
+        <div class="upload-item">
+          <div class="upload-box">
+            <img src="assets/images/537_9774.svg" alt="Upload proof icon" class="upload-icon">
+          </div>
+          <p class="upload-label">上傳手錶相關證明</p>
+        </div>
+        <div class="upload-item">
+          <div class="upload-box">
+            <img src="assets/images/537_9779.svg" alt="Upload image icon" class="upload-icon">
+          </div>
+          <p class="upload-label">上傳手錶相關圖片</p>
+        </div>
+      </div>
+    </form>
+  </div>
 </main>
 <footer id="section-footer" class="site-footer">
   <div class="footer-container">
@@ -680,13 +784,12 @@
       <a href="#">聯絡我們</a>
     </nav>
     <div class="social-links">
-      <a href="#"><img src="images/I847_9509_46_657_44_264.svg" alt="X Icon"></a>
-      <a href="#"><img src="images/I847_9509_46_658_44_276.svg" alt="Instagram Icon"></a>
-      <a href="#"><img src="images/I847_9509_46_659_44_270.svg" alt="Facebook Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_657_44_264.svg" alt="X Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_658_44_276.svg" alt="Instagram Icon"></a>
+      <a href="#"><img src="assets/images/I537_9492_46_659_44_270.svg" alt="Facebook Icon"></a>
     </div>
     <p class="copyright">@2025 WeTrade. All rights reserved.</p>
   </div>
 </footer>
-  <script src="assets/js/membership-page.js" defer></script>
 </body>
 </html>
