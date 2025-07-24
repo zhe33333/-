@@ -2,18 +2,19 @@ import React, { useRef } from 'react';
 import './ThumbnailsPage.css';
 
 // Image paths
-const prevIcon = '/assets/images/I115_865_46_710.svg';
-const nextIcon = '/assets/images/I115_866_46_714.svg';
+const prevIcon = '/images/I115_865_46_710.svg';
+const nextIcon = '/images/I115_866_46_714.svg';
 const brandIcon = '/images/I827_9159_519_5718_27_384.svg';
 const searchIcon = '/images/I827_9159_578_24697_29_422.svg';
 const collectionIcon = '/images/I827_9159_519_5722_176_901.svg';
 const cartIcon = '/images/I827_9159_519_5723_176_959.svg';
 const membershipIcon = '/images/I827_9159_519_5724_27_318_27_83.svg';
-const filterIcon = '/assets/images/115_748.svg';
-const sortIcon = '/assets/images/115_750.png';
-const product1 = '/assets/images/2f499b663595501f987a52863560b290742d309e.png';
-const product2 = '/assets/images/85b91d09f9e0b79c17c21e2488b6f43ae1413576.png';
-const product3 = '/assets/images/478e70ace14223d4159039c69e788ac95ca49ff5.png';
+const filterIcon = '/src/assets/assets/filtericon.png';
+const sortIcon = '/src/assets/assets/sort-downicon.png';
+const product1 = '/src/assets/assets/watchimage1.png';
+const product2 = '/src/assets/assets/watchimage2.png';
+const product3 = '/src/assets/assets/watchimage3.png';
+const product4 = '/src/assets/assets/watchimage4.png';
 const xIcon = '/images/I827_9193_46_657_44_264.svg';
 const instagramIcon = '/images/I827_9193_46_658_44_276.svg';
 const facebookIcon = '/images/I827_9193_46_659_44_270.svg';
@@ -32,12 +33,12 @@ const ThumbnailsPage = () => {
   const products = [
     { id: 1, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product1 },
     { id: 2, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product2 },
-    { id: 3, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product1 },
-    { id: 4, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product3 },
+    { id: 3, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product3 },
+    { id: 4, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product4 },
     { id: 5, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product1 },
     { id: 6, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product2 },
-    { id: 7, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product1 },
-    { id: 8, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product3 },
+    { id: 7, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product3 },
+    { id: 8, name: 'PATEK PHILIPPE 百達翡麗<br>Calatrava 卡拉卓華系列', price: 'NT$:150000', image: product4 },
   ];
 
   return (
@@ -110,7 +111,7 @@ const ThumbnailsPage = () => {
             </div>
             <div className="product-grid">
               {products.map(product => (
-                <a href="/Purchase Page.html" key={product.id} className="product-card-link">
+                <a href="/-/Purchase Page.html" key={product.id} className="product-card-link">
                   <article className="product-card">
                     <img src={product.image} alt={product.name.replace(/<br>/g, ' ')} className="product-image" />
                     <div className="product-info">

@@ -27,7 +27,7 @@ const Header = () => {
     { name: "鑑定", path: "#" }  // Placeholder
   ];
   const membershipItems = [
-    { name: "登入", path: "#" },
+    { name: "登入", path: "#l" },
     { name: "登出", path: "#" },
     { name: "訊息", path: "#" },
     { name: "鑑定", path: "#" },
@@ -173,7 +173,7 @@ const Header = () => {
                     if (item.name === "登入") {
                       return (
                         <a
-                          href="/LoginPage.html"
+                          href="/-/LoginPage.html"
                           className="dropdown-item"
                           key={item.name}
                         >
