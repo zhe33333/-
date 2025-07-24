@@ -2,22 +2,22 @@ import React, { useRef } from 'react';
 import './ThumbnailsPage.css';
 
 // Image paths
-const prevIcon = '/images/I115_865_46_710.svg';
-const nextIcon = '/images/I115_866_46_714.svg';
-const brandIcon = '/images/I827_9159_519_5718_27_384.svg';
-const searchIcon = '/images/I827_9159_578_24697_29_422.svg';
-const collectionIcon = '/images/I827_9159_519_5722_176_901.svg';
-const cartIcon = '/images/I827_9159_519_5723_176_959.svg';
-const membershipIcon = '/images/I827_9159_519_5724_27_318_27_83.svg';
-const filterIcon = '/src/assets/assets/filtericon.png';
-const sortIcon = '/src/assets/assets/sort-downicon.png';
-const product1 = '/src/assets/assets/watchimage1.png';
-const product2 = '/src/assets/assets/watchimage2.png';
-const product3 = '/src/assets/assets/watchimage3.png';
-const product4 = '/src/assets/assets/watchimage4.png';
-const xIcon = '/images/I827_9193_46_657_44_264.svg';
-const instagramIcon = '/images/I827_9193_46_658_44_276.svg';
-const facebookIcon = '/images/I827_9193_46_659_44_270.svg';
+import prevIcon from '../../assets/I115_865_46_710.png';
+import nextIcon from '../../assets/I115_866_46_714.png';
+import brandIcon from '../../assets/I827_9159_519_5718_27_384.png';
+import searchIcon from '../../assets/I827_9159_578_24697_29_422.png';
+import collectionIcon from '../../assets/I827_9159_519_5722_176_901.png';
+import cartIcon from '../../assets/I827_9159_519_5723_176_959.png';
+import membershipIcon from '../../assets/I827_9159_519_5724_27_318_27_83.png';
+import filterIcon from '../../assets/assets/filtericon.png';
+import sortIcon from '../../assets/assets/sort-downicon.png';
+import product1 from '../../assets/assets/watchimage1.png';
+import product2 from '../../assets/assets/watchimage2.png';
+import product3 from '../../assets/assets/watchimage3.png';
+import product4 from '../../assets/assets/watchimage4.png';
+import xIcon from '../../assets/I827_9193_46_657_44_264.png';
+import instagramIcon from '../../assets/I827_9193_46_658_44_276.png';
+import facebookIcon from '../../assets/I827_9193_46_659_44_270.png';
 
 
 const ThumbnailsPage = () => {

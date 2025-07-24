@@ -297,17 +297,16 @@
     /* Main Section Styles */
     .main-section {
         display: flex;
-        padding: 32px 60px; /* Changed padding to 40px top/bottom, 60px left/right */
-        gap: auto;
+        padding: 32px 60px;
         flex-grow: 1;
+        align-items: flex-start;
         justify-content: space-between;
-        align-items: flex-start; /* Align items to the start */
     }
     .sidebar {
         width: 160px;
         flex-shrink: 0;
-        margin-top: auto; /* Center vertically */
-        margin-bottom: auto; /* Center vertically */
+        margin-top: auto;
+        margin-bottom: auto;
     }
     .sidebar-nav {
         list-style: none;
@@ -331,7 +330,7 @@
         font-size: 20px;
     }
     .sidebar-nav li:hover {
-        background-color: rgba(18, 23, 33, 0.1); /* Adjusted hover color */
+        background-color: rgba(18, 23, 33, 0.1);
     }
     .sidebar-nav li.active-sidebar-item {
         border: 1px solid #ffffff;
@@ -341,14 +340,14 @@
         width: 24px;
         height: 24px;
     }
-    .center-content { /* New class for center section */
+    .center-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 16px;
-        flex-grow: 0; /* Prevent it from growing */
-        flex-shrink: 0; /* Prevent it from shrinking */
-        width: 200px; /* Adjust width as needed */
+        width: 200px;
+        margin-left: auto; /* Push to center */
+        margin-right: auto; /* Push to center */
     }
     .avatar-section {
         display: flex;
@@ -372,7 +371,7 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-        margin: 32px 24px 16px ;
+        margin: auto 0 16px 24px; /* Adjusted margin to push it to the right and bottom */
         gap: 16px;
     }
     .user-info h2 {
@@ -389,7 +388,7 @@
     .info-cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 8px 12px;
+        gap: 24px; /* Reduced horizontal spacing to 24px as requested */
     }
     .card {
         border: 1px solid var(--color-light-gray);
@@ -411,7 +410,7 @@
         margin: 0;
         display: flex;
         gap: 8px;
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 400;
     }
 
@@ -426,7 +425,7 @@
     }
     .card-body p {
         margin: 4px 0;
-        font-size: 16px;
+        font-size: 20px;
     }
     .label {
         color: var(--color-text-muted);
@@ -510,7 +509,7 @@
 <header class="header">
   <div class="header-content">
     <div class="brand-section">
-      <a href="/" class="brand-logo-container">
+      <a href="/-/#/" class="brand-logo-container">
         <!-- 註釋：品牌圖示，路徑需要根據實際情況調整 -->
         <img src="assets/images/brand-icon.svg" alt="Brand Icon" class="brand-icon" />
         <span class="brand-name">WeTrade</span>
@@ -532,8 +531,8 @@
       <div class="nav-item services">
         <span>服務項目</span>
         <div class="dropdown-menu">
-          <a href="/thumbnails" class="dropdown-item">買錶</a>
-          <a href="/sell" class="dropdown-item">賣錶</a>
+          <a href="/-/#/thumbnails" class="dropdown-item">買錶</a>
+          <a href="/-/#/sell" class="dropdown-item">賣錶</a>
           <a href="#" class="dropdown-item">換錶</a>
           <a href="#" class="dropdown-item">租錶</a>
           <a href="#" class="dropdown-item">鑑定</a>
@@ -675,9 +674,9 @@
 <footer id="section-footer" class="site-footer">
   <div class="footer-container">
     <nav class="footer-nav">
-      <a href="#">隱私權政策</a>
-      <a href="#">網站地圖</a>
-      <a href="#">聯絡我們</a>
+      <a href="/-/#/privacy">隱私權政策</a>
+      <a href="/-/#/sitemap">網站地圖</a>
+      <a href="/-/#/contact">聯絡我們</a>
     </nav>
     <div class="social-links">
       <a href="#"><img src="images/I847_9509_46_657_44_264.svg" alt="X Icon"></a>
