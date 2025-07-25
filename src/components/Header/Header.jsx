@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import brandIcon from "../../assets/brand-icon.svg";
+import favoriteIcon from "../../assets/favoriteicon.png";
+import cartIcon from "../../assets/cil-cart.svg";
+import membershipIcon from "../../assets/membershipicon.png";
 
 const Header = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -101,20 +104,25 @@ const Header = () => {
             )}
           </div>
           
-          {/* 收藏和購物車圖標維持不變 */}
-          <div className="nav-item nav-with-icon"><span>收藏</span>{/* SVG icon */}</div>
-          <div className="nav-item nav-with-icon"><span>購物車</span>{/* SVG icon */}</div>
+          {/* 收藏和購物車圖標 */}
+          <div className="nav-item nav-with-icon">
+            <img src={favoriteIcon} alt="收藏" className="nav-icon" />
+            <span>收藏</span>
+          </div>
+          <div className="nav-item nav-with-icon">
+            <img src={cartIcon} alt="購物車" className="nav-icon" />
+            <span>購物車</span>
+          </div>
 
           <div
             className={`nav-item membership ${isMembershipDropdownOpen ? "dropdown-active" : ""}`}
             onMouseEnter={() => setIsMembershipDropdownOpen(true)}
             onMouseLeave={() => setIsMembershipDropdownOpen(false)}
           >
+            <img src={membershipIcon} alt="會員中心" className="nav-icon" />
             <span>會員中心</span>
-            {/* SVG icon */}
             {isMembershipDropdownOpen && (
               <div className="dropdown-menu">
-                {/* --- 修改重點四：這裡也使用統一的渲染函式 --- */}
                 {membershipItems.map(renderLink)}
               </div>
             )}
