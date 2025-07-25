@@ -4,20 +4,20 @@ import './ThumbnailsPage.css';
 // Image paths
 import prevIcon from '../../assets/I115_865_46_710.png';
 import nextIcon from '../../assets/I115_866_46_714.png';
-import brandIcon from '../../assets/I827_9159_519_5718_27_384.png';
-import searchIcon from '../../assets/I827_9159_578_24697_29_422.png';
-import collectionIcon from '../../assets/I827_9159_519_5722_176_901.png';
-import cartIcon from '../../assets/I827_9159_519_5723_176_959.png';
+import brandIcon from '../../assets/brandicon.png';
+import searchIcon from '../../assets/searchicon.png';
+import collectionIcon from '../../assets/favoriteicon.png';
+import cartIcon from '../../assets/carticon.png';
 import membershipIcon from '../../assets/I827_9159_519_5724_27_318_27_83.png';
-import filterIcon from '../../assets/assets/filtericon.png';
-import sortIcon from '../../assets/assets/sort-downicon.png';
+import filterIcon from '../../assets/filtericon.png';
+import sortIcon from '../../assets/sortIcon.png';
 import product1 from '../../assets/assets/watchimage1.png';
 import product2 from '../../assets/assets/watchimage2.png';
 import product3 from '../../assets/assets/watchimage3.png';
 import product4 from '../../assets/assets/watchimage4.png';
-import xIcon from '../../assets/I827_9193_46_657_44_264.png';
-import instagramIcon from '../../assets/I827_9193_46_658_44_276.png';
-import facebookIcon from '../../assets/I827_9193_46_659_44_270.png';
+import xIcon from '../../assets/xIcon.png';
+import instagramIcon from '../../assets/instagramIcon.png';
+import facebookIcon from '../../assets/facebookIcon.png';
 
 
 const ThumbnailsPage = () => {
