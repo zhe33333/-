@@ -265,7 +265,7 @@
 
 .brands-row {
   display: flex;
-  gap: 80px;
+  gap: 120px;
   padding: var(--spacing-sm) 0;
   width: max-content;
   overflow-x: auto;
@@ -274,6 +274,7 @@
   white-space: nowrap; /* Prevent items from wrapping */
   cursor: grab; /* Indicate draggable */
   scroll-snap-type: x mandatory; /* Enable scroll snapping */
+  padding-left: 24px;
 }
 
 .brands-row::-webkit-scrollbar {
