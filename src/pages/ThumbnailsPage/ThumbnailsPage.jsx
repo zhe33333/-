@@ -25,7 +25,7 @@ const ThumbnailsPage = () => {
 
   const handleScroll = (direction) => {
     if (categoriesScrollRef.current) {
-      const scrollAmount = direction === 'left' ? -300 : 300;
+      const scrollAmount = direction === 'left' ? -312 : 312; // 240px (card width) + 40px (gap)
       categoriesScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
