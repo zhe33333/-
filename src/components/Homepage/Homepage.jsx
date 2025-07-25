@@ -444,7 +444,7 @@ const Homepage = () => {
             >
               <div className="partners-row">
                 {partnerStores.map((store, index) => (
-                  <a href="/-/Partner Page.html" key={index} className="partner-card">
+                  <a href="/-/partner-page.html" key={index} className="partner-card">
                     <img src={store.image} alt={store.name} />
                     <h3>{store.name}</h3>
                   </a>
@@ -456,7 +456,7 @@ const Homepage = () => {
           {/* Magazine Section */}
           <div className="magazine-section">
             <div className="magazine-grid">
-              <a href="/-/Magazine Page.html" className="magazine-card large">
+              <a href="/-/magazine-page.html" className="magazine-card large">
                 <img
                   src={magazineCover}
                   alt="Magazine Cover Faded"
@@ -474,7 +474,7 @@ const Homepage = () => {
                   </p>
                 </div>
               </a>
-              <a href="/-/Magazine Page.html" className="magazine-card medium">
+              <a href="/-/magazine-page.html" className="magazine-card medium">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/f9b32689f7103ee325660c5a28d2043446a118f3?width=754"
                   alt="WatchTime Magazine"
@@ -492,7 +492,7 @@ const Homepage = () => {
                   </p>
                 </div>
               </a>
-              <a href="/-/Magazine Page.html" className="magazine-card medium">
+              <a href="/-/magazine-page.html" className="magazine-card medium">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed823eff9882c1fc164b3f518ef9d4b6140a925c?width=714"
                   alt="Watch Magazine"

@@ -111,7 +111,7 @@ const ThumbnailsPage = () => {
             </div>
             <div className="product-grid">
               {products.map(product => (
-                <a href="/-/Purchase Page.html" key={product.id} className="product-card-link">
+                <a href="/-/purchase-page.html" key={product.id} className="product-card-link">
                   <article className="product-card">
                     <img src={product.image} alt={product.name.replace(/<br>/g, ' ')} className="product-image" />
                     <div className="product-info">
