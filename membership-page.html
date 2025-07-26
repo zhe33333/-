@@ -431,6 +431,28 @@
         color: var(--color-text-muted);
     }
 
+    .editable-field .edit-input {
+        display: none; /* Hidden by default */
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #616161; /* Grey underline */
+        color: var(--color-text-light);
+        font-size: 20px;
+        font-family: var(--font-sans);
+        outline: none;
+        padding: 0;
+        margin-left: 8px; /* Adjust as needed for spacing */
+        width: auto; /* Allow input to size naturally */
+    }
+
+    .editable-field.edit-mode .display-text {
+        display: none; /* Hide static text in edit mode */
+    }
+
+    .editable-field.edit-mode .edit-input {
+        display: inline-block; /* Show input field in edit mode */
+    }
+
     /* Footer CSS */
     .site-footer {
       background-color: var(--color-primary-dark);
@@ -626,10 +648,10 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <p><span class="label">名字:</span> <span class="value-display" data-field="firstName">-</span><input type="text" class="value-input" data-field="firstName" style="display: none;"></p>
-                    <p><span class="label">姓氏:</span> <span class="value-display" data-field="lastName">-</span><input type="text" class="value-input" data-field="lastName" style="display: none;"></p>
-                    <p><span class="label">街道:</span> <span class="value-display" data-field="street">-</span><input type="text" class="value-input" data-field="street" style="display: none;"></p>
-                    <p><span class="label">郵政編碼 地區:</span> <span class="value-display" data-field="zipCode">-</span><input type="text" class="value-input" data-field="zipCode" style="display: none;"></p>
+                    <p class="editable-field"><span class="label">名字:</span> <span class="display-text" data-field="firstName">-</span><input type="text" class="edit-input" data-field="firstName"></p>
+                    <p class="editable-field"><span class="label">姓氏:</span> <span class="display-text" data-field="lastName">-</span><input type="text" class="edit-input" data-field="lastName"></p>
+                    <p class="editable-field"><span class="label">街道:</span> <span class="display-text" data-field="street">-</span><input type="text" class="edit-input" data-field="street"></p>
+                    <p class="editable-field"><span class="label">郵政編碼 地區:</span> <span class="display-text" data-field="zipCode">-</span><input type="text" class="edit-input" data-field="zipCode"></p>
                 </div>
             </div>
             <div class="card">
@@ -648,8 +670,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <p><span class="label">帳號:</span> <span class="value-display" data-field="account">-</span><input type="text" class="value-input" data-field="account" style="display: none;"></p>
-                    <p><span class="label">密碼:</span> <span class="value-display" data-field="password">-</span><input type="password" class="value-input" data-field="password" style="display: none;"></p>
+                    <p class="editable-field"><span class="label">帳號:</span> <span class="display-text" data-field="account">-</span><input type="text" class="edit-input" data-field="account"></p>
+                    <p class="editable-field"><span class="label">密碼:</span> <span class="display-text" data-field="password">-</span><input type="password" class="edit-input" data-field="password"></p>
                 </div>
             </div>
             <div class="card" data-card-type="personal">
@@ -662,10 +684,10 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <p><span class="label">性別:</span> <span class="value-display" data-field="gender">-</span><input type="text" class="value-input" data-field="gender" style="display: none;"></p>
-                    <p><span class="label">出生年月日:</span> <span class="value-display" data-field="dob">-</span><input type="text" class="value-input" data-field="dob" style="display: none;"></p>
-                    <p><span class="label">電話:</span> <span class="value-display" data-field="phone">-</span><input type="text" class="value-input" data-field="phone" style="display: none;"></p>
-                    <p><span class="label">職業:</span> <span class="value-input" data-field="occupation" style="display: none;"></span></p>
+                    <p class="editable-field"><span class="label">性別:</span> <span class="display-text" data-field="gender">-</span><input type="text" class="edit-input" data-field="gender"></p>
+                    <p class="editable-field"><span class="label">出生年月日:</span> <span class="display-text" data-field="dob">-</span><input type="text" class="edit-input" data-field="dob"></p>
+                    <p class="editable-field"><span class="label">電話:</span> <span class="display-text" data-field="phone">-</span><input type="text" class="edit-input" data-field="phone"></p>
+                    <p class="editable-field"><span class="label">職業:</span> <span class="display-text" data-field="occupation">-</span><input type="text" class="edit-input" data-field="occupation"></p>
                 </div>
             </div>
         </div>
