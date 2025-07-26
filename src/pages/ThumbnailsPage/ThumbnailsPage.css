@@ -21,7 +21,7 @@
     color: var(--color-text-light);
     z-index: 1;
     min-height: 100vh;
-    padding: 0 9.75vw; /* Responsive padding (360px / 1920px = 0.1875) to center 1200px content */
+    padding: 0 4.75vw; /* Responsive padding (360px / 1920px = 0.1875) to center 1200px content */
     box-sizing: border-box;
     overflow-x: hidden; /* Prevent horizontal overflow */
 }

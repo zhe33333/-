@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Homepage from "./components/Homepage/Homepage";
 import SellPage from "./pages/SellPage/SellPage.jsx";
 import ThumbnailsPage from "./pages/ThumbnailsPage/ThumbnailsPage.jsx";
@@ -21,20 +21,18 @@ const ContactPage = () => <div><h1>聯絡我們</h1><p>這是聯絡我們頁面�
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <Header />
-        <div className="app-content-wrapper">
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/sell" element={<SellPage />} />
-            <Route path="/thumbnails" element={<ThumbnailsPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/sitemap" element={<SitemapPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
+      <Header />
+      <div className="app-content-wrapper">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/sell" element={<SellPage />} />
+          <Route path="/thumbnails/:categoryName?" element={<ThumbnailsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </div>
+      <Footer />
     </ThemeProvider>
   );
 }

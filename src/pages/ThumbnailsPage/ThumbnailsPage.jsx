@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import './ThumbnailsPage.css';
 
 // Image paths
@@ -22,6 +23,18 @@ import facebookIcon from '../../assets/facebookIcon.png';
 
 const ThumbnailsPage = () => {
   const categoriesScrollRef = useRef(null);
+  const location = useLocation();
+  const pathnames = location.pathname.split('/').filter((x) => x);
+
+  const breadcrumbs = [
+    { name: '首頁', path: '/' },
+    { name: '商品縮圖頁', path: '/thumbnails-page' },
+  ];
+
+  // Add dynamic breadcrumbs based on the current path
+  if (pathnames.length > 0 && pathnames[0] !== 'thumbnails-page') {
+    breadcrumbs.push({ name: decodeURIComponent(pathnames[0]), path: `/${pathnames[0]}` });
+  }
 
   const handleScroll = (direction) => {
     if (categoriesScrollRef.current) {
@@ -50,9 +63,20 @@ const ThumbnailsPage = () => {
           <div className="container">
             <nav aria-label="breadcrumb">
               <ol className="breadcrumbs-list">
-                <li><a href="#">商品縮圖頁</a></li>
-                <li><span className="separator">/</span></li>
-                <li aria-current="page">PATEK PHILIPPE 百達翡麗</li>
+                {breadcrumbs.map((crumb, index) => (
+                  <React.Fragment key={crumb.path}>
+                    <li>
+                      {index < breadcrumbs.length - 1 ? (
+                        <Link to={crumb.path}>{crumb.name}</Link>
+                      ) : (
+                        <span aria-current="page">{crumb.name}</span>
+                      )}
+                    </li>
+                    {index < breadcrumbs.length - 1 && (
+                      <li><span className="separator">/</span></li>
+                    )}
+                  </React.Fragment>
+                ))}
               </ol>
             </nav>
           </div>
