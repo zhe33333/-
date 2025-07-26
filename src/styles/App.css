@@ -33,6 +33,7 @@ body {
   flex-grow: 1; /* Allow main content to grow and push footer down */
   display: flex; /* Make it a flex container */
   flex-direction: column; /* Arrange its children vertically */
+  padding-top: var(--header-height, 0px); /* Add padding to account for fixed header */
 }
 
 button {
