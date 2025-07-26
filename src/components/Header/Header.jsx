@@ -5,6 +5,7 @@ import brandIcon from "../../assets/brand-icon.svg";
 import favoriteIcon from "../../assets/favoriteicon.png";
 import cartIcon from "../../assets/cil-cart.svg";
 import membershipIcon from "../../assets/membershipicon.png";
+import searchIcon from "../../assets/searchicon.png"; // Corrected path and file type
 
 const Header = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -86,7 +87,9 @@ const Header = () => {
           ) : (
             <span className="search-placeholder">搜尋</span>
           )}
-          <div className="search-icon">{/* SVG icon */}</div>
+          <div className="search-icon">
+            <img src={searchIcon} alt="Search Icon" />
+          </div>
         </div>
 
         <nav className="main-navigation">
