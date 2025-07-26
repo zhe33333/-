@@ -211,9 +211,7 @@
 
 /* Section Headers */
 .section-header {
-   position: fixed;   /* 或 absolute，fixed會讓導覽列固定在螢幕頂部 */
-  top: 0;
-  left: 0;
+  position: relative; /* Changed from fixed to relative */
   z-index: 100;
   display: flex;
   justify-content: space-between;

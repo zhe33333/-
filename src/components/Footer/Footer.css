@@ -1,6 +1,8 @@
 .site-footer {
   background-color: #121721;
   border-top: 1px solid #cbcbcb;
+  position: relative;
+  z-index: 10;
   padding: 16px 0;
 }
 
