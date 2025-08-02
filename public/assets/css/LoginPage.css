@@ -118,13 +118,15 @@ a {
     font-family: var(--font-sans);
     font-size: 20px;
     flex-shrink: 0;
-    width: 150px;
+    max-width: 150px;
+    width: 100%;
     cursor: pointer;
     transition: width 0.3s ease-in-out;
 }
 
 .search-area.active {
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
 }
 
 .search-placeholder {

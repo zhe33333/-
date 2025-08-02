@@ -5,7 +5,8 @@
 }
 
 html, body {
-  height: 100%; /* Ensure html and body take full height */
+  min-height: 100vh; /* Ensure html and body take at least full viewport height */
+  height: 100%; /* Ensure html and body take full height of their parent */
 }
 
 html {
@@ -23,14 +24,16 @@ body {
 
 #root {
   width: 100%;
-  height: 100%; /* Ensure root takes full height */
+  min-height: 100vh; /* Ensure root takes at least full viewport height */
   position: relative;
   display: flex; /* Make #root a flex container */
   flex-direction: column; /* Arrange children vertically */
+  overflow-x: hidden; /* Hide horizontal overflow within the root container */
 }
 
 .app-content-wrapper {
   flex-grow: 1; /* Allow main content to grow and push footer down */
+  min-height: 0; /* Allow content wrapper to shrink if needed */
   display: flex; /* Make it a flex container */
   flex-direction: column; /* Arrange its children vertically */
   padding-top: var(--header-height, 0px); /* Add padding to account for fixed header */
@@ -41,7 +44,7 @@ button {
   cursor: pointer;
 }
 
-img {
+img, video, iframe {
   max-width: 100%;
   height: auto;
   display: block;

@@ -12,6 +12,7 @@ const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isMembershipDropdownOpen, setIsMembershipDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // New state for mobile menu
   const [animationKey, setAnimationKey] = useState(0);
   const location = useLocation();
 
@@ -20,7 +21,11 @@ const Header = () => {
   }, [location.pathname]);
 
   const handleSearchClick = () => {
-    setIsSearchActive(true);
+setIsSearchActive(true);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prevState => !prevState);
   };
 
   // --- 修改重點一：優化資料結構 ---
@@ -74,25 +79,30 @@ const Header = () => {
           className={`search-area ${isSearchActive ? "active" : ""}`}
           onClick={handleSearchClick}
         >
-          {isSearchActive ? (
-            <input
-              type="text"
-              className="search-input"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="搜尋..."
-              autoFocus
-              onBlur={() => setIsSearchActive(false)}
-            />
-          ) : (
-            <span className="search-placeholder">搜尋</span>
-          )}
+          <span className={`search-placeholder ${isSearchActive ? "hidden" : ""}`}>搜尋</span>
+          <input
+            type="text"
+            className={`search-input ${isSearchActive ? "active" : ""}`}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="搜尋..."
+            onBlur={() => setIsSearchActive(false)}
+          />
           <div className="search-icon">
             <img src={searchIcon} alt="Search Icon" />
           </div>
         </div>
 
-        <nav className="main-navigation">
+        {/* Hamburger menu toggle for mobile */}
+        <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <nav className={`main-navigation ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <div
             className={`nav-item ${isServicesDropdownOpen ? "dropdown-active" : ""}`}
             onMouseEnter={() => setIsServicesDropdownOpen(true)}

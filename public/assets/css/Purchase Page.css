@@ -159,7 +159,8 @@ img {
   }
   .spec-row dt {
     flex-shrink: 0;
-    width: 55px;
+    max-width: 55px;
+    width: 100%;
   }
   .spec-row dd {
     margin: 0;

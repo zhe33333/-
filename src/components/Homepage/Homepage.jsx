@@ -298,14 +298,16 @@ const Homepage = () => {
               />
             ))}
             <div className="hero-content">
-              <div className="hero-text">
-                <div className="hero-line" key={currentIndex}>
-                  <span>{heroTexts[currentIndex % heroTexts.length]}</span>
+              <div className="hero-content-wrapper">
+                <div className="hero-text">
+                  <div className="hero-line" key={currentIndex}>
+                    <span>{heroTexts[currentIndex % heroTexts.length]}</span>
+                  </div>
                 </div>
+                <Link to="/thumbnails" className="cta-button">
+                  <span>立即進入商品頁面</span>
+                </Link>
               </div>
-              <Link to="/thumbnails" className="cta-button">
-                <span>立即進入商品頁面</span>
-              </Link>
             </div>
           </div>
         </section>

@@ -4,13 +4,14 @@
   position: relative;
   z-index: 10;
   padding: 16px 0;
+  margin-top: auto; /* Push the footer to the bottom */
 }
 
 .footer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .footer-nav {
@@ -53,9 +54,38 @@
 }
 
 @media (max-width: 768px) {
+  .site-footer {
+    padding: 10px 0; /* Reduced padding for smaller screens */
+  }
+
+  .footer-content {
+    gap: 10px; /* Reduced gap between sections */
+  }
+
   .footer-nav {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; /* Try to keep navigation horizontal */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+    gap: 10px; /* Reduced gap between nav items */
+    justify-content: center; /* Center navigation items */
+  }
+
+  .footer-nav a {
+    font-size: 16px; /* Reduced font size for nav links */
+    padding: 6px 8px; /* Add some padding for touch targets */
+    white-space: nowrap; /* Prevent text wrapping within links */
+  }
+
+  .social-links {
+    gap: 16px; /* Reduced gap between social icons */
+  }
+
+  .social-links img { /* Assuming social icons are images */
+    width: 24px; /* Smaller social icons */
+    height: 24px;
+  }
+
+  .copyright {
+    font-size: 14px; /* Reduced font size for copyright text */
     text-align: center;
   }
 }

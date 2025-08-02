@@ -1,6 +1,7 @@
 .main-function-card {
   display: flex;
-  width: 223px;
+  max-width: 223px;
+  width: 100%;
   padding: 6px 24px;
   flex-direction: column;
   align-items: flex-start;

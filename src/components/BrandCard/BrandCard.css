@@ -1,7 +1,9 @@
 .brand-card {
   background-color: #334155; /* Card's own color */
   color: white;
-  width: 240px;
+  max-width: 220px;
+  min-width: 220px;
+  width: 100%;
   height: 68px;
   text-align: center;
   cursor: pointer;

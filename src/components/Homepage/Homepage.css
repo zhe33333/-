@@ -16,7 +16,7 @@
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh; /* Changed to min-height to allow content to push it down */
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -47,59 +47,74 @@
 
 .hero-content {
   position: absolute;
-  bottom: 60px;
+  bottom: 0; /* Stick to the bottom */
   left: 0;
   right: 0;
   z-index: 4; /* Ensure content is on top */
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  align-items: center; /* Keep horizontal centering */
+  justify-content: center; /* Center the wrapper horizontally */
   width: 100%;
-  padding: 0 var(--spacing-4xl);
+  padding: 0 var(--spacing-4xl) 0px; /* Add padding to the bottom */
   box-sizing: border-box;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex-direction: row; /* Arrange text and button horizontally */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Push items to left and right */
+  gap: 20px; /* Space between text and button */
+  width: 100%; /* Ensure it takes full width to justify content */
+  /* Removed margin-bottom from here */
 }
 
 .hero-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; /* Align items to the left */
+  justify-content: center; /* Center items vertically */
   gap: var(--spacing-sm);
   color: white;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bold;
-  width: 800px;
-  height: 60px;
-  position: relative;
-  overflow: hidden;
+  max-width: 1200px;
+  width: 100%; /* Ensure it takes full width for text alignment */
+  height: 120px; /* Adjusted height to contain two lines of text for animation */
+  position: relative; /* Keep relative for overflow */
+  overflow: hidden; /* Keep overflow: hidden for scrolling effect */
+  text-align: left; /* Align text to the left */
+  flex-grow: 1; /* Allow text to grow and take available space */
 }
 
 .hero-line {
-  position: absolute;
   width: 100%;
-  text-align: left;
+  text-align: left; /* Align text to the left within hero-line */
   color: var(--color-base-white);
   font-family: "Playfair Display", serif;
   font-size: 52px;
   font-weight: 700;
   line-height: 52px;
   letter-spacing: -1px;
-  white-space: nowrap;
-  animation: scrollUp 7s forwards;
+  animation: scrollUp 7s forwards; /* Keep animation */
+  position: absolute; /* Re-add absolute positioning */
+  top: 50%; /* Re-add top for centering */
+  transform: translateY(-50%); /* Re-add transform for centering */
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 @keyframes scrollUp {
   0% {
-    transform: translateY(100%);
-    opacity: 0;
+    transform: translateY(calc(100% + 50%)); /* Start below the container, relative to its centered position */
+    opacity: 1;
   }
   10%, 90% {
-    transform: translateY(0);
+    transform: translateY(-50%); /* Centered within the container */
     opacity: 1;
   }
   100% {
-    transform: translateY(-100%);
-    opacity: 0;
+    transform: translateY(calc(-100% - 50%)); /* Move up and out of the container, relative to its centered position */
+    opacity: 1;
   }
 }
 
@@ -157,13 +172,14 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Content Section */
 .content-section {
   position: relative;
   width: 100%;
-  min-height: 1880px; /* Adjusted for two background images */
+  /* Removed min-height to allow content to define its height */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,10 +267,10 @@
 }
 
 .brands-grid-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  overflow-x: auto;
+  display: flex; /* Revert to flex display */
+  flex-direction: column; /* Keep column direction for vertical stacking of rows */
+  gap: var(--spacing-md); /* Re-enable gap for vertical spacing between rows */
+  overflow-x: auto; /* Keep horizontal scrolling on the container */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE 10+ */
 }
@@ -267,10 +283,8 @@
   display: flex;
   gap: 120px;
   padding: var(--spacing-sm) 0;
-  width: max-content;
-  overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  width: max-content; /* Ensure content overflows for scrolling */
+  /* Removed overflow-x: auto and scrollbar hiding from here, parent handles it */
   white-space: nowrap; /* Prevent items from wrapping */
   cursor: grab; /* Indicate draggable */
   scroll-snap-type: x mandatory; /* Enable scroll snapping */
@@ -305,7 +319,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  width: 988px;
+  max-width: 988px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -356,10 +371,10 @@
 }
 
 .partners-grid-container {
-  display: flex;
-  flex-direction: column; /* Changed to column to match brands-grid-container */
-  gap: var(--spacing-md); /* Added gap to match brands-grid-container */
-  overflow-x: auto;
+  display: flex; /* Revert to flex display */
+  flex-direction: column; /* Keep column direction for vertical stacking of rows */
+  gap: var(--spacing-md); /* Re-enable gap for vertical spacing between rows */
+  overflow-x: auto; /* Keep horizontal scrolling on the container */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE 10+ */
   cursor: grab; /* Indicate draggable */
@@ -374,9 +389,10 @@
   display: flex;
   align-items: flex-start; /* Retained from old partners-grid */
   gap: var(--spacing-sm);
-  width: max-content; /* Ensure content overflows */
+  width: max-content; /* Ensure content overflows for scrolling */
   padding-bottom: var(--spacing-md); /* Retained from old partners-grid */
   white-space: nowrap; /* Prevent items from wrapping */
+  /* Removed overflow-x: auto and scrollbar hiding from here, parent handles it */
 }
 
 .partner-card {
@@ -390,7 +406,8 @@
 }
 
 .partner-card img {
-  width: 160px;
+  max-width: 160px;
+  width: 100%;
   height: 160px;
   border-radius: var(--radius-sm);
   object-fit: cover;
@@ -441,7 +458,8 @@
   grid-column: 1 / span 5;
   grid-row: 1 / span 4;
   z-index: 1;
-  width: 288px;
+  max-width: 288px;
+  width: 100%;
   height: 320px;
 }
 
@@ -449,26 +467,30 @@
   grid-column: 4 / span 5;
   grid-row: 3 / span 4;
   z-index: 2;
-  width: 302px;
+  max-width: 302px;
+  width: 100%;
   height: 370px;
-  transform: translate(32px, 80px);
+  /* Removed transform: translate(32px, 80px); */
 }
 
 .magazine-card.medium:nth-of-type(2):hover {
-  transform: translate(32px, 80px) scale(1.1);
+  /* Removed transform: translate(32px, 80px) scale(1.1); */
+  transform: scale(1.1); /* Keep only scale for hover effect */
 }
 
 .magazine-card.medium:last-of-type {
   grid-column: 8 / span 5;
   grid-row: 5 / span 4;
   z-index: 3;
-  width: 286px;
+  max-width: 286px;
+  width: 100%;
   height: 398px;
-  transform: translate(10px, 216px);
+  /* Removed transform: translate(10px, 216px); */
 }
 
 .magazine-card.medium:last-of-type:hover {
-  transform: translate(10px, 216px) scale(1.1); 
+  /* Removed transform: translate(10px, 216px) scale(1.1); */
+  transform: scale(1.1); /* Keep only scale for hover effect */
 }
 
 .magazine-card img {
@@ -580,7 +602,8 @@
   }
 
   .cta-button {
-    width: 240px;
+    max-width: 240px;
+    width: 100%;
     height: 48px;
   }
 
@@ -636,51 +659,95 @@
   }
 
   .hero-section {
-    height: 600px;
+    height: 350px; /* Further reduced height */
+  }
+
+  .hero-content {
+    padding: 0 var(--spacing-md) 30px; /* Add padding to the bottom */
+  }
+
+  .hero-content-wrapper {
+    gap: 10px; /* Smaller gap for mobile */
+    /* Remove flex-direction: column to keep it row */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* Removed margin-bottom from here */
+  }
+
+  .hero-text {
+    font-size: 24px; /* Further reduced font size */
+    height: 30px; /* Adjusted height for mobile */
   }
 
   .hero-line,
   .hero-line-gradient {
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 20px; /* Further reduced font size */
+    line-height: 20px;
   }
 
   .cta-button {
-    width: 200px;
-    height: 44px;
+    max-width: 140px; /* Further reduced max-width */
+    width: 100%;
+    height: 32px; /* Further reduced height */
+    padding: var(--spacing-xs) var(--spacing-md); /* Adjusted padding */
   }
 
   .cta-button span {
-    font-size: 18px;
+    font-size: 14px; /* Ensure font size is at least 16px */
   }
 
-  .brands-grid {
-    gap: var(--spacing-lg);
-    justify-content: center;
+  .brands-grid-container {
+    padding-left: 10px; /* Adjusted padding */
   }
 
-  .features-grid {
-    flex-direction: column;
-    gap: var(--spacing-md);
+  .brands-row {
+    gap: 20px; /* Further reduced gap */
   }
 
-  .feature-card {
-    width: 100%;
+  .main-function-container {
+    display: grid; /* Change to grid for 2x2 layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: var(--spacing-md); /* Adjust gap for grid */
+    justify-items: center; /* Center items within grid cells */
+  }
+
+  .main-function-card {
+    max-width: 480px; /* Remove max-width to allow grid to control width */
+    width: 100%; /* Ensure it takes full width of grid cell */
+    padding: 4px 8px; /* Adjust padding for better appearance */
+    align-items: center; /* Center content within card */
+    text-align: center; /* Center text within card */
+  }
+
+  .main-function-card .main-function-icon {
+    margin-bottom: 8px; /* Add space below icon */
+  }
+
+  .main-function-card .main-function-title {
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .main-function-card .main-function-description {
+    font-size: 12px; /* Adjust font size */
   }
 
   .section-header {
-    flex-direction: column;
+    flex-direction: row; /* Arrange items horizontally */
+    justify-content: space-between; /* Push items to left and right */
+    align-items: center; /* Vertically center items */
     gap: var(--spacing-md);
-    align-items: flex-start;
+    padding: var(--spacing-sm) var(--spacing-md); /* Adjusted padding */
   }
 
   .section-header h2 {
-    font-size: 24px;
+    font-size: 18px; /* Further reduced font size */
   }
 
   .magazine-section {
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items when stacked */
+    margin-top: var(--spacing-xl); /* Adjusted margin */
   }
 
   .magazine-grid {
@@ -692,51 +759,108 @@
   .magazine-card.medium {
     grid-column: 1;
     width: 100%;
-    height: 250px;
+    height: 180px; /* Further reduced height */
     transform: none !important; /* Remove all transforms on smaller screens */
   }
 
   .big-watch-image {
-    width: 100%; /* Make image full width when stacked */
-    max-width: 400px; /* Limit max width for better appearance */
+    display: none; /* Hide the image on screens 768px and below */
+  }
+
+  .partner-card {
+    min-width: 100px; /* Further adjusted min-width */
+  }
+
+  .partner-card img {
+    max-width: 100px;
+    height: 100px;
+  }
+
+  .partner-card h3 {
+    font-size: 12px; /* Further reduced font size */
   }
 }
 
 @media (max-width: 480px) {
+  .hero-section {
+    height: 250px; /* Even smaller height */
+  }
+
   .hero-content {
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-xs) 20px; /* Add padding to the bottom */
+  }
+
+  .hero-content-wrapper {
+    gap: 5px; /* Even smaller gap for mobile */
+    /* Remove flex-direction: column to keep it row */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* Removed margin-bottom from here */
+  }
+
+  .hero-text {
+    font-size: 16px; /* Even smaller font size */
+    height: 20px; /* Adjusted height for smaller mobile */
   }
 
   .hero-line,
   .hero-line-gradient {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 16px; /* Ensure font size is at least 16px */
+    line-height: 16px;
   }
 
   .cta-button {
-    width: 180px;
-    height: 40px;
-    padding: var(--spacing-sm) var(--spacing-lg);
+    max-width: 120px; /* Even smaller max-width */
+    height: 20px; /* Even smaller height */
+    padding: var(--spacing-xs) var(--spacing-sm); /* Adjusted padding */
   }
 
   .cta-button span {
-    font-size: 16px;
+    font-size: 12px; /* Even smaller font size */
   }
 
-  .brands-grid {
-    gap: var(--spacing-md);
+  .brands-grid-container {
+    padding-left: 5px; /* Further adjusted padding */
+  }
+
+  .brands-row {
+    gap: 15px; /* Further reduced gap */
+  }
+
+  .section-header {
+    padding: var(--spacing-xs) var(--spacing-sm); /* Adjusted padding */
   }
 
   .section-header h2 {
-    font-size: 20px;
+    font-size: 16px; /* Even smaller font size */
+  }
+
+  .main-function-container {
+    grid-template-columns: 1fr; /* Single column for features on very small screens */
+  }
+
+  .magazine-card.large,
+  .magazine-card.medium {
+    width: 150px; /* Set width to 150px for screens <= 480px */
+    height: 180px; /* Set height to 180px for screens <= 480px */
+    transform: none !important; /* Ensure no transforms interfere */
+  }
+
+  .big-watch-image {
+    max-width: 180px; /* Even smaller max width */
+  }
+
+  .partner-card {
+    min-width: 80px; /* Even smaller min-width */
   }
 
   .partner-card img {
-    width: 140px;
-    height: 140px;
+    max-width: 80px;
+    height: 80px;
   }
 
   .partner-card h3 {
-    font-size: 16px;
+    font-size: 10px; /* Even smaller font size */
   }
 }

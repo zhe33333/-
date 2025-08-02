@@ -124,7 +124,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
   max-width: 800px;
 }
 .form-title {
@@ -136,7 +136,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 .form-group label {
   font-family: var(--font-family-serif);
