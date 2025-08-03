@@ -58,6 +58,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling for the entire page */
+}
+
 body {
     margin: 0;
     background-color: var(--color-background-dark);
@@ -83,7 +87,7 @@ ul {
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    overflow: hidden;
+    /* Removed overflow: hidden; from here as it's handled by html, body */
 }
 
 .container {
@@ -96,6 +100,42 @@ ul {
 @media (max-width: 768px) {
     .container {
         padding: 0 16px;
+    }
+}
+
+/* Magazine Cards Responsive Layout */
+@media (max-width: 768px) {
+    .magazine-gallery {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        scroll-snap-type: x mandatory; /* Snap to cards */
+        padding-bottom: 20px; /* Add some padding for scrollbar */
+        width: 100% !important; /* Ensure it takes full width for scrolling, override inline style */
+        height: auto !important; /* Adjust height based on content, override inline style */
+        justify-content: flex-start; /* Align items to the start for horizontal scroll */
+        align-items: center; /* Center items vertically in the scroll area */
+        min-height: 300px; /* Ensure enough height for cards */
+        transform: none !important; /* Remove previous scaling, override inline style */
+        position: static !important; /* Remove relative positioning, override inline style */
+    }
+
+    .magazine-gallery .magazine-img { /* Target individual magazine cards */
+        flex-shrink: 0; /* Prevent cards from shrinking */
+        scroll-snap-align: start; /* Snap cards to the start */
+        margin-right: 16px; /* Space between cards */
+        position: static !important; /* Remove absolute positioning for flow, override inline style */
+        width: 30vw !important; /* Set a fixed width for cards, override inline style */
+        height: auto !important; /* Adjust height proportionally, override inline style */
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+    .magazine-gallery .magazine-1,
+    .magazine-gallery .magazine-2 {
+        box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25) !important; /* Re-add box shadow */
     }
 }
 
