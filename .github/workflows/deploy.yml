@@ -1,0 +1,45 @@
+# 工作流的名稱
+name: Deploy Website to GitHub Pages
+
+# 觸發條件：當推送到 master 分支時
+on:
+  push:
+    branches:
+      - master # <-- 監聽 master 分支
+
+# 工作內容
+jobs:
+  build-and-deploy:
+    # 運行的虛擬機環境
+    runs-on: ubuntu-latest
+
+    # 工作步驟
+    steps:
+      # 步驟一：拉取你的程式碼
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      # 步驟二：設定 Node.js 環境 (因為你的專案需要 npm)
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # 建議使用一個 LTS (長期支援) 版本
+          cache: 'npm'
+
+      # 步驟三：安裝專案依賴套件
+      - name: Install dependencies 📦
+        run: npm ci # 使用 npm ci 會比 npm install 更快、更穩定
+
+      # 步驟四：執行建置命令 (打包你的網站)
+      # 它會讀取你的 package.json，並執行 "build" 這個 script
+      - name: Build 🏗️
+        run: npm run build
+
+      # 步驟五：部署到 gh-pages 分支
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # 這個 token 是 GitHub Actions 自動提供的，不需要自己設定
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 告訴它要去哪個資料夾找打包好的檔案 (Vite 預設是 dist)
+          publish_dir: ./dist
